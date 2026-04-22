@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -44,7 +44,8 @@ export default {
                 'tertiary': '#037240',
                 'custom-blue': '#2381C8',
                 'custom-red': '#B52C47',
-                'custom-orange': '#F68200'
+                'custom-orange': '#F68200',
+                'custom-gray': '#828281'
             },
             gridTemplateColumns: {
                 '16': 'repeat(16, minmax(0, 1fr))',
