@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
-import { Reveal } from './Reveal';
-import LetterReveal from './LetterReveal';
+import LetterReveal from "./LetterReveal";
+import { Reveal } from "./Reveal";
 
 export const HomeValues = ({ content, values }) => {
     const sectionRef = useRef(null);
@@ -16,10 +16,10 @@ export const HomeValues = ({ content, values }) => {
 
         gsap.fromTo(
             imageRef.current,
-            { 
+            {
                 top: "0%",
                 y: "0",
-                x: "33%"
+                x: "33%",
             },
             {
                 top: "100%",
@@ -32,9 +32,9 @@ export const HomeValues = ({ content, values }) => {
                     end: "bottom top",
                     scrub: true,
                 },
-            }
+            },
         );
-        
+
         gsap.to(imageRef.current, {
             rotation: 3,
             duration: 2,
@@ -57,32 +57,47 @@ export const HomeValues = ({ content, values }) => {
     }[colCount];
 
     return (
-        <section ref={sectionRef} className="relative bg-neutral-100 pb-16 md:py-16 xl:py-30">
+        <section
+            ref={sectionRef}
+            className="relative py-16 md:py-16 xl:py-30"
+        >
             <img
                 ref={imageRef}
                 src={content.imagem}
-                className="absolute max-h-[78%] right-0 drop-shadow-lg"
-                style={{ top: '0%' }}
+                className="absolute max-h-[20%] md:max-h-[40%] 2xl:max-h-[78%] right-0 drop-shadow-2xl"
+                style={{ top: "0%" }}
             />
             <div className="relative container max-w-large">
-                <LetterReveal className="font-secondary text-primary text-7xl font-black uppercase mb-3" text={content.titulo} element="h1" />
-                <h3 className="text-4xl mb-20">{content.subtitulo}</h3>
-                <div className={`grid grid-cols-1 ${gridColsClass} gap-10 md:gap-6 mr-16 px-5`}>
+                <LetterReveal
+                    className="font-secondary text-primary text-5xl md:text-6xl 2xl:text-7xl font-black mb-3"
+                    text={content.titulo}
+                    element="h1"
+                />
+                <h3 className="text-2xl md:text-3xl 2xl:text-4xl mb-10 2xl:mb-20">{content.subtitulo}</h3>
+                <div
+                    className={`flex flex-wrap lg:grid ${gridColsClass} gap-10 md:gap-6 2xl:mr-16 2xl:px-5`}
+                >
                     {values.map((value, index) => (
                         <Reveal
                             key={index}
-                            className={`flex flex-col px-5 ${
-                                index !== values.length - 1 ? "md:border-r md:border-gray-300" : ""
-                            }`}
+                            className="flex flex-col pl-5 2xl:pl-10 md:border-l md:border-gray-300"
                             direction="left"
                             delay={index * 1}
                         >
                             <div className="mb-2 md:mb-5">
-                                <img src={value.icone} alt={value.nome} className="" />
+                                <img
+                                    src={value.icone}
+                                    alt={value.nome}
+                                    className="w-18 lg:w-fit"
+                                />
                             </div>
-                            
-                            <h3 className="text-2xl 2xl:text-3xl font-semibold mb-4">{value.nome}</h3>
-                            <p className="font-light max-w-64 text-balance">{value.texto}</p>
+
+                            <h3 className="text-2xl 2xl:text-3xl font-semibold mb-4">
+                                {value.nome}
+                            </h3>
+                            <p className="font-light max-w-80 text-balance text-custom-gray text-sm 2xl:text-base">
+                                {value.texto}
+                            </p>
                         </Reveal>
                     ))}
                 </div>
