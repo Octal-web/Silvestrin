@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 
 export const HomeSlides = ({ slides }) => {
@@ -97,7 +97,7 @@ export const HomeSlides = ({ slides }) => {
                                     />
                                     <source
                                         media="(max-width: 767px)"
-                                        src={slide.video_mobile}
+                                        src={slide.video_mobile ?? slide.video}
                                         type="video/mp4"
                                     />
                                     <p>Your browser does not support the video tag.</p>
@@ -122,15 +122,15 @@ export const HomeSlides = ({ slides }) => {
                                     }`}
                                 >
                                     {slide.titulo && (
-                                        <h2 className="font-secondary text-6xl md:text-7xl font-black text-white uppercase text-balance leading-[1.1] mb-5" dangerouslySetInnerHTML={{ __html: slide.titulo }} />
+                                        <h2 className="font-secondary text-5xl md:text-6xl 2xl:text-7xl font-black text-white text-balance leading-[1.1] mb-5" dangerouslySetInnerHTML={{ __html: slide.titulo }} />
                                     )}
                                     {slide.descricao && (
-                                        <div className="text-white text-balance max-w-sm mb-8">
+                                        <div className="text-sm lg:text-base text-white text-balance max-w-sm mb-8">
                                             <p>{slide.descricao}</p>
                                         </div>
                                     )}
                                     {slide.link && (
-                                        <a href={slide.link} className="bg-eng-primary w-fit px-8 py-3 rounded-lg text-xl md:text-3xl text-white font-medium tracking-tight transition-all hover:scale-105 hover:shadow" target="_blank" rel="noopener noreferrer">{slide.texto_botao}</a>
+                                        <a href={slide.link} className="block px-6 2xl:px-8 py-3 gap-2 rounded-full bg-primary text-white text-base md:text-lg 2xl:text-xl font-normal transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow w-fit cursor-pointer" target="_blank" rel="noopener noreferrer">{slide.texto_botao}</a>
                                     )}
                                 </div>
                             </div>
