@@ -1,0 +1,38 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LetterReveal from "./LetterReveal";
+import { Reveal } from "./Reveal";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export const HomeCertification = ({ certificacoes }) => {
+    return (
+        <section className="container">
+            <div className="mb-40 mt-36 bg-white border-2 border-secondary rounded-3xl relative max-w-6xl mx-auto drop-shadow-xl">
+                <LetterReveal
+                    className="font-secondary text-white bg-secondary w-fit round text-3xl md:text-4xl 2xl:text-5xl font-black mb-3 rounded-full py-3 lg:py-5 px-10 lg:px-30 2xl:px-40 absolute -top-7 lg:-top-10 left-1/2 -translate-x-1/2"
+                    text="Certificação"
+                    element="h1"
+                />
+                <Reveal>
+                    <img
+                        src={certificacoes.logo}
+                        className="mx-auto mb-5 2xl:mb-16 mt-16 2xl:mt-28 w-36 lg:w-fit"
+                        alt={certificacoes.nome}
+                    />
+                </Reveal>
+
+                <div className="relative container max-w-large mb-10 lg:mb-20">
+                    <div className="text-center">
+                        <div
+                            className="whitespace-pre-line text-sm lg:text-base text-custom-gray"
+                            dangerouslySetInnerHTML={{
+                                __html: certificacoes.descricao,
+                            }}
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
