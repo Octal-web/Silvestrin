@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificacao;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,9 +19,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $idioma = inertia()->getShared('idioma');
-        
+
         $tradicaoVideo = rafator('content/files/' . inertia()->getShared('conteudos')[1]['arquivo']);
 
         $slides = Slide::query()
@@ -32,15 +34,15 @@ class HomeController extends Controller
                 'slidesIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($slide) {
+            ->map(function ($slide) {
                 return [
                     'id' => $slide->id,
                     'tipo' => $slide->tipo,
@@ -50,9 +52,11 @@ class HomeController extends Controller
                     'video_mobile' => $slide->tipo == 'video' ? rafator('content/slides/videos/m/' . $slide->video_mobile) : null,
                     'titulo' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->titulo : null,
                     'descricao' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->descricao : null,
+                    'link' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->link : null,
+                    'texto_botao' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->texto_botao : null,
                 ];
             });
-            
+
         $valores = Valor::query()
             ->where([
                 'excluido' => NULL,
@@ -62,15 +66,15 @@ class HomeController extends Controller
                 'valoresIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($valor) {
+            ->map(function ($valor) {
                 return [
                     'id' => $valor->id,
                     'icone' => rafator('content/values/thumbs/' . $valor->icone),
@@ -78,7 +82,7 @@ class HomeController extends Controller
                     'texto' => $valor->valoresIdiomas->isNotEmpty() ? $valor->valoresIdiomas[0]->texto : null,
                 ];
             });
-            
+
         $marcas = Marca::query()
             ->where([
                 'excluido' => NULL,
@@ -88,20 +92,21 @@ class HomeController extends Controller
                 'marcasIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($marca) {
+            ->map(function ($marca) {
                 return [
                     'id' => $marca->id,
                     'logo' => rafator('content/brands/thumbs/' . $marca->logo),
                     'nome' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->nome : null,
                     'slug' => $marca->slug,
+                    'parceiro' => $marca->parceiro
                 ];
             });
 
@@ -109,7 +114,7 @@ class HomeController extends Controller
             'slides' => $slides,
             'valores' => $valores,
             'marcas' => $marcas,
-            'tradicaoVideo' => $tradicaoVideo,
+            'tradicaoVideo' => $tradicaoVideo
         ]);
     }
 };
