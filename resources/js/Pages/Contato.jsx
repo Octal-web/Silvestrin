@@ -10,7 +10,7 @@ const Page = () => {
 
     return (
         <DefaultLayout>
-            <ContactData data={dadosGerais} content={conteudos[0]} />
+            <ContactData data={dadosGerais} content={[conteudos[0], conteudos[2]]} />
 
             <ContactForm content={conteudos[1]} />
         </DefaultLayout>
