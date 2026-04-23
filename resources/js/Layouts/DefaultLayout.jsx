@@ -137,6 +137,11 @@ const DefaultLayout = ({ children }) => {
         },
     ];
 
+    const emails = dadosGerais.emails.split("\n").map((line) => {
+        const [label, value] = line.split(":").map((s) => s.trim());
+        return { label, value };
+    });
+
     return (
         <>
             <Head>
@@ -288,10 +293,7 @@ const DefaultLayout = ({ children }) => {
                 <div className="container max-w-large">
                     <div className="flex items-center max-sm:flex-col justify-between lg:items-start sm:gap-8 pt-7 pb-7 sm:pt-0 lg:pt-8 lg:pb-12">
                         <div className="w-1/5">
-                            <img
-                                src={`/site/img/logo.png`}
-                                alt="Logo"
-                            />
+                            <img src={`/site/img/logo.png`} alt="Logo" />
                         </div>
 
                         <div className="w-4/5">
@@ -385,14 +387,19 @@ const DefaultLayout = ({ children }) => {
                                     </p>
                                 </li>
 
-                                <li>
-                                    <p className="text-white text-sm font-light leading-tight">
-                                        <span className="font-bold mr-3">
-                                            Fale Conosco:
-                                        </span>
-                                        faleconosco@silvestrin.com
-                                    </p>
-                                </li>
+                                {emails.slice(0, 2).map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="text-white text-sm font-light leading-tight flex"
+                                    >
+                                        <div className="font-bold mr-3">
+                                            {item.label}:
+                                        </div>
+                                        <div className="font-light">
+                                            {item.value}
+                                        </div>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
