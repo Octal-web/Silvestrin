@@ -18,35 +18,10 @@ class TransportadoraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $idioma = inertia()->getShared('idioma');
 
-        $certificacoes = Certificacao::query()
-            ->where([
-                'excluido' => NULL,
-                'visivel' => true
-            ])
-            ->with([
-                'certificacoesIdiomas' => function ($q) use ($idioma) {
-                    $q->whereHas('idiomas', function ($r) use ($idioma) {
-                        $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
-                    })
-                    ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->map(function($certificacao) {
-                return [
-                    'id' => $certificacao->id,
-                    'logo' => rafator('content/certifications/thumbs/' . $certificacao->logo),
-                    'nome' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->nome : null,
-                    'descricao' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->descricao : null,
-                ];
-            });
-            
         $imagensGaleria = Imagem::query()
             ->where([
                 'excluido' => NULL,
@@ -57,7 +32,7 @@ class TransportadoraController extends Controller
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->mapToGroups(function($imagem) {
+            ->mapToGroups(function ($imagem) {
                 return [
                     $imagem->conteudo_id => [
                         'id' => $imagem->id,
@@ -67,7 +42,6 @@ class TransportadoraController extends Controller
             });
 
         return Inertia::render('Transportadora', [
-            'certificacoes' => $certificacoes,
             'imagensGaleria' => $imagensGaleria
         ]);
     }
