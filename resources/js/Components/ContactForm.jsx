@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { InputMask } from "@react-input/mask";
+import { useEffect, useState } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AnimatedCheckMark from "./AnimatedCheckMark";
 import LetterReveal from "./LetterReveal";
 
@@ -17,25 +19,31 @@ export const ContactForm = ({ content }) => {
     const [isSuccessful, setIsSuccessful] = useState(false);
 
     const { data, setData, post, processing, errors, clearErrors } = useForm({
-        area: 'comercial',
-        nome: '',
-        email: '',
-        telefone: '',
-        assunto: '',
-        mensagem: '',
+        area: "comercial",
+        nome: "",
+        email: "",
+        telefone: "",
+        assunto: "",
+        mensagem: "",
         politica: false,
     });
 
     const radioOptions = [
-        { value: 'comercial', label: 'Comercial', className: 'left-0 translate-x-0' },
-        { value: 'trabalhe', label: 'Trabalhe Conosco', className: 'left-full -translate-x-full' },
+        {
+            value: "comercial",
+            label: "Comercial",
+        },
+        {
+            value: "trabalhe",
+            label: "Trabalhe Conosco",
+        },
     ];
 
-    const activeOption = radioOptions.find(opt => opt.value === data.area);
+    const activeOption = radioOptions.find((opt) => opt.value === data.area);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        
+
         setData((prevData) => ({
             ...prevData,
             [name]: type === "checkbox" ? checked : value,
@@ -64,10 +72,10 @@ export const ContactForm = ({ content }) => {
 
             setTimeout(() => {
                 setData({
-                    nome: '',
-                    email: '',
-                    telefone: '',
-                    mensagem: '',
+                    nome: "",
+                    email: "",
+                    telefone: "",
+                    mensagem: "",
                     politica: false,
                 });
 
@@ -80,34 +88,45 @@ export const ContactForm = ({ content }) => {
         <section className="relative bg-neutral-100 pt-16 pb-20 md:pb-30">
             <div className="container max-w-large">
                 <LetterReveal
-                    className="font-secondary text-primary text-5xl font-black leading-tight uppercase"
+                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight"
                     text={content.titulo}
                     element="h2"
                 />
-                <h4 className="text-5xl mb-20">{content.subtitulo}</h4>
+                <h4 className="text-2xl md:text-3xl 2xl:text-4xl mb-10 2xl:mb-20">{content.subtitulo}</h4>
 
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3 md:mb-5 min-[1440px]:mb-10 flex gap-3 md:gap-5 lg:gap-6 flex-col lg:flex-row">
-                        <div className="relative">
-                            <div className={`absolute w-1/2 h-full bg-green-600 rounded-full transition-all ${activeOption?.className}`} />
-                            <div className="relative grid grid-cols-2 border border-gray-300 rounded-full ">
+                    <div className="mb-3 md:mb-5 min-[1440px]:mb-10 flex gap-3 md:gap-5 lg:gap-6 flex-col">
+                        <label
+                            htmlFor="area"
+                            className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                        >
+                            Escolha:
+                        </label>
+                        <div className="relative w-fit mb-7 2xl:mb-14">
+                            <select
+                                name="area"
+                                value={data.area}
+                                onChange={handleChange}
+                                className="appearance-none bg-primary border-0 rounded-full text-white text-center font-bold text-lg md:text-xl 2xl:text-2xl max-w-64 pl-5 pr-11 bg-none focus:border focus:border-secondary outline-none"
+                                style={{
+                                    WebkitAppearance: "none",
+                                    MozAppearance: "none",
+                                }}
+                            >
                                 {radioOptions.map((option) => (
-                                    <label
-                                        key={option.value}
-                                        className={`px-6 py-2 text-xl text-center cursor-pointer transition-colors ${data.area === option.value ? 'text-white font-bold' : 'text-neutral-600'}`}
+                                    <option
+                                        key={option.label}
+                                        className="bg-white text-black text-lg"
+                                        value={option.value}
                                     >
-                                        <input
-                                            type="radio"
-                                            name="area"
-                                            value={option.value}
-                                            checked={data.area === option.value}
-                                            onChange={handleChange}
-                                            className="hidden"
-                                        />
                                         {option.label}
-                                    </label>
+                                    </option>
                                 ))}
-                            </div>
+                            </select>
+                            <FontAwesomeIcon
+                                icon={faCaretDown}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none text-2xl"
+                            />
                         </div>
                     </div>
 
@@ -115,7 +134,7 @@ export const ContactForm = ({ content }) => {
                         <div className="w-full lg:w-1/2">
                             <label
                                 htmlFor="nome"
-                                className="inline-block 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                                className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
                                 Nome completo
                             </label>
@@ -125,7 +144,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.nome}
                                 onChange={handleChange}
                                 placeholder="Seu nome"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.nome && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -137,7 +156,7 @@ export const ContactForm = ({ content }) => {
                         <div className="w-full lg:w-1/2">
                             <label
                                 htmlFor="email"
-                                className="inline-block 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                                className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
                                 Email
                             </label>
@@ -147,7 +166,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.email}
                                 onChange={handleChange}
                                 placeholder="Seu e-mail"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.email && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -161,7 +180,7 @@ export const ContactForm = ({ content }) => {
                         <div className="w-full lg:w-1/2">
                             <label
                                 htmlFor="telefone"
-                                className="inline-block 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                                className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
                                 Telefone
                             </label>
@@ -173,7 +192,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.telefone}
                                 onChange={handleChange}
                                 placeholder="(DDD) + número"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.telefone && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -185,7 +204,7 @@ export const ContactForm = ({ content }) => {
                         <div className="w-full lg:w-1/2">
                             <label
                                 htmlFor="assunto"
-                                className="inline-block 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                                className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
                                 Assunto
                             </label>
@@ -195,7 +214,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.assunto}
                                 onChange={handleChange}
                                 placeholder="Sobre o que quer falar"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.assunto && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -209,7 +228,7 @@ export const ContactForm = ({ content }) => {
                         <div className="w-full">
                             <label
                                 htmlFor="mensagem"
-                                className="inline-block 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
+                                className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
                                 Mensagem
                             </label>
@@ -218,7 +237,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.mensagem}
                                 onChange={handleChange}
                                 placeholder="Escreva aqui..."
-                                className="w-full h-40 2xl:h-48 resize-none px-0 2xl:text-xl bg-neutral-100 border-0 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-40 2xl:h-48 resize-none px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.mensagem && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -242,16 +261,26 @@ export const ContactForm = ({ content }) => {
                                     <span className="peer-checked:content-[''] peer-checked:absolute peer-checked:inset-1 rounded-full peer-checked:bg-primary" />
                                 </label>
 
-                                <span className="text-neutral-600 ml-2">
-                                    Li e concordo com a{" "}
+                                <span className="text-neutral-600 ml-2 text-sm 2xl:text-base">
+                                    Aceito os{" "}
                                     <Link
                                         href={route("Politicas.privacidade")}
-                                        className="underline"
+                                        className="underline font-bold"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        Política de Privacidade
-                                    </Link>
+                                        Termos de uso
+                                    </Link>{" "}
+                                    e a{" "}
+                                    <Link
+                                        href={route("Politicas.privacidade")}
+                                        className="underline font-bold"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Política de privacidade
+                                    </Link>{" "}
+                                    do site da Silvestrin
                                 </span>
                             </label>
                             {errors.politica && (
