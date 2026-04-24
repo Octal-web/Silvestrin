@@ -1,11 +1,12 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
 export const ContactData = ({ data, content }) => {
+    const id = useId();
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
 
@@ -153,7 +154,7 @@ export const ContactData = ({ data, content }) => {
                         className="hidden sm:block absolute top-30 right-0 sm:w-[calc(50%_+_5em)] sm:-right-10 sm:-top-10 sm:-bottom-10 sm:max-w-[1060px]"
                         direction="right"
                     >
-                        <div className="">
+                        <div>
                             <svg
                                 className="absolute w-0 h-auto"
                                 viewBox="0 0 1000 1000"
@@ -161,7 +162,7 @@ export const ContactData = ({ data, content }) => {
                             >
                                 <defs>
                                     <clipPath
-                                        id="custom-shape-1"
+                                        id={`url(#custom-shape-${id})`}
                                         clipPathUnits="objectBoundingBox"
                                     >
                                         <path
@@ -185,7 +186,7 @@ export const ContactData = ({ data, content }) => {
 
                             <div
                                 className="w-full"
-                                style={{ clipPath: "url(#custom-shape-1)" }}
+                                style={{ clipPath: `url(#custom-shape-${id})` }}
                             >
                                 <img
                                     src={content[0].imagem}
