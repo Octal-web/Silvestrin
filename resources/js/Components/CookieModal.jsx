@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
 
 const setCookie = (name, value, days) => {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
@@ -50,7 +50,7 @@ export const CookieModal = ({ acceptCookies, visible }) => {
                             <div>
                                 <p>
                                 Utilizamos cookies para oferecer uma melhor experiência, melhorar o desempenho, analisar como você interage em nosso site e personalizar conteúdo. Para mais informações acesse nossa{' '} 
-                                <Link href={route('Engenharia.Politicas.privacidade')} className="underline">política de privacidade</Link>.
+                                <Link href={route('Politicas.privacidade')} className="underline">política de privacidade</Link>.
                                 </p>
                             </div>
                             <button
