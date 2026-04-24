@@ -1,28 +1,28 @@
 {
-  "_AnimatedCheckMark-ZiiCpSEq.js": {
-    "file": "assets/AnimatedCheckMark-ZiiCpSEq.js",
+  "_AnimatedCheckMark-BHW3DOfF.js": {
+    "file": "assets/AnimatedCheckMark-BHW3DOfF.js",
     "name": "AnimatedCheckMark",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_LetterReveal-1qENGJe8.js": {
-    "file": "assets/LetterReveal-1qENGJe8.js",
+  "_LetterReveal-Ds3NOvof.js": {
+    "file": "assets/LetterReveal-Ds3NOvof.js",
     "name": "LetterReveal",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Reveal-DGoK9hMg.js": {
-    "file": "assets/Reveal-DGoK9hMg.js",
+  "_Reveal-CCRVsC99.js": {
+    "file": "assets/Reveal-CCRVsC99.js",
     "name": "Reveal",
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js"
+      "_LetterReveal-Ds3NOvof.js"
     ]
   },
-  "_VideoPlayer-BJ-FDAFU.js": {
-    "file": "assets/VideoPlayer-BJ-FDAFU.js",
+  "_VideoPlayer-DLSlOLZJ.js": {
+    "file": "assets/VideoPlayer-DLSlOLZJ.js",
     "name": "VideoPlayer",
     "imports": [
       "resources/js/app.jsx"
@@ -32,8 +32,8 @@
     "file": "assets/swiper-bundle-CJ-KzOvo.css",
     "src": "_swiper-bundle-CJ-KzOvo.css"
   },
-  "_swiper-bundle-DVRsRO46.js": {
-    "file": "assets/swiper-bundle-DVRsRO46.js",
+  "_swiper-bundle-CLP4CHW6.js": {
+    "file": "assets/swiper-bundle-CLP4CHW6.js",
     "name": "swiper-bundle",
     "imports": [
       "resources/js/app.jsx"
@@ -43,67 +43,67 @@
     ]
   },
   "resources/js/Pages/Contato.jsx": {
-    "file": "assets/Contato-BUpaD--Q.js",
+    "file": "assets/Contato-CMLHFEqm.js",
     "name": "Contato",
     "src": "resources/js/Pages/Contato.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js",
-      "_Reveal-DGoK9hMg.js",
-      "_AnimatedCheckMark-ZiiCpSEq.js"
+      "_LetterReveal-Ds3NOvof.js",
+      "_Reveal-CCRVsC99.js",
+      "_AnimatedCheckMark-BHW3DOfF.js"
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-Beh-tKnK.js",
+    "file": "assets/Home-I2D5XShY.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js",
-      "_Reveal-DGoK9hMg.js",
-      "_swiper-bundle-DVRsRO46.js",
-      "_VideoPlayer-BJ-FDAFU.js"
+      "_LetterReveal-Ds3NOvof.js",
+      "_Reveal-CCRVsC99.js",
+      "_swiper-bundle-CLP4CHW6.js",
+      "_VideoPlayer-DLSlOLZJ.js"
     ]
   },
   "resources/js/Pages/Produtos.jsx": {
-    "file": "assets/Produtos-D-435kh-.js",
+    "file": "assets/Produtos-8aVBHaOX.js",
     "name": "Produtos",
     "src": "resources/js/Pages/Produtos.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js"
+      "_LetterReveal-Ds3NOvof.js"
     ]
   },
   "resources/js/Pages/SobreNos.jsx": {
-    "file": "assets/SobreNos-DCVAzuLs.js",
+    "file": "assets/SobreNos-B1q5dXdR.js",
     "name": "SobreNos",
     "src": "resources/js/Pages/SobreNos.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js",
-      "_Reveal-DGoK9hMg.js",
-      "_VideoPlayer-BJ-FDAFU.js"
+      "_LetterReveal-Ds3NOvof.js",
+      "_Reveal-CCRVsC99.js",
+      "_VideoPlayer-DLSlOLZJ.js"
     ]
   },
   "resources/js/Pages/Transportadora.jsx": {
-    "file": "assets/Transportadora-LOYROKbO.js",
+    "file": "assets/Transportadora-jQpYosyT.js",
     "name": "Transportadora",
     "src": "resources/js/Pages/Transportadora.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_LetterReveal-1qENGJe8.js",
-      "_Reveal-DGoK9hMg.js",
-      "_swiper-bundle-DVRsRO46.js",
-      "_AnimatedCheckMark-ZiiCpSEq.js"
+      "_LetterReveal-Ds3NOvof.js",
+      "_Reveal-CCRVsC99.js",
+      "_swiper-bundle-CLP4CHW6.js",
+      "_AnimatedCheckMark-BHW3DOfF.js"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-dd8FxxU4.js",
+    "file": "assets/app-Bo--oWSO.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -115,7 +115,7 @@
       "resources/js/Pages/Transportadora.jsx"
     ],
     "css": [
-      "assets/app-TCvJx3i0.css"
+      "assets/app-DFPc9gB7.css"
     ]
   }
 }
