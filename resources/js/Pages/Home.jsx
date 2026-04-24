@@ -22,7 +22,7 @@ const Page = () => {
 
             <HomeSteps content={conteudos[1]} steps={[conteudos[2], conteudos[3], conteudos[4], conteudos[5]]} video={tradicaoVideo} />
 
-            <HomeCertification certificacoes={certificacoes[0]}/>
+            <HomeCertification certification={certificacoes[0]}/>
 
             {/* <HomeTeam content={conteudos[6]} /> */}
 

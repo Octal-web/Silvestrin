@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const HomeCertification = ({ certificacoes }) => {
+export const HomeCertification = ({ certification }) => {
     return (
         <section className="container">
             <div className="mb-40 mt-36 bg-white border-2 border-secondary rounded-3xl relative max-w-6xl mx-auto drop-shadow-xl">
@@ -16,9 +16,9 @@ export const HomeCertification = ({ certificacoes }) => {
                 />
                 <Reveal>
                     <img
-                        src={certificacoes.logo}
+                        src={certification.logo}
                         className="mx-auto mb-5 2xl:mb-16 mt-16 2xl:mt-28 w-36 lg:w-fit"
-                        alt={certificacoes.nome}
+                        alt={certification.nome}
                     />
                 </Reveal>
 
@@ -27,7 +27,7 @@ export const HomeCertification = ({ certificacoes }) => {
                         <div
                             className="whitespace-pre-line text-sm lg:text-base text-custom-gray"
                             dangerouslySetInnerHTML={{
-                                __html: certificacoes.descricao,
+                                __html: certification.descricao,
                             }}
                         />
                     </div>
