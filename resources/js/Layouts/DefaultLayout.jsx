@@ -176,7 +176,7 @@ const DefaultLayout = ({ children }) => {
                 <link rel="icon" href={`/favicon.ico`} type="image/x-icon" />
             </Head>
             <header
-                className={`header fixed top-0 left-0 right-0 bg-primary shadow-sm md:shadow-none z-[5] transition-all duration-300 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[150%]"} ${!isAtTop && isVisible ? "shadow-md" : ""} after:absolute after:top-full after:left-0 after:right-0 after:h-1.5 after:bg-secondary`}
+                className={`header fixed top-0 left-0 right-0 bg-primary shadow-sm md:shadow-none transition-all duration-300 ease-in-out z-20 ${isVisible ? "translate-y-0" : "-translate-y-[150%]"} ${!isAtTop && isVisible ? "shadow-md" : ""} after:absolute after:top-full after:left-0 after:right-0 after:h-1.5 after:bg-secondary`}
             >
                 <div
                     className={`fixed inset-0 bg-black md:hidden duration-300 ease-out ${isMenuOpen ? "opacity-50" : "opacity-0 h-0"}`}
@@ -301,7 +301,7 @@ const DefaultLayout = ({ children }) => {
                                 <nav>
                                     <ul className="flex flex-wrap max-sm:gap-y-4 gap-8 2xl:gap-16 mt-4 lg:mt-0 justify-center">
                                         {menuItems.map((item, index) => (
-                                            <>
+                                            <li key={index}>
                                                 {item.external ? (
                                                     <a
                                                         href={item.route}
@@ -319,7 +319,7 @@ const DefaultLayout = ({ children }) => {
                                                         {item.name}
                                                     </Link>
                                                 )}
-                                            </>
+                                            </li>
                                         ))}
                                     </ul>
                                 </nav>
