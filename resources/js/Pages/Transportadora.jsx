@@ -1,17 +1,13 @@
-import { usePage } from '@inertiajs/react';
+import { usePage } from "@inertiajs/react";
 
-import DefaultLayout from '@/Layouts/DefaultLayout';
+import DefaultLayout from "@/Layouts/DefaultLayout";
 
-import { TransportBanner } from '@/Components/TransportBanner';
-import { TransportCertifications } from '@/Components/TransportCertifications';
-import { TransportStrategy } from '@/Components/TransportStrategy';
-import { TransportSteps } from '@/Components/TransportSteps';
-import { TransportSlides } from '@/Components/TransportSlides';
-import { TransportWorld } from '@/Components/TransportWorld';
-import { TransportExpansion } from '@/Components/TransportExpansion';
-import { TransportRoutes } from '@/Components/TransportRoutes';
-import { TransportFeatures } from '@/Components/TransportFeatures';
-import { HomeContact } from '@/Components/HomeContact';
+import { TransportBanner } from "@/Components/TransportBanner";
+import { TransportCertification } from "@/Components/TransportCertification";
+import { TransportInfra } from "@/Components/TransportInfra";
+import { TransportRoutes } from "@/Components/TransportRoutes";
+import { TransportSlides } from "@/Components/TransportSlides";
+import { TransportTechAndSecurity } from "@/Components/TransportTechAndSecurity";
 
 const Page = () => {
     const { certificacoes, imagensGaleria, conteudos } = usePage().props;
@@ -19,24 +15,19 @@ const Page = () => {
     return (
         <DefaultLayout>
             <TransportBanner content={conteudos[0]} />
-            
-            <TransportCertifications certifications={certificacoes} />
-            
-            <TransportStrategy content={conteudos[1]} />
-            
-            <TransportSteps steps={[conteudos[2], conteudos[3], conteudos[4], conteudos[5]]} />
 
-            <TransportSlides content={conteudos[6]} slides={imagensGaleria[conteudos[6].id]} />
-
-            <TransportWorld content={conteudos[7]} />
-
-            <TransportExpansion content={conteudos[8]} />
+            <TransportInfra content={conteudos[8]} />
 
             <TransportRoutes content={conteudos[9]} />
 
-            <TransportFeatures content={conteudos[10]} />
+            <TransportSlides
+                content={conteudos[6]}
+                slides={imagensGaleria[conteudos[6].id]}
+            />
 
-            <HomeContact isHome={false} content={conteudos[11]} />
+            <TransportTechAndSecurity content={conteudos[7]} />
+
+            <TransportCertification certification={certificacoes[3]} />
         </DefaultLayout>
     );
 };
