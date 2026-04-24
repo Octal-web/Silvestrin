@@ -16,7 +16,8 @@ class ProdutosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function marcas() {
+    public function marcas()
+    {
         $idioma = inertia()->getShared('idioma');
 
         $todasMarcas = Marca::query()
@@ -28,19 +29,20 @@ class ProdutosController extends Controller
                 'marcasIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($marca) {
+            ->map(function ($marca) {
                 return [
                     'id' => $marca->id,
                     'nome' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->nome : null,
                     'slug' => $marca->slug,
+                    'parceiro' => $marca->parceiro
                 ];
             });
 
@@ -56,16 +58,16 @@ class ProdutosController extends Controller
                 'marcasIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                        ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->first();
-            
-        if(!$marca) {
+
+        if (!$marca) {
             return Inertia::location(route('Home.index'));
         }
 
@@ -75,6 +77,7 @@ class ProdutosController extends Controller
             'nome' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->nome : null,
             'descricao' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->descricao : null,
             'slug' => $marca->slug,
+            'parceiro' => $marca->parceiro
         ];
 
         $todasCategorias = Categoria::query()
@@ -86,15 +89,15 @@ class ProdutosController extends Controller
                 'categoriasIdiomas' => function ($q) use ($idioma) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                          ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->orderBy('idioma_id', 'DESC');
                 }
             ])
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($categoria) {
+            ->map(function ($categoria) {
                 return [
                     'id' => $categoria->id,
                     'nome' => $categoria->categoriasIdiomas->isNotEmpty() ? $categoria->categoriasIdiomas[0]->nome : null,
@@ -120,12 +123,12 @@ class ProdutosController extends Controller
                 'produtosIdiomas' => function ($q) use ($idioma, $pesquisa) {
                     $q->whereHas('idiomas', function ($r) use ($idioma) {
                         $r->where('codigo', $idioma)
-                        ->orWhere('padrao', true);
+                            ->orWhere('padrao', true);
                     })
-                    ->when('pesquisa', function ($q) use ($pesquisa) {
-                        $q->where('nome', 'LIKE', "%{$pesquisa}%");
-                    })
-                    ->orderBy('idioma_id', 'DESC');
+                        ->when('pesquisa', function ($q) use ($pesquisa) {
+                            $q->where('nome', 'LIKE', "%{$pesquisa}%");
+                        })
+                        ->orderBy('idioma_id', 'DESC');
                 },
                 'marca' => function ($q) {
                     $q->where([
@@ -137,7 +140,7 @@ class ProdutosController extends Controller
             ->orderBy('ordem', 'ASC')
             ->orderBy('id', 'DESC')
             ->get()
-            ->map(function($produto) {
+            ->map(function ($produto) {
                 return [
                     'id' => $produto->id,
                     'imagem' => rafator('content/products/thumbs/' . $produto->imagem),
