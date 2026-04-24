@@ -42,6 +42,7 @@ export default {
                 'primary': '#01A259',
                 'secondary': '#A7CC71',
                 'tertiary': '#037240',
+                'custom-green': '#3D7B5F',
                 'custom-blue': '#2381C8',
                 'custom-red': '#B52C47',
                 'custom-orange': '#F68200',
