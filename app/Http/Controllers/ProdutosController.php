@@ -46,39 +46,43 @@ class ProdutosController extends Controller
                 ];
             });
 
-        $marcaSelecionada = request('marca', $todasMarcas[0]['slug']);
+        $marcaSelecionada = request('marca');
 
-        $marca = Marca::query()
-            ->where([
-                'excluido' => NULL,
-                'visivel' => true,
-                'slug' => $marcaSelecionada
-            ])
-            ->with([
-                'marcasIdiomas' => function ($q) use ($idioma) {
-                    $q->whereHas('idiomas', function ($r) use ($idioma) {
-                        $r->where('codigo', $idioma)
-                            ->orWhere('padrao', true);
-                    })
-                        ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->first();
+        $marca = null;
 
-        if (!$marca) {
-            return Inertia::location(route('Home.index'));
+        if ($marcaSelecionada && !str_contains($marcaSelecionada, 'todas')) {
+            $marca = Marca::query()
+                ->where([
+                    'excluido' => NULL,
+                    'visivel' => true,
+                    'slug' => $marcaSelecionada
+                ])
+                ->with([
+                    'marcasIdiomas' => function ($q) use ($idioma) {
+                        $q->whereHas('idiomas', function ($r) use ($idioma) {
+                            $r->where('codigo', $idioma)
+                                ->orWhere('padrao', true);
+                        })
+                            ->orderBy('idioma_id', 'DESC');
+                    }
+                ])
+                ->orderBy('ordem', 'ASC')
+                ->orderBy('id', 'DESC')
+                ->first();
+
+            if (!$marca) {
+                return Inertia::location(route('Home.index'));
+            }
         }
 
-        $marcaData = [
+        $marcaData = $marca ? [
             'id' => $marca->id,
             'logo' => rafator('content/brands/thumbs/' . $marca->logo),
             'nome' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->nome : null,
             'descricao' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->descricao : null,
             'slug' => $marca->slug,
             'parceiro' => $marca->parceiro
-        ];
+        ] : null;
 
         $todasCategorias = Categoria::query()
             ->where([
@@ -105,6 +109,23 @@ class ProdutosController extends Controller
                 ];
             });
 
+        $categoriaSelecionada = request('categoria');
+        $categoria = null;
+
+        if ($categoriaSelecionada && !str_contains($categoriaSelecionada, 'a-granel')) {
+            $categoria = Categoria::query()
+                ->where([
+                    'excluido' => NULL,
+                    'visivel' => true,
+                    'slug' => $categoriaSelecionada
+                ])
+                ->first();
+
+            if (!$categoria) {
+                return Inertia::location(route('Home.index'));
+            }
+        }
+
         $pesquisa = request('q');
 
         $produtos = Produto::query()
@@ -112,12 +133,34 @@ class ProdutosController extends Controller
                 'excluido' => NULL,
                 'visivel' => true
             ])
-            ->whereHas('marca', function ($q) use ($marcaSelecionada) {
-                $q->where([
-                    'excluido' => NULL,
-                    'visivel' => true,
-                    'slug' => $marcaSelecionada
-                ]);
+            ->when($marcaSelecionada, function ($q) use ($marcaSelecionada) {
+
+                if ($marcaSelecionada === 'todas-silvestrin') {
+                    $q->whereHas(
+                        'marca',
+                        fn($q) =>
+                        $q->where('parceiro', '!=', 1)
+                    );
+                } elseif ($marcaSelecionada === 'todas-parceiras') {
+                    $q->whereHas(
+                        'marca',
+                        fn($q) =>
+                        $q->where('parceiro', 1)
+                    );
+                } else {
+                    $q->whereHas(
+                        'marca',
+                        fn($q) =>
+                        $q->where('slug', $marcaSelecionada)
+                    );
+                }
+            })
+            ->when($categoriaSelecionada, function ($q) use ($categoria, $categoriaSelecionada) {
+                if ($categoriaSelecionada === 'a-granel') {
+                    $q->whereNotNull('categoria_id');
+                } else {
+                    $q->where('categoria_id', $categoria->id);
+                }
             })
             ->with([
                 'produtosIdiomas' => function ($q) use ($idioma, $pesquisa) {
@@ -150,6 +193,8 @@ class ProdutosController extends Controller
                     'sazonalidade' => $produto->produtosIdiomas->isNotEmpty() && $produto->produtosIdiomas[0]->sazonalidade
                         ? array_map(fn($item) => mb_substr(trim($item), 0, 1), explode(',', $produto->produtosIdiomas[0]->sazonalidade))
                         : [],
+                    'manual' => $produto->produtosIdiomas[0]->manual ? rafator('content/manuals/' . $produto->produtosIdiomas[0]->manual) : null,
+                    'categoria' => $produto->categoria_id
                 ];
             });
 
