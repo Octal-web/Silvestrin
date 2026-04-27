@@ -19,9 +19,15 @@ const Page = () => {
             const url = window.location.search;
             const urlParams = new URLSearchParams(url);
             const marcaUrl = urlParams.get("marca");
+            const categoriaUrl = urlParams.get("categoria");
 
             const params = {};
-            if (marcaUrl) params.marca = marcaUrl;
+
+            if (categoriaUrl) {
+                params.categoria = categoriaUrl;
+            } else if (marcaUrl) {
+                params.marca = marcaUrl;
+            }
 
             router.get(window.location.href, params, {
                 preserveState: true,
@@ -37,9 +43,11 @@ const Page = () => {
 
     return (
         <DefaultLayout>
-            <ProductsBanner content={conteudos[0]} />
+            <ProductsBanner
+                content={[conteudos[0], conteudos[1], conteudos[2]]}
+            />
 
-            <div className="md:flex">
+            <div className="lg:flex">
                 <ProductsCategories
                     brands={todasMarcas}
                     categories={todasCategorias}
