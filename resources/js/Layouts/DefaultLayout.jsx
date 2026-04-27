@@ -126,7 +126,7 @@ const DefaultLayout = ({ children }) => {
         {
             name: "Transportadora",
             route: "Transportadora.index",
-            controller: "Contato",
+            controller: "Transportadora",
             external: false,
         },
         {
@@ -176,7 +176,7 @@ const DefaultLayout = ({ children }) => {
                 <link rel="icon" href={`/favicon.ico`} type="image/x-icon" />
             </Head>
             <header
-                className={`header fixed top-0 left-0 right-0 bg-primary shadow-sm md:shadow-none transition-all duration-300 ease-in-out z-20 ${isVisible ? "translate-y-0" : "-translate-y-[150%]"} ${!isAtTop && isVisible ? "shadow-md" : ""} after:absolute after:top-full after:left-0 after:right-0 after:h-1.5 after:bg-secondary`}
+                className={`header fixed top-0 left-0 right-0 bg-primary shadow-sm lg:shadow-none transition-all duration-300 ease-in-out z-20 ${isVisible ? "translate-y-0" : "-translate-y-[150%]"} ${!isAtTop && isVisible ? "shadow-md" : ""} after:absolute after:top-full after:left-0 after:right-0 after:h-1.5 after:bg-secondary`}
             >
                 <div
                     className={`fixed inset-0 bg-black md:hidden duration-300 ease-out ${isMenuOpen ? "opacity-50" : "opacity-0 h-0"}`}
@@ -195,16 +195,16 @@ const DefaultLayout = ({ children }) => {
                                     <img
                                         src={`/site/img/logo.png`}
                                         alt="Logo"
-                                        className="block max-sm:max-w-40 max-w-[100%] -mb-16 -mt-6"
+                                        className="block max-xl:max-w-40 max-w-[100%] -mb-16 -mt-6"
                                     />
                                 </Link>
                             </h1>
 
                             <div
-                                className={`fixed md:relative bg-secondary md:bg-transparent left-0 top-0 ${!isMenuOpen && "max-md:-translate-y-full"} md:left-auto md:top-auto flex flex-col md:flex-row md:items-center justify-center md:justify-end w-full h-5/6 md:h-auto md:my-0.5 2xl:my-1.5 transition-all ease-out duration-500`}
+                                className={`fixed lg:relative bg-secondary lg:bg-transparent left-0 top-0 py-10 z-20 lg:py-0 ${!isMenuOpen && "max-lg:-translate-y-full"} lg:left-auto lg:top-auto flex flex-col lg:flex-row lg:items-center justify-center lg:justify-end w-full min-h-screen lg:min-h-fit lg:my-0.5 2xl:my-1.5 transition-all ease-out duration-500`}
                             >
                                 <nav className="relative">
-                                    <ul className="flex flex-col md:flex-row items-center md:justify-center gap-5 md:gap-2 xl:gap-8 relative">
+                                    <ul className="flex flex-col lg:flex-row items-center lg:justify-center gap-5 lg:gap-2 2xl:gap-8 relative">
                                         {menuItems.map((item, index) => (
                                             <MenuItem
                                                 key={index}
@@ -221,18 +221,18 @@ const DefaultLayout = ({ children }) => {
                                                         orcamento: true,
                                                     }) + "#contato"
                                                 }
-                                                className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white max-sm:text-lg 2xl:text-xl font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow"
+                                                className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow truncate"
                                             >
                                                 Trabalhe Conosco
                                             </Link>
                                         </li>
 
-                                        <li className="-ml-2">
+                                        <li className="ml-2">
                                             <a
                                                 href="htpps://google.com"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="block px-8 py-2 gap-2 rounded-full bg-white text-secondary max-sm:text-lg 2xl:text-xl font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow"
+                                                className="block px-8 py-2 gap-2 rounded-full bg-white text-secondary text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow"
                                             >
                                                 Rastreamento
                                             </a>
@@ -242,7 +242,7 @@ const DefaultLayout = ({ children }) => {
                             </div>
 
                             <button
-                                className="md:hidden relative z-[2]"
+                                className="lg:hidden relative z-30"
                                 onClick={toggleMenu}
                             >
                                 <div className="flex items-center">
