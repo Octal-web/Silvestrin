@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
 import { Link } from "@inertiajs/react";
+import { useEffect, useRef, useState } from "react";
 
 import { BrandsSubmenu } from "./BrandsSubmenu";
 
@@ -35,7 +35,7 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
             {item.external ? (
                 <a
                     href={item.route}
-                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 max-sm:text-xl 2xl:text-lg"
+                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -45,7 +45,7 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
                 <button
                     ref={toggleRef}
                     onClick={toggleSubmenu}
-                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 max-sm:text-xl 2xl:text-lg"
+                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg "
                 >
                     {item.name}
                     <span className="ml-2 text-base">{isOpen ? "▲" : "▼"}</span>
@@ -54,12 +54,12 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
                 <button
                     ref={toggleRef}
                     onClick={toggleSubmenu}
-                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 max-sm:text-xl 2xl:text-lg"
+                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg "
                 >
                     {item.name}
                 </button>
             ) : (
-                <Link href={route(item.route)} className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 max-sm:text-xl 2xl:text-lg">
+                <Link href={route(item.route)} className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg ">
                     {item.name}
                 </Link>
             )}
