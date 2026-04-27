@@ -19,7 +19,9 @@ export const HomeBrands = ({ brands }) => {
                     <div className="flex flex-wrap justify-center lg:flex-row gap-6">
                         <Reveal>
                             <Link
-                                // href={}
+                                href={route("Produtos.marcas", {
+                                    marca: "todas-silvestrin",
+                                })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 Nossas marcas
@@ -28,7 +30,9 @@ export const HomeBrands = ({ brands }) => {
 
                         <Reveal delay={5}>
                             <Link
-                                // href={}
+                                href={route("Produtos.marcas", {
+                                    marca: "todas-parceiras",
+                                })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 Marcas parceiras
@@ -37,7 +41,9 @@ export const HomeBrands = ({ brands }) => {
 
                         <Reveal delay={10}>
                             <Link
-                                // href={}
+                                href={route("Produtos.marcas", {
+                                    categoria: "a-granel",
+                                })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 Produtos a granel
@@ -75,6 +81,7 @@ export const HomeBrands = ({ brands }) => {
                                     <Link
                                         href={route("Produtos.marcas", {
                                             marca: item.slug,
+                                            parceiro: item.parceiro,
                                         })}
                                         className="group"
                                     >
