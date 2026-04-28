@@ -58,18 +58,18 @@ export const TransportInfra = ({ content }) => {
                 className="hidden md:block absolute max-h-[100%] right-0 drop-shadow-lg"
                 style={{ top: '0%' }}
             />
-            <div className="container max-w-medium grid grid-cols-1 md:grid-cols-2 h-full gap-24 lg:min-h-[605px]">
-                <Reveal direction="right">
+            <div className="container max-w-large  grid grid-cols-1 md:grid-cols-2 h-full gap-24 lg:min-h-[605px]">
+                <Reveal direction="left">
                     <div className="relative">
                         <img
                             src={content.imagem}
-                            className="absolute -top-40 inset-0 md:w-[740px] md:h-[759px] object-cover rounded-t-2xl w-full max-h-60 md:max-h-[759px]"
+                            className="absolute -top-40 inset-0 md:w-[740px] md:h-[759px] object-cover rounded-t-3xl w-full max-h-60 md:max-h-[759px]"
                             alt=""
                         />
                     </div>
                 </Reveal>
 
-                <Reveal direction="left" classNam e="">
+                <Reveal direction="right">
                     <div className="ml-auto max-w-[772px] mt-4 lg:mt-8">
                         <LetterReveal
                             className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-[1.2] md:max-w-[20rem] text-center md:text-start"
