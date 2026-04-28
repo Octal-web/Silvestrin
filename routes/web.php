@@ -8,6 +8,7 @@ use App\Http\Controllers\InstitucionalController;
 use App\Http\Controllers\TransportadoraController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\CultivoController;
 use App\Http\Controllers\PoliticasController;
 
 use App\Http\Controllers\Manager\UsuariosController;
@@ -43,19 +44,21 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/produtos', [ProdutosController::class, 'marcas'])->name('Produtos.marcas');
     Route::get('/produtos/frutas', [ProdutosController::class, 'frutas'])->name('Produtos.frutas');
 
+    Route::get('/cultivo', [CultivoController::class, 'index'])->name('Cultivo.index');
+
     Route::get('/contato', [ContatoController::class, 'index'])->name('Contato.index');
     Route::post('/contato/enviar', [ContatoController::class, 'enviar'])->name('Contato.enviar');
 
     Route::get('/politica-de-privacidade', [PoliticasController::class, 'privacidade'])->name('Politicas.privacidade');
 });
 
-Route::prefix('/manager')->group(function() {
+Route::prefix('/manager')->group(function () {
     Route::get('/', [UsuariosController::class, 'login'])->name('Manager.Usuarios.login');
     Route::post('/', ['as' => 'login', 'uses' => 'App\Http\Controllers\Manager\UsuariosController@authenticate']);
 
     Route::post('/usuarios/logout', [UsuariosController::class, 'logout'])->name('Manager.Usuarios.logout');
 
-    Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth']], function () {
         Route::put('/paginas/editar/{id}', [ManagerPaginasController::class, 'editarAction'])->name('Manager.Paginas.editar');
 
         Route::put('/conteudos/editar/{id}', [ManagerConteudosController::class, 'editarAction'])->name('Manager.Conteudos.editar');
@@ -63,7 +66,7 @@ Route::prefix('/manager')->group(function() {
 
         Route::get('/imagens/{id}', [ManagerImagensController::class, 'conteudo'])->name('Manager.Imagens.conteudo');
         Route::post('/imagens/conteudo/adicionar/{id}', [ManagerImagensController::class, 'novo'])->name('Manager.Imagens.novo');
-        
+
         Route::post('/imagens/conteudo/ordenar/{id}', [ManagerImagensController::class, 'ordenar'])->name('Manager.Imagens.ordenar');
         Route::post('/imagens/conteudo/visibilidade/{id}', [ManagerImagensController::class, 'visibilidade'])->name('Manager.Imagens.visibilidade');
         Route::post('/imagens/conteudo/excluir/{id}', [ManagerImagensController::class, 'excluir'])->name('Manager.Imagens.excluir');
