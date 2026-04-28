@@ -55,7 +55,7 @@ export const CookieModal = ({ acceptCookies, visible }) => {
                             </div>
                             <button
                                 onClick={handleAcceptCookies}
-                                className="block border border-primary border-2 text-center h-14 h-14 leading-[3rem] font-light uppercase px-4 ml-auto mt-5"
+                                className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow truncate ml-auto mt-2"
                             >
                             Aceitar todos os cookies
                           </button>
