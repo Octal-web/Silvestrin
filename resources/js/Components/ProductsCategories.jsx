@@ -15,7 +15,7 @@ const CardItem = ({
     group,
 }) => (
     <>
-        <h3 className="text-primary md:text-white text-lg lg:text-xl font-semibold mb-1 2xl:mb-2 mt-5 md:mt-0 px-3">
+        <h3 className="text-primary lg:text-white text-lg lg:text-xl font-semibold mb-1 2xl:mb-2 mt-5 lg:mt-0 px-3">
             {title}
         </h3>
 
@@ -25,8 +25,8 @@ const CardItem = ({
                     onClick={onClickAll}
                     className={`w-full lg:text-left pb-0.5 lg:pb-1 px-3 rounded text-base 2xl:text-lg transition-colors ${
                         selected === `todas-${group}` || selected === "a-granel"
-                            ? "underline md:text-white font-bold"
-                            : "md:text-white hover:bg-black hover:bg-opacity-10"
+                            ? "underline lg:text-white font-bold"
+                            : "lg:text-white hover:bg-black hover:bg-opacity-10"
                     }`}
                 >
                     Todas
@@ -43,8 +43,8 @@ const CardItem = ({
                         }
                         className={`w-full lg:text-left pb-0.5 lg:pb-1 px-3 rounded text-base 2xl:text-lg transition-colors ${
                             selected === item.slug
-                                ? "underline md:text-white font-bold"
-                                : "md:text-white hover:bg-black hover:bg-opacity-10"
+                                ? "underline lg:text-white font-bold"
+                                : "lg:text-white hover:bg-black hover:bg-opacity-10"
                         }`}
                     >
                         {item.nome}
@@ -163,7 +163,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
     const others = brands.filter((item) => item.parceiro !== 1);
 
     return (
-        <aside className="lg:bg-neutral-100 container w-fit py-3 lg:py-20 xl:py-32">
+        <aside className="lg:bg-neutral-100 min-w-fit px-[5%] 2xl:max-w-[544px] py-3 lg:py-20 xl:py-32">
             <button
                 onClick={() => setShowMobileFilter(true)}
                 className={`lg:hidden fixed bottom-6 right-6 z-10 bg-primary text-white rounded-full p-4 shadow-lg ${showMobileFilter && "hidden"}`}
@@ -185,7 +185,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
             </button>
 
             {showMobileFilter && (
-                <div className="fixed inset-0 bg-neutral-100 z-40 p-6 pt-10   overflow-y-auto md:hidden animate-fade-in-down flex flex-col items-center">
+                <div className="fixed inset-0 bg-neutral-100 z-40 p-6 pt-10 overflow-y-auto xl:hidden animate-fade-in-down flex flex-col items-center">
                     <button
                         onClick={() => setShowMobileFilter(false)}
                         className="absolute top-4 right-4 text-neutral-800 text-xl"
