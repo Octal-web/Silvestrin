@@ -9,7 +9,7 @@ export const TransportSlides = ({ content, slides }) => {
     const swiperRef = useRef(null);
 
     return (
-        <section className="relative py-10 lg:py-32 bg-tertiary max-h-[950px]">
+        <section className="relative py-10 lg:py-32 bg-tertiary">
             <div className="container max-w-[92em]">
                 <h4 className="font-secondary text-lg md:text-xl 2xl:text-2xl text-white text-center font-black tracking-wider  mb-12">
                     {content.titulo}
@@ -57,7 +57,7 @@ export const TransportSlides = ({ content, slides }) => {
                         ))}
                     </Swiper>
 
-                    <div className="hidden lg:flex lg:justify-center absolute top-1/2 -translate-y-1/2 z-[10] justify-between w-full lg:gap-[54%] 2xl:gap-[55%]">
+                    <div className="hidden lg:flex lg:justify-center absolute top-1/2 -translate-y-1/2 z-[10] justify-between w-full lg:gap-[54%] 2xl:gap-[57%]">
                         <button
                             ref={prevButtonRef}
                             onClick={() =>
