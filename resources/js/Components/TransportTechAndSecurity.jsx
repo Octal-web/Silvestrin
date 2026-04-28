@@ -104,15 +104,15 @@ export const TransportTechAndSecurity = ({ content }) => {
                 style={{ top: "0%" }}
             />
 
-            <div className="flex flex-col gap-10 lg:gap-20 md:flex-row md:justify-between items-center container max-w-medium pt-10 pb-32 lg:pt-24 lg:pb-52 relative">
+            <div className="flex flex-col gap-10 lg:gap-20 md:flex-row md:justify-between items-center container max-w-large pt-10 pb-32 lg:pt-24 lg:pb-52 relative">
                 <Reveal direction="left">
                     <LetterReveal
-                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[403px] text-center md:text-start "
+                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[338px] text-center md:text-start "
                         text={content.titulo}
                         element="h2"
                     />
                     <div
-                        className="md:max-w-[520px] text-custom-gray md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start "
+                        className="md:max-w-[410px] text-custom-gray md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start "
                         dangerouslySetInnerHTML={{
                             __html: content.texto,
                         }}
@@ -121,7 +121,7 @@ export const TransportTechAndSecurity = ({ content }) => {
 
                 <Reveal direction="right">
                     <img
-                        className="max-w-[310px] lg:max-w-[640px] lg:h-[494px] lg:w-[740px] rounded-3xl"
+                        className="w-full max-w-[610px] 2xl:max-w-[740px] lg:min-h-[494px] 2xl:w-[740px] rounded-3xl"
                         src={content.imagem}
                         alt={content.titulo}
                     />
