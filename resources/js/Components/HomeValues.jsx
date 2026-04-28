@@ -59,7 +59,7 @@ export const HomeValues = ({ content, values }) => {
     return (
         <section
             ref={sectionRef}
-            className="relative py-16 md:py-16 xl:py-30"
+            className="relative py-16 md:py-16 xl:py-30 bg-gray-100"
         >
             <img
                 ref={imageRef}
@@ -80,7 +80,7 @@ export const HomeValues = ({ content, values }) => {
                     {values.map((value, index) => (
                         <Reveal
                             key={index}
-                            className="flex flex-col pl-5 2xl:pl-10 md:border-l md:border-gray-300"
+                            className="flex flex-col pl-5 2xl:pl-10"
                             direction="left"
                             delay={index * 1}
                         >
