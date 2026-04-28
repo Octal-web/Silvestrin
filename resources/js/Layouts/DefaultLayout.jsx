@@ -118,9 +118,9 @@ const DefaultLayout = ({ children }) => {
         },
         {
             name: "Cultivo",
-            route: "https://google.com",
-            controller: "Cultivos",
-            external: true,
+            route: "Cultivo.index",
+            controller: "Cultivo",
+            external: false,
         },
         { name: "Euro Company", route: "https://google.com", external: true },
         {
