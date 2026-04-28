@@ -8,8 +8,6 @@ import { AboutText } from '@/Components/AboutText';
 const Page = () => {
     const { tradicaoVideo, conteudos } = usePage().props;
 
-    console.log(conteudos)
-
     return (
         <DefaultLayout>
             <AboutText content={conteudos[0]} video={tradicaoVideo} />
