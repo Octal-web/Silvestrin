@@ -98,7 +98,7 @@ export const HomeSteps = ({ content, steps, video }) => {
                     {steps.map((value, index) => (
                         <Reveal
                             key={index}
-                            className="flex flex-col lg:pl-10 border-b pb-10 last:border-b-0 lg:border-b-0 lg:border-l border-gray-300 "
+                            className="flex flex-col lg:pl-10 pb-10 "
                             direction="left"
                             delay={index * 1}
                         >
