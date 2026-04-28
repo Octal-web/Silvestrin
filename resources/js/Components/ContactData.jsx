@@ -162,7 +162,7 @@ export const ContactData = ({ data, content }) => {
                             >
                                 <defs>
                                     <clipPath
-                                        id={`url(#custom-shape-${id})`}
+                                        id={`custom-shape-${id}`}
                                         clipPathUnits="objectBoundingBox"
                                     >
                                         <path
