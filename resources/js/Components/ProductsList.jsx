@@ -38,7 +38,7 @@ export const ProductsList = ({
 
     return (
         <section
-            className={`container max-w-large pt-1 pb-10 md:-mt-16 lg:-mt-0 lg:py-12 xl:py-28 ${hasAside ? "flex-1" : "w-full"}`}
+            className={`container max-w-large pt-1 pb-10 -mt-80 lg:mt-8 xl:mt-24 2xl:pb-28 ${hasAside ? "flex-1" : "w-full"}`}
         >
             {loading && (
                 <div className="flex justify-center items-center py-20">
@@ -101,6 +101,15 @@ export const ProductsList = ({
                                         >
                                             {produto.nome}
                                         </h3>
+
+                                        {produto.subtitulo && (
+                                            <p
+                                                className="font-semibold text-base
+                                         lg:text-lg text-custom-gray mb-2 line-clamp-2"
+                                            >
+                                                {produto.subtitulo}
+                                            </p>
+                                        )}
 
                                         {produto.descricao && (
                                             <p className="text-xs lg:text-sm text-custom-gray whitespace-pre-line">
