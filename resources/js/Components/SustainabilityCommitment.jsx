@@ -122,7 +122,7 @@ export const SustainabilityCommitment = ({ content }) => {
                             <img
                                 src={content.imagem}
                                 className="w-full max-h-[722px] max-w-[1680px] object-cover rounded-3xl"
-                                alt={content[0].titulo}
+                                alt={content.titulo}
                             />
                         </div>
                     </Reveal>
