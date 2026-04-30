@@ -101,7 +101,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                     href={route("Produtos.marcas", {
                         categoria: "a-granel",
                     })}
-                    className="flex flex-col items-center justify-center min-h-[180px] w-full bg-primary transition-all hover:bg-secondary col-span-1"
+                    className="flex flex-col items-center justify-center min-h-[180px] w-full bg-primary transition-all hover:bg-secondary col-span-1 z-20"
                 >
                     <h4 className="mt-1.5 font-bold max-w-[108px] text-2xl 2xl:text-3xl text-white">
                         Frutas a granel
