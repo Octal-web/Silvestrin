@@ -24,7 +24,7 @@ export const SustainabilityReuse = ({ content }) => {
                             <img
                                 src={content.imagem}
                                 className="w-full rounded-3xl xl:max-w-[630px] xl:h-[580px] 2xl:max-w-[710px] 2xl:h-[680px]"
-                                alt=""
+                                alt={content.titulo}
                             />
                         </div>
                     </Reveal>

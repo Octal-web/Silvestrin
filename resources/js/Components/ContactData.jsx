@@ -191,7 +191,7 @@ export const ContactData = ({ data, content }) => {
                                 <img
                                     src={content[0].imagem}
                                     className="w-full"
-                                    alt=""
+                                    alt="homem ao celular"
                                 />
                             </div>
                         </div>

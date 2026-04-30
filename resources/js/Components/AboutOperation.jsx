@@ -26,7 +26,7 @@ export const AboutOperation = ({ content }) => {
                         <img
                             src={content[0].imagem}
                             className="w-full max-w-[1526px] mx-auto"
-                            alt=""
+                            alt={content[0].titulo}
                         />
                     </Reveal>
 
@@ -51,7 +51,7 @@ export const AboutOperation = ({ content }) => {
                                 <img
                                     src={content[1].imagem}
                                     className="w-80 md:w-full rounded-t-3xl max-w-[560px] xl:max-w-[580px] 2xl:max-w-[740px]"
-                                    alt=""
+                                    alt={content[1].titulo}
                                 />
                             </div>
                         </Reveal>
@@ -65,7 +65,7 @@ export const AboutOperation = ({ content }) => {
                                 <img
                                     src={content[2].imagem}
                                     className="w-80 md:w-full rounded-3xl max-w-[570px] xl:max-w-[630px] 2xl:max-w-[740px]"
-                                    alt=""
+                                    alt={content[2].titulo}
                                 />
                             </div>
                         </Reveal>

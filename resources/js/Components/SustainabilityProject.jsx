@@ -37,7 +37,7 @@ export const SustainabilityProject = ({ content }) => {
             <img
                 ref={imageRef}
                 src={orange}
-                className="hidden md:block absolute max-h-[30%] lg:max-h-[30%] 2xl:max-h-[90%] -left-[10%] lg:-left-[7%] -top-20 drop-shadow-lg z-10"
+                className="hidden md:block absolute max-h-[30%] lg:max-h-[30%] 2xl:max-h-[90%] -left-[10%] lg:-left-[12%] -top-20 drop-shadow-lg z-10"
             />
             <div className="container max-w-large">
                 <div className="flex flex-col-reverse justify-center md:flex md:flex-row md:justify-start items-center mx-auto md:mx-0">
@@ -69,7 +69,7 @@ export const SustainabilityProject = ({ content }) => {
                                 <img
                                     src={content[0].imagem}
                                     className="w-full 2xl:h-[850px] 2xl:w-[815px]"
-                                    alt=""
+                                    alt="imagem ilustrativa do projeto adotado para sustentabilidade"
                                 />
                             </div>
                         </div>
@@ -135,7 +135,7 @@ export const SustainabilityProject = ({ content }) => {
                                 <img
                                     src={content[1].imagem}
                                     className="w-full 2xl:w-[920px] 2xl:h-[800px]"
-                                    alt=""
+                                    alt="imagem ilustrativa"
                                 />
                             </div>
                         </div>
