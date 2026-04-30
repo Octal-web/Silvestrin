@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react";
 
 import { Reveal } from "./Reveal";
 
-import kiwi from "../../../public/content/display/abf043ef9b36c503f36790391013db89.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const TransportCertification = ({ certification }) => {
@@ -37,7 +35,7 @@ export const TransportCertification = ({ certification }) => {
         >
             <img
                 ref={imageRef}
-                src={kiwi}
+                src="/content/display/abf043ef9b36c503f36790391013db89.png"
                 className="hidden sm:block absolute max-h-[55%] md:max-h-[96%] lg:max-h-[110%] 2xl:max-h-[150%] -right-24
                 md:-right-40 lg:-right-50 2xl:-right-80 drop-shadow-lg -top-[63%] sm:-top-[50%] md:-top-[75%] 2xl:-top-[100%]"
             />

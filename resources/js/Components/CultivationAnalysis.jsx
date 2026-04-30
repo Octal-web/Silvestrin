@@ -6,9 +6,6 @@ import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 import { VideoPlayer } from "./VideoPlayer";
 
-import kiwi from "../../../public/content/display/75201cafed6e11cd757266eb08f6c330.png";
-import sheet from "../../../public/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const CultivationAnalysis = ({ content, video }) => {
@@ -100,12 +97,12 @@ export const CultivationAnalysis = ({ content, video }) => {
             <div ref={bgRef} className="bg-gray-100 pt-20 lg:pt-40 relative">
                 <img
                     ref={rightImageRef}
-                    src={kiwi}
+                    src="/content/display/75201cafed6e11cd757266eb08f6c330.png"
                     className="hidden lg:block absolute lg:max-h-[40%] 2xl:max-h-[50%] -right-[20%] lg:-right-[10%] drop-shadow-lg top-20 2xl:-top-[4%] z-10"
                 />
                 <img
                     ref={leftImageRef}
-                    src={sheet}
+                    src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
                     className="hidden sm:block absolute w-40 md:w-50 2xl:w-80 sm:-left-20 md:-left-30 drop-shadow-lg z-[1]"
                 />
                 <div className="container max-w-large">

@@ -2,7 +2,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from "react";
 
-import apple from "../../../public/content/display/75cf39d846bc48362440c2f4e5ed497d.png";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
@@ -54,7 +53,7 @@ export const TransportInfra = ({ content }) => {
         >
             <img
                 ref={imageRef}
-                src={apple}
+                src="/content/display/75cf39d846bc48362440c2f4e5ed497d.png"
                 className="hidden md:block absolute max-h-[100%] right-0 drop-shadow-lg"
                 style={{ top: '0%' }}
             />
@@ -64,7 +63,7 @@ export const TransportInfra = ({ content }) => {
                         <img
                             src={content.imagem}
                             className="absolute -top-40 inset-0 md:w-[740px] md:h-[759px] object-cover rounded-t-3xl w-full max-h-60 md:max-h-[759px]"
-                            alt=""
+                            alt="instalações da transportadora"
                         />
                     </div>
                 </Reveal>

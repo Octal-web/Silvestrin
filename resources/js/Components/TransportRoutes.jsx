@@ -5,8 +5,6 @@ import { useEffect, useRef } from "react";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
-import sheet from "../../../public/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const TransportRoutes = ({ content }) => {
@@ -57,7 +55,7 @@ export const TransportRoutes = ({ content }) => {
         >
             <img
                 ref={imageRef}
-                src={sheet}
+                src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
                 className="absolute max-h-[10%] md:max-h-[26%] 2xl:max-h-[78%] -left-[3rem] md:-left-40 drop-shadow-lg"
                 style={{ top: "0%" }}
             />

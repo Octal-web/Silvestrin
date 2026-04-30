@@ -6,9 +6,6 @@ import { Reveal } from "./Reveal";
 
 import { useEffect, useRef } from "react";
 
-import sheet from "../../../public/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png";
-import kiwi from "../../../public/content/display/abf043ef9b36c503f36790391013db89.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const CultivationExperimental = ({ content }) => {
@@ -73,13 +70,13 @@ export const CultivationExperimental = ({ content }) => {
         <section ref={bgRef} className="pt-10 md:pt-20 xl:pt-64 relative">
             <img
                 ref={leftImageRef}
-                src={sheet}
+                src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
                 className="hidden sm:block absolute w-40 md:w-50 2xl:w-80 sm:-left-20 md:-left-30 drop-shadow-lg z-[1]"
             />
 
             <img
                 ref={rightImageRef}
-                src={kiwi}
+                src="/content/display/abf043ef9b36c503f36790391013db89.png"
                 className="hidden sm:block absolute max-h-[36%] lg:max-h-[70%] 2xl:max-h-[150%] -right-[20%] lg:-right-[24%] drop-shadow-lg top-[46%] lg:top-[12%] 2xl:top-[2%] z-10"
             />
 

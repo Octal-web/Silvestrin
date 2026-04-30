@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LetterReveal from "./LetterReveal";
 
 import { useEffect, useRef } from "react";
-import grape from "../../../public/content/display/6c849a1449c4a626dce6a920ca7fc51f.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,7 +43,7 @@ export const SustainabilityBanner = ({ content }) => {
         >
             <img
                 ref={imageRef}
-                src={grape}
+                src="/content/display/6c849a1449c4a626dce6a920ca7fc51f.png"
                 className="hidden md:block absolute max-h-[30%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] -bottom-10 lg:-right-[20%] lg:-bottom-[20%] drop-shadow-lg 2xl:-bottom-[450px]"
             />
             <div className="absolute inset-0 bg-black/5"></div>

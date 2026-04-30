@@ -5,10 +5,6 @@ import { Reveal } from "./Reveal";
 
 import { useEffect, useRef } from "react";
 
-import sheet from "../../../public/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png";
-import apples from "../../../public/content/display/c618f705552e2f248371f2213642cdf7.png";
-import plum from "../../../public/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const SustainabilityCommitment = ({ content }) => {
@@ -65,7 +61,7 @@ export const SustainabilityCommitment = ({ content }) => {
             {
                 rotation: 24,
                 scaleX: -1,
-                scaleY: -1
+                scaleY: -1,
             },
             {
                 rotation: 30,
@@ -82,18 +78,18 @@ export const SustainabilityCommitment = ({ content }) => {
             <div ref={sectionRef} className="relative ">
                 <img
                     ref={startImageRef}
-                    src={plum}
+                    src="/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png"
                     className="hidden md:block absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-30 lg:-left-32 2xl:-left-60 drop-shadow-lg z-10 -top-60 xl:-top-96 2xl:-top-[450px]"
                 />
                 <img
                     ref={endImageRef}
-                    src={apples}
+                    src="/content/display/c618f705552e2f248371f2213642cdf7.png"
                     className="hidden md:block absolute max-h-[36%] xl:max-h-[58%] 2xl:max-h-[78%] -right-20 xl:-right-44 2xl:-right-72 drop-shadow-lg z-10 -top-60 xl:-top-96 2xl:-top-[480px]"
                 />
 
                 <img
                     ref={imageRef}
-                    src={sheet}
+                    src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
                     className="hidden md:block absolute max-h-[16%] xl:max-h-[58%] 2xl:max-h-[78%] -right-20 xl:-right-24 2xl:-right-30 drop-shadow-lg z-10 -bottom-20 xl:-bottom-30"
                 />
 
@@ -126,7 +122,7 @@ export const SustainabilityCommitment = ({ content }) => {
                             <img
                                 src={content.imagem}
                                 className="w-full max-h-[722px] max-w-[1680px] object-cover rounded-3xl"
-                                alt=""
+                                alt={content[0].titulo}
                             />
                         </div>
                     </Reveal>

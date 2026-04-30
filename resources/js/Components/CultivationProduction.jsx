@@ -5,8 +5,6 @@ import { useEffect, useRef } from "react";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
-import apple from "../../../public/content/display/75cf39d846bc48362440c2f4e5ed497d.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const CultivationProduction = ({ content }) => {
@@ -57,7 +55,7 @@ export const CultivationProduction = ({ content }) => {
         <section ref={sectionRef} className="pt-16 md:pt-10 xl:pt-16 relative">
             <img
                 ref={imageRef}
-                src={apple}
+                src="/content/display/75cf39d846bc48362440c2f4e5ed497d.png"
                 className="hidden lg:block absolute max-h-[80%] 2xl:max-h-[100%] right-0 drop-shadow-lg z-10"
                 style={{ top: "0%" }}
             />

@@ -6,9 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { useEffect, useRef } from "react";
 
-import grape from "../../../public/content/display/6c849a1449c4a626dce6a920ca7fc51f.png";
-import sheet from "../../../public/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const SustainabilityPartnerships = ({ content, partnerships }) => {
@@ -77,7 +74,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                     {index === 1 && !item.cor && (
                         <img
                             ref={startImageRef}
-                            src={sheet}
+                            src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
                             className="hidden md:block absolute max-h-[16%] lg:max-h-[30%] 2xl:max-h-[48%] -left-30 lg:-left-32 2xl:-left-60 drop-shadow-lg z-10"
                         />
                     )}
@@ -85,7 +82,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                     {index === 2 && (
                         <img
                             ref={endImageRef}
-                            src={grape}
+                            src="/content/display/6c849a1449c4a626dce6a920ca7fc51f.png"
                             className="hidden md:block absolute max-h-[25%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] lg:-right-[8%] 2xl:-right-[12%] z-10 -top-20 lg:-top-30 2xl:-top-60"
                         />
                     )}
@@ -134,7 +131,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                                     <img
                                         src={item.imagem}
                                         className={`w-full rounded-3xl mt-5 lg:mt-0 ${index % 2 === 1 ? "lg:rounded-l-none lg:rounded-r-3xl" : "lg:rounded-l-3xl lg:rounded-r-none "}`}
-                                        alt=""
+                                        alt="imagem ilustrativa"
                                     />
                                 </div>
                             </Reveal>

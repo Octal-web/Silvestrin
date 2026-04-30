@@ -5,9 +5,6 @@ import { useEffect, useRef } from "react";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
-import pear from "../../../public/content/display/911fa8daaaf588bf65154be322d7f04b.png";
-import plum from "../../../public/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const TransportTechAndSecurity = ({ content }) => {
@@ -91,14 +88,14 @@ export const TransportTechAndSecurity = ({ content }) => {
         <section ref={sectionRef} className="bg-neutral-100 container relative">
             <img
                 ref={startImageRef}
-                src={pear}
+                src="/content/display/911fa8daaaf588bf65154be322d7f04b.png"
                 className="absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-4 lg:-left-16 2xl:-left-20  drop-shadow-lg z-10"
                 style={{ top: "0%" }}
             />
 
             <img
                 ref={endImageRef}
-                src={plum}
+                src="/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png"
                 className="absolute max-h-[15%] md:max-h-[36%] 2xl:max-h-[58%] -right-10
                 lg:-right-20 2xl:-right-44 drop-shadow-lg z-10"
                 style={{ top: "0%" }}
