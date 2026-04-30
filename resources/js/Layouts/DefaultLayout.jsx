@@ -108,6 +108,7 @@ const DefaultLayout = ({ children }) => {
             route: "Institucional.index",
             controller: "Institucional",
             external: false,
+            submenu: "Sobre",
         },
         {
             name: "Produtos",
@@ -195,7 +196,7 @@ const DefaultLayout = ({ children }) => {
                                     <img
                                         src={`/site/img/logo.png`}
                                         alt="Logo"
-                                        className="block max-xl:max-w-40 max-w-[100%] -mb-16 -mt-6"
+                                        className="block max-xl:max-w-40 max-w-[100%] -mb-16 -mt-6 lg:z-50"
                                     />
                                 </Link>
                             </h1>
@@ -216,11 +217,7 @@ const DefaultLayout = ({ children }) => {
 
                                         <li>
                                             <Link
-                                                href={
-                                                    route("Home.index", {
-                                                        orcamento: true,
-                                                    }) + "#contato"
-                                                }
+                                                href={route("Contato.index")}
                                                 className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow truncate"
                                             >
                                                 Trabalhe Conosco
@@ -297,7 +294,7 @@ const DefaultLayout = ({ children }) => {
                         </div>
 
                         <div className="w-4/5">
-                            <div className="flex flex-col-reverse lg:flex-row 2xl:ml-20 lg:justify-between lg:items-center pt-10 pb-4">
+                            <div className="flex flex-col-reverse lg:flex-row 2xl:ml-20 lg:justify-between lg:items-center pt-10 pb-4 border-b pb-4">
                                 <nav>
                                     <ul className="flex flex-wrap max-sm:gap-y-4 gap-8 2xl:gap-16 mt-4 lg:mt-0 justify-center">
                                         {menuItems.map((item, index) => (
