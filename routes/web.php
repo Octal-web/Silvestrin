@@ -17,7 +17,6 @@ use App\Http\Controllers\Manager\ImagensController as ManagerImagensController;
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
-use App\Http\Controllers\Manager\AcontecimentosController as ManagerAcontecimentosController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
 use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasController;
 use App\Http\Controllers\Manager\ContatoController as ManagerContatoController;
@@ -46,6 +45,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
     Route::get('/cultivo', [CultivoController::class, 'index'])->name('Cultivo.index');
 
+    Route::get('/sustentabilidade', [InstitucionalController::class, 'sustentabilidade'])->name('Institucional.sustentabilidade');
+
     Route::get('/contato', [ContatoController::class, 'index'])->name('Contato.index');
     Route::post('/contato/enviar', [ContatoController::class, 'enviar'])->name('Contato.enviar');
 
@@ -71,8 +72,17 @@ Route::prefix('/manager')->group(function () {
         Route::post('/imagens/conteudo/visibilidade/{id}', [ManagerImagensController::class, 'visibilidade'])->name('Manager.Imagens.visibilidade');
         Route::post('/imagens/conteudo/excluir/{id}', [ManagerImagensController::class, 'excluir'])->name('Manager.Imagens.excluir');
 
-
         Route::get('/home', [ManagerHomeController::class, 'index'])->name('Manager.Home.index');
+
+        Route::post('/slides/ordenar', [ManagerSlidesController::class, 'ordenar'])->name('Manager.Slides.ordenar');
+        Route::post('/slides/visibilidade/{id}', [ManagerSlidesController::class, 'visibilidade'])->name('Manager.Slides.visibilidade');
+        Route::post('/slides/excluir/{id}', [ManagerSlidesController::class, 'excluir'])->name('Manager.Slides.excluir');
+
+        Route::get('/slides/adicionar/{tipo}', [ManagerSlidesController::class, 'adicionar'])->name('Manager.Slides.adicionar');
+        Route::post('/slides/adicionar/{tipo}', [ManagerSlidesController::class, 'novo'])->name('Manager.Slides.novo');
+        Route::get('/slides/editar/{id}', [ManagerSlidesController::class, 'editar'])->name('Manager.Slides.editar');
+        Route::post('/slides/editar/{id}', [ManagerSlidesController::class, 'atualizar'])->name('Manager.Slides.atualizar');
+        Route::get('/slides/baixar-video/{id}/{video}', [ManagerSlidesController::class, 'baixarVideo'])->name('Manager.Slides.baixarVideo');
 
         Route::post('/marcas/ordenar', [ManagerMarcasController::class, 'ordenar'])->name('Manager.Marcas.ordenar');
         Route::post('/marcas/visibilidade/{id}', [ManagerMarcasController::class, 'visibilidade'])->name('Manager.Marcas.visibilidade');
@@ -86,14 +96,16 @@ Route::prefix('/manager')->group(function () {
 
         Route::get('/institucional', [ManagerInstitucionalController::class, 'index'])->name('Manager.Institucional.index');
 
-        Route::post('/institucional/acontecimentos/ordenar', [ManagerAcontecimentosController::class, 'ordenar'])->name('Manager.Acontecimentos.ordenar');
-        Route::post('/institucional/acontecimentos/visibilidade/{id}', [ManagerAcontecimentosController::class, 'visibilidade'])->name('Manager.Acontecimentos.visibilidade');
-        Route::post('/institucional/acontecimentos/excluir/{id}', [ManagerAcontecimentosController::class, 'excluir'])->name('Manager.Acontecimentos.excluir');
+        Route::get('/institucional/sustentabilidade', [ManagerInstitucionalController::class, 'sustentabilida'])->name('Manager.Institucional.index');
 
-        Route::get('/institucional/acontecimentos/adicionar', [ManagerAcontecimentosController::class, 'adicionar'])->name('Manager.Acontecimentos.adicionar');
-        Route::post('/institucional/acontecimentos/adicionar', [ManagerAcontecimentosController::class, 'novo'])->name('Manager.Acontecimentos.novo');
-        Route::get('/institucional/acontecimentos/editar/{id}', [ManagerAcontecimentosController::class, 'editar'])->name('Manager.Acontecimentos.editar');
-        Route::post('/institucional/acontecimentos/editar/{id}', [ManagerAcontecimentosController::class, 'atualizar'])->name('Manager.Acontecimentos.atualizar');
+        Route::post('/parcerias/ordenar', [ManagerParceriasController::class, 'ordenar'])->name('Manager.Parcerias.ordenar');
+        Route::post('/parcerias/visibilidade/{id}', [ManagerParceriasController::class, 'visibilidade'])->name('Manager.Parcerias.visibilidade');
+        Route::post('/parcerias/excluir/{id}', [ManagerParceriasController::class, 'excluir'])->name('Manager.Parcerias.excluir');
+
+        Route::get('/parcerias/adicionar', [ManagerParceriasController::class, 'adicionar'])->name('Manager.Parcerias.adicionar');
+        Route::post('/parcerias/adicionar', [ManagerParceriasController::class, 'novo'])->name('Manager.Parcerias.novo');
+        Route::get('/parcerias/editar/{id}', [ManagerParceriasController::class, 'editar'])->name('Manager.Parcerias.editar');
+        Route::post('/parcerias/editar/{id}', [ManagerParceriasController::class, 'atualizar'])->name('Manager.Parcerias.atualizar');
 
 
         Route::get('/produtos', [ManagerProdutosController::class, 'index'])->name('Manager.Produtos.index');
