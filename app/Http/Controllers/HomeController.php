@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Certificacao;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 use App\Models\Slide;
@@ -54,6 +53,32 @@ class HomeController extends Controller
                     'descricao' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->descricao : null,
                     'link' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->link : null,
                     'texto_botao' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->texto_botao : null,
+                ];
+            });
+
+        $certificacoes = Certificacao::query()
+            ->where([
+                'excluido' => NULL,
+                'visivel' => true
+            ])
+            ->with([
+                'certificacoesIdiomas' => function ($q) use ($idioma) {
+                    $q->whereHas('idiomas', function ($r) use ($idioma) {
+                        $r->where('codigo', $idioma)
+                            ->orWhere('padrao', true);
+                    })
+                        ->orderBy('idioma_id', 'DESC');
+                }
+            ])
+            ->orderBy('ordem', 'ASC')
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->map(function ($certificacao) {
+                return [
+                    'id' => $certificacao->id,
+                    'logo' => rafator('content/certifications/thumbs/' . $certificacao->logo),
+                    'nome' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->nome : null,
+                    'descricao' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->descricao : null,
                 ];
             });
 
@@ -114,6 +139,7 @@ class HomeController extends Controller
             'slides' => $slides,
             'valores' => $valores,
             'marcas' => $marcas,
+            'certificacoes' => $certificacoes,
             'tradicaoVideo' => $tradicaoVideo
         ]);
     }
