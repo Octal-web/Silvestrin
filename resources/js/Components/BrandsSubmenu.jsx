@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
 import { Link, usePage } from "@inertiajs/react";
+import { useEffect, useRef, useState } from "react";
 
 export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
     const { marcasMenu } = usePage().props;
@@ -23,9 +23,9 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
         if (isMenuOpen) {
             setVisible(true);
             requestAnimationFrame(() => {
-            if (containerRef.current) {
-                setHeight(containerRef.current.scrollHeight);
-            }
+                if (containerRef.current) {
+                    setHeight(containerRef.current.scrollHeight);
+                }
             });
         } else {
             setHeight(0);
@@ -36,33 +36,77 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
 
     if (!visible && !isMenuOpen) return null;
 
+    const partners = marcasMenu.filter((item) => item.parceiro === 1);
+    const others = marcasMenu.filter((item) => item.parceiro !== 1);
+
     return (
         <div
             ref={menuRef}
-            className={`fixed right-1/2 translate-x-1/2 top-[118px] w-screen bg-white shadow-md overflow-hidden -z-[1] transition-[height,transform] duration-300${isHeaderVisible ? '' : ' -translate-y-full'}`}
+            className={`fixed right-1/2 translate-x-1/2 top-[88px] w-screen bg-white shadow-md overflow-hidden -z-[1] transition-[height,transform] duration-300${isHeaderVisible ? "" : " -translate-y-full"}`}
             style={{ height: `${height}px` }}
         >
-            <Link href={route('Produtos.frutas')} className="absolute flex flex-col items-center justify-center top-0 right-0 min-h-[180px] w-[18%] bg-primary transition-all hover:bg-secondary z-[1]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="102.657" height="101.899" viewBox="0 0 102.657 101.899" className="fill-white -mr-4">
-                    <path id="Caminho_195" data-name="Caminho 195" d="M102.655,44.742A50.834,50.834,0,0,0,91.019,16.164c-.125-.148-.266-.323-.419-.513-1.061-1.319-2.513-3.125-4.152-3.186a2.281,2.281,0,0,0-1.786.78L33.739,64.18c-.318-.095-.635-.2-.952-.3a15.761,15.761,0,0,0-4.017-.9,17.043,17.043,0,0,0-3.3.257,19.443,19.443,0,0,1-2.425.249,19.155,19.155,0,0,0-3.723-6.477c-1.287-1.4-3.152-3-4.739-2.706a2.032,2.032,0,0,0-1.4,1.084,2.465,2.465,0,0,0-.1,2.1c.138.313.453.6,1.637,1.592a18.592,18.592,0,0,1,1.675,1.5A12.39,12.39,0,0,1,17.921,63a15.56,15.56,0,0,0-11.53,3.487c-2.021-9.381-1.761-22.215,4.822-31.5a20.77,20.77,0,0,1,18.248-8.824A22.112,22.112,0,0,1,47.68,37.213c.2.35.484,1,.783,1.7a9.344,9.344,0,0,0,1.713,3.127,2.283,2.283,0,0,0,2.37.35,2.325,2.325,0,0,0,1.335-2.009c.069-1.119-2.14-5.205-2.163-5.245a28.667,28.667,0,0,0-7.8-8.77,14.169,14.169,0,0,1,1.48-3.918,15.872,15.872,0,0,1,1.247-1.8c1.405-1.857,3.154-4.168,1.777-6.521-2.041-3.486-5.422-1.783-7.891-.539-.291.146-.573.289-.847.421a14.584,14.584,0,0,1,1.832-6.5,12.259,12.259,0,0,1,.735-1.123c.947-1.34,2.125-3.009.526-5.109-2.1-2.755-6.385-.246-8.689,1.1l-.309.18a16.489,16.489,0,0,0-5.241,4.692A16.327,16.327,0,0,0,23.56,2.706,32.06,32.06,0,0,0,18.315.149a4.077,4.077,0,0,0-3.73.744,3.34,3.34,0,0,0-.965,3.062,3.432,3.432,0,0,0,.86,1.862,4.381,4.381,0,0,1,.423.591A15.755,15.755,0,0,1,17.422,14c-.22-.107-.447-.221-.679-.336-2.484-1.243-6.237-3.121-8.177.622-1.191,2.3.52,4.572,1.895,6.4a16.306,16.306,0,0,1,1.218,1.762,13.127,13.127,0,0,1,1.532,4.081c-6.2,4.546-10.306,11.554-11.9,20.3A52.262,52.262,0,0,0,2.88,70.831C-.513,76.849-.971,85.9,1.84,92.04c.448.978,1.381,3.014,3.551,2.075a1.958,1.958,0,0,0,1.086-1.084c.42-1.076-.154-2.37-.662-3.511a10.074,10.074,0,0,1-.394-.966c-1.98-6.487-.572-14.068,3.347-18.025,2.688-2.714,6.336-3.556,10.572-2.448.008.164.013.34.018.52.037,1.241.08,2.646,1.02,3.4a2.329,2.329,0,0,0,1.971.388c2.12-.393,1.739-3.007,1.556-4.263-.008-.054-.016-.114-.025-.173,3.181-.486,5.707-.854,8.512.716,6.284,3.515,7.838,13.038,5.676,19.845-1.934,6.086-6.348,9.376-11.8,8.8a11.132,11.132,0,0,1-1.867-.441,10.014,10.014,0,0,0-2.779-.542,13.263,13.263,0,0,0-3.475.521,8.288,8.288,0,0,1-5.381-.068,8.035,8.035,0,0,1-1.1-.531c-1.093-.588-2.332-1.257-3.4-.885a1.887,1.887,0,0,0-1.117,1.093,2.293,2.293,0,0,0-.039,1.839c.593,1.408,2.525,2.144,3.679,2.582a11.67,11.67,0,0,0,7.435.556c.729-.131,1.556-.279,2.517-.388a6.954,6.954,0,0,1,2.875.343,11.686,11.686,0,0,0,2.085.425,15.649,15.649,0,0,0,11.76-3.746A20.474,20.474,0,0,0,49.22,101.9,22.247,22.247,0,0,0,61.3,98.118a7.748,7.748,0,0,0,.854-.7,6.355,6.355,0,0,1,.588-.492,20.315,20.315,0,0,1,3.33-.9c1.082-.239,2.2-.485,3-.754A50.429,50.429,0,0,0,102.654,51.76l0-.03ZM39.547,69.124a15.312,15.312,0,0,1,7.883-3.375,16.268,16.268,0,0,1,14.384,5.823,15.816,15.816,0,0,1-7.8,25.1,15.571,15.571,0,0,1-13.673-2.2,24.277,24.277,0,0,0-.79-25.343M69.034,87.049A42.685,42.685,0,0,0,92.493,62.471c.457-1.291,1.924-5.612,1.614-7.038A2.114,2.114,0,0,0,92.38,53.8a2.3,2.3,0,0,0-2.36.953,15.008,15.008,0,0,0-1.078,3.583c-.209.883-.407,1.716-.555,2.154A38.153,38.153,0,0,1,69.869,81.709c0-.062,0-.125.007-.188a7.712,7.712,0,0,0,0-.952A21.1,21.1,0,0,0,60.08,64.175,20.42,20.42,0,0,0,41.926,62.5L81.036,23.39a37.9,37.9,0,0,1,9.47,25.8l0,.189.086.167a2.278,2.278,0,0,0,4.365-.808,26.48,26.48,0,0,0-.2-5.107A41.633,41.633,0,0,0,84.207,20.165c.337-.382,1.581-1.6,2.267-2.2a40.472,40.472,0,0,1,5.706,7.718A45,45,0,0,1,94.768,65.28a44.336,44.336,0,0,1-27.21,25.606,15.94,15.94,0,0,0,1.476-3.837M21.108,19.241c1.08-1.051.927-3.269.825-4.737-.012-.172-.022-.33-.03-.467a21.939,21.939,0,0,0-1.559-7.261,8.95,8.95,0,0,0-.433-.849c2.419,1.241,5.236,3.323,6.068,6.516a9.532,9.532,0,0,1,.193,1.451,7.151,7.151,0,0,0,.321,1.9,2.092,2.092,0,0,0,1.822,1.355,2.434,2.434,0,0,0,2.261-1.2l.107-.184,0-.213c-.088-5.143,3.428-8.068,6.477-9.634-.08.135-.134.232-.169.308a21.729,21.729,0,0,0-1.818,7.813c-.008.152-.02.324-.033.51-.107,1.538-.253,3.644.843,4.679a2.125,2.125,0,0,0,1.8.525l.114-.015,5.675-2.567c-.206.284-.416.572-.6.819-.756,1.032-1.228,1.682-1.41,2a23.011,23.011,0,0,0-1.777,4.064,26.931,26.931,0,0,0-22.481.079,22.863,22.863,0,0,0-3.656-6.908l5.682,2.543.124.012a2.018,2.018,0,0,0,1.655-.541" transform="translate(0 0)"/>
-                </svg>
-                <h4 className="mt-1.5 text-lg text-white">Frutas</h4>
-            </Link>
-            <div ref={containerRef} className="container max-w-large py-10">
-                <h4 className="mb-4 text-sm">Nossas Marcas:</h4>
-                <div className="relative flex">
-                    <div className="flex items-center gap-10 justify-between w-[82%]">
-                        {marcasMenu.map((marca, index) => (
+            <div ref={containerRef} className="grid grid-cols-4 items-stretch gap-20 xl:gap-10 2xl:container">
+                <div className="p-10 col-span-2 ml-[5%]">
+                    <h4 className="mb-4 text-sm text-gray-500 font-semibold">
+                        Nossas marcas
+                    </h4>
+                    <div className="relative flex">
+                        <div className="flex items-center gap-5 xl:gap-10 justify-evenly">
+                            {others.map((marca, index) => (
+                                <Link
+                                    key={index}
+                                    href={route("Produtos.marcas", {
+                                        marca: marca.slug,
+                                    })}
+                                    className="transition-all hover:scale-110 hover:opacity-80"
+                                >
+                                    <img
+                                        src={marca.logo}
+                                        className="max-w-24 max-h-14 xl:max-w-32 xl:max-h-16"
+                                        onLoad={() =>
+                                            setImagesLoaded((prev) => prev + 1)
+                                        }
+                                    />
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-gray-100 py-10 pl-10 px-5 xl:px-10 2xl:px-20 ml-auto min-w-full z-10 col-span-1">
+                    <h4 className="mb-4 text-sm text-gray-500 font-semibold">
+                        Marcas parceiras
+                    </h4>
+                    <div className="flex items-center justify-between gap-5 xl:gap-10 ">
+                        {partners.map((marca, index) => (
                             <Link
                                 key={index}
-                                href={route("Produtos.marcas", { marca: marca.slug })}
+                                href={route("Produtos.marcas", {
+                                    marca: marca.slug,
+                                    parceira: 1
+                                })}
                                 className="transition-all hover:scale-110 hover:opacity-80"
                             >
-                                <img src={marca.logo} className="max-w-32 max-h-16" onLoad={() => setImagesLoaded(prev => prev + 1)} />
+                                <img
+                                    src={marca.logo}
+                                    className="max-w-24 max-h-14 xl:max-w-32 xl:max-h-16"
+                                    onLoad={() =>
+                                        setImagesLoaded((prev) => prev + 1)
+                                    }
+                                />
                             </Link>
                         ))}
                     </div>
                 </div>
+                <Link
+                    href={route("Produtos.marcas", {
+                        categoria: "a-granel",
+                    })}
+                    className="flex flex-col items-center justify-center min-h-[180px] w-full bg-primary transition-all hover:bg-secondary col-span-1"
+                >
+                    <h4 className="mt-1.5 font-bold max-w-[108px] text-2xl 2xl:text-3xl text-white">
+                        Frutas a granel
+                    </h4>
+                </Link>
             </div>
         </div>
     );
