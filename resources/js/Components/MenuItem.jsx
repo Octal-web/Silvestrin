@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 
+import { AboutSubmenu } from "./AboutSubmenu";
 import { BrandsSubmenu } from "./BrandsSubmenu";
 
 export const MenuItem = ({ item, controller, isHeaderVisible }) => {
@@ -8,8 +9,14 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
     const menuRef = useRef(null);
     const toggleRef = useRef(null);
 
-    const toggleSubmenu = () => {
-        setIsOpen((prev) => !prev);
+    const isMobile = window.innerWidth < 1028;
+
+    const handleClick = () => {
+        if (isMobile && item.submenu === "Produtos") {
+            window.location.href = route(item.route);
+        } else {
+            setIsOpen((prev) => !prev);
+        }
     };
 
     useEffect(() => {
@@ -44,40 +51,65 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
             ) : Array.isArray(item.submenu) && item.submenu.length > 0 ? (
                 <button
                     ref={toggleRef}
-                    onClick={toggleSubmenu}
+                    onClick={handleClick}
                     className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg "
                 >
                     {item.name}
                     <span className="ml-2 text-base">{isOpen ? "▲" : "▼"}</span>
                 </button>
-            ) : typeof item.submenu === "string" && item.submenu === "Produtos" ? (
+            ) : (typeof item.submenu === "string" &&
+                  item.submenu === "Sobre") ||
+              (item.submenu === "Produtos" && !isMobile) ? (
                 <button
                     ref={toggleRef}
-                    onClick={toggleSubmenu}
-                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg "
+                    onClick={handleClick}
+                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg mx-auto "
                 >
                     {item.name}
+                    <span className="ml-2 text-base lg:hidden">
+                        {isOpen ? "▲" : "▼"}
+                    </span>
                 </button>
             ) : (
-                <Link href={route(item.route)} className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg ">
+                <Link
+                    href={route(item.route)}
+                    className="relative block text-white font-semibold transition-opacity hover:opacity-70 p-2 text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg "
+                >
                     {item.name}
                 </Link>
             )}
 
-            {item.submenu && (
-                typeof item.submenu === "string" && item.submenu === "Produtos" ? (
-                    <BrandsSubmenu menuRef={menuRef} isMenuOpen={isOpen} isHeaderVisible={isHeaderVisible} />
+            {item.submenu &&
+                (typeof item.submenu === "string" ? (
+                    item.submenu === "Produtos" ? (
+                        <BrandsSubmenu
+                            menuRef={menuRef}
+                            isMenuOpen={isOpen}
+                            isHeaderVisible={isHeaderVisible}
+                        />
+                    ) : (
+                        <AboutSubmenu
+                            menuRef={menuRef}
+                            isMenuOpen={isOpen}
+                            isHeaderVisible={isHeaderVisible}
+                        />
+                    )
                 ) : Array.isArray(item.submenu) && item.submenu.length > 0 ? (
                     <ul
                         ref={menuRef}
                         className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden transition-all z-[1] ${
-                            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                            isOpen
+                                ? "max-h-96 opacity-100"
+                                : "max-h-0 opacity-0"
                         }`}
                     >
                         {item.submenu.map((subItem, index) => (
-                            <li key={index} className="border-b border-gray-200 last:border-0">
+                            <li
+                                key={index}
+                                className="border-b border-gray-200 last:border-0"
+                            >
                                 <Link
-                                    href={`${route(item.route)}#${subItem.slug}`} 
+                                    href={`${route(item.route)}#${subItem.slug}`}
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                 >
                                     {subItem.nome ?? subItem.slug}
@@ -85,8 +117,7 @@ export const MenuItem = ({ item, controller, isHeaderVisible }) => {
                             </li>
                         ))}
                     </ul>
-                ) : null
-            )}
+                ) : null)}
         </li>
     );
 };
