@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LetterReveal = ({ text, className, element = "div" }) => {
+const LetterReveal = ({ text, className, element = "div", style = "" }) => {
     const containerRef = useRef(null);
     const letterRefs = useRef([]);
 
@@ -34,7 +34,7 @@ const LetterReveal = ({ text, className, element = "div" }) => {
     const Tag = element;
 
     return (
-        <Tag ref={containerRef} className={className} style={{ overflow: "hidden" }}>
+        <Tag ref={containerRef} className={className} style={{ overflow: "hidden", ...style }}>
             {text.split(" ").map((word, wi) => (
                 <span
                     key={wi}
