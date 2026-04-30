@@ -15,7 +15,7 @@ export const CultivationTechnical = ({ content }) => {
                 <Reveal direction="right">
                     <div className="lg:max-w-[425px] lg:ml-20 2xl:ml-36">
                         <LetterReveal
-                            className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight lg:max-w-[389px] text-start"
+                            className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight lg:max-w-[450px] text-start uppercase"
                             text={content.titulo}
                             element="h2"
                         />

@@ -78,10 +78,10 @@ export const AboutText = ({ content, video }) => {
                 <div className="container max-w-medium">
                     <div className="py-24">
                         {partesTitulo.map((parte, i) => (
-                            <LetterReveal key={i} className="font-secondary text-primary text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2" text={parte.trim()} element="h1" />
+                            <LetterReveal key={i} className="font-secondary text-primary text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2 uppercase" text={parte.trim()} element="h1" />
                         ))}
                         
-                        <div className="text-xl 2xl:text-2xl text-center [&_p_+_p]:mt-0 mt-4">
+                        <div className="text-xl 2xl:text-2xl text-center [&_p_+_p]:mt-0 mt-4 border-b border-gray-200 pb-4">
                             {partesSubtitulo.map((parte, i) => (
                                 <p key={i} className={i !== 0 ? 'font-bold' : ''}>{parte}</p>
                             ))}

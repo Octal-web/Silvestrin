@@ -21,20 +21,20 @@ export const CultivationBanner = ({ content }) => {
                         {partesTitulo.map((parte, i) => (
                             <LetterReveal
                                 key={i}
-                                className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2]`}
+                                className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
                                 text={parte.trim()}
                                 element="h1"
                             />
                         ))}
 
-                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 mt-4 max-w-[623px]">
+                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 mt-4 border-b pb-10 2xl:pb-16">
                             {partesSubtitulo.map((parte, i) => (
                                 <p key={i}>{parte}</p>
                             ))}
                         </div>
 
                         <div
-                            className="text-sm xl:text-base text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12 [&_p_+_p]:mt-0"
+                            className="text-sm xl:text-base text-custom-gray text-center mt-10 2xl:mt-16 [&_p_+_p]:mt-0"
                             dangerouslySetInnerHTML={{ __html: content.texto }}
                         />
                     </div>

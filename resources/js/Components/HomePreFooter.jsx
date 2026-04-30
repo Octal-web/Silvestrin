@@ -41,7 +41,7 @@ export const HomePreFooter = ({ content }) => {
             <div className="container max-w-large h-full">
                 <div className="flex h-full justify-center flex-col">
                     {linhas.map((linha, index) => (
-                        <LetterReveal key={index} className="font-secondary text-white text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight" text={linha} element="h2" />
+                        <LetterReveal key={index} className="font-secondary text-white text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight uppercase" text={linha} element="h2" />
                     ))}
                 </div>
             </div>

@@ -80,9 +80,9 @@ export const CultivationAnalysis = ({ content, video }) => {
                         />
                     </Reveal>
                     <Reveal direction="right">
-                        <div className="lg:max-w-[320px] lg:ml-20">
+                        <div className="lg:max-w-[385px] lg:ml-20">
                             <LetterReveal
-                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight text-start mb-6"
+                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight text-start mb-6 uppercase"
                                 text={content[0].titulo}
                                 element="h2"
                             />
@@ -110,7 +110,7 @@ export const CultivationAnalysis = ({ content, video }) => {
                 />
                 <div className="container max-w-large">
                     <LetterReveal
-                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight text-center mb-10 lg:mb-30"
+                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight text-center mb-10 lg:mb-30 uppercase"
                         text={content[1].titulo}
                         element="h2"
                     />

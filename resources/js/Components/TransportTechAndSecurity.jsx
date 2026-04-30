@@ -107,7 +107,7 @@ export const TransportTechAndSecurity = ({ content }) => {
             <div className="flex flex-col gap-10 lg:gap-20 md:flex-row md:justify-between items-center container max-w-large pt-10 pb-32 lg:pt-24 lg:pb-52 relative">
                 <Reveal direction="left">
                     <LetterReveal
-                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[338px] text-center md:text-start "
+                        className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[368px] text-center md:text-start uppercase"
                         text={content.titulo}
                         element="h2"
                     />
@@ -128,7 +128,7 @@ export const TransportTechAndSecurity = ({ content }) => {
                 </Reveal>
 
                 <LetterReveal
-                    className="font-secondary text-white bg-secondary w-fit round text-3xl md:text-4xl 2xl:text-5xl font-black mb-3 rounded-full py-3 lg:py-5 px-10 lg:px-30 2xl:px-40 absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2"
+                    className="font-secondary text-white bg-secondary w-fit round text-3xl md:text-4xl 2xl:text-5xl font-black mb-3 rounded-full py-3 lg:py-5 px-10 lg:px-30 2xl:px-40 absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 uppercase"
                     text="Certificação"
                     element="h1"
                 />

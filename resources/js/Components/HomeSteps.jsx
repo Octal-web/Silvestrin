@@ -92,13 +92,13 @@ export const HomeSteps = ({ content, steps, video }) => {
                 style={{ top: '0%' }}
             />
             <div className="relative container max-w-large">
-                <LetterReveal className="font-secondary text-white text-5xl md:text-6xl 2xl:text-7xl font-black leading-snug" text={content.titulo} element="h1" />
-                <LetterReveal className="font-secondary text-secondary text-5xl md:text-6xl 2xl:text-7xl  font-black mb-10 lg:mb-16" text={content.subtitulo} element="h1" />
+                <LetterReveal className="font-secondary text-white text-5xl md:text-6xl 2xl:text-7xl font-black leading-snug uppercase" text={content.titulo} element="h1" />
+                <LetterReveal className="font-secondary text-secondary text-5xl md:text-6xl 2xl:text-7xl uppercase font-black mb-10 lg:mb-16" text={content.subtitulo} element="h1" />
                 <div className={`grid grid-cols-1 lg:grid-cols-4 gap-10 md:gap-6 2xl:mr-16 mb-7 2xl:mb-30 px-5`}>
                     {steps.map((value, index) => (
                         <Reveal
                             key={index}
-                            className="flex flex-col lg:pl-10 pb-10 "
+                            className="flex flex-col lg:pl-10 pb-10 lg:border-l lg:border-gray-300"
                             direction="left"
                             delay={index * 1}
                         >

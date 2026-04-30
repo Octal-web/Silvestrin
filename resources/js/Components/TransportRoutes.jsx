@@ -67,7 +67,7 @@ export const TransportRoutes = ({ content }) => {
             >
                 <Reveal direction="left">
                     <LetterReveal
-                        className="font-secondary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[303px] text-center md:text-start "
+                        className="font-secondary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight md:max-w-[303px] text-center md:text-start uppercase"
                         text={content.titulo}
                         element="h2"
                     />

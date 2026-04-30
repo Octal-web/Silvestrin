@@ -10,7 +10,7 @@ export const AboutOperation = ({ content }) => {
                     <Reveal direction="top">
                         <div className="text-center mx-auto max-w-[772px] mt-8">
                             <LetterReveal
-                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight"
+                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight uppercase"
                                 text={content[0].titulo}
                                 element="h2"
                             />
@@ -34,7 +34,7 @@ export const AboutOperation = ({ content }) => {
                         <Reveal direction="left" className="">
                             <div className="ml-auto max-w-[772px] mt-8">
                                 <LetterReveal
-                                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[303px] mx-auto md:mx-0 text-center md:text-start"
+                                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[303px] mx-auto md:mx-0 text-center md:text-start uppercase"
                                     text={content[1].titulo}
                                     element="h2"
                                 />
@@ -71,7 +71,7 @@ export const AboutOperation = ({ content }) => {
                         </Reveal>
                         <Reveal direction="right" className="mt-8">
                             <LetterReveal
-                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[32rem] text-center md:text-start"
+                                className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[32rem] text-center md:text-start uppercase"
                                 text={content[2].titulo}
                                 element="h2"
                             />

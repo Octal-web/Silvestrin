@@ -69,7 +69,7 @@ export const HomeValues = ({ content, values }) => {
             />
             <div className="relative container max-w-large">
                 <LetterReveal
-                    className="font-secondary text-primary text-5xl md:text-6xl 2xl:text-7xl font-black mb-3"
+                    className="font-secondary text-primary text-5xl md:text-6xl 2xl:text-7xl font-black mb-3 uppercase"
                     text={content.titulo}
                     element="h1"
                 />
@@ -80,7 +80,7 @@ export const HomeValues = ({ content, values }) => {
                     {values.map((value, index) => (
                         <Reveal
                             key={index}
-                            className="flex flex-col pl-5 2xl:pl-10"
+                            className="flex flex-col pl-5 2xl:pl-10 pb-10 lg:border-l lg:border-gray-300"
                             direction="left"
                             delay={index * 1}
                         >

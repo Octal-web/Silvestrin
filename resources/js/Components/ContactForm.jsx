@@ -88,11 +88,13 @@ export const ContactForm = ({ content }) => {
         <section className="relative bg-neutral-100 pt-16 pb-20 md:pb-30">
             <div className="container max-w-large">
                 <LetterReveal
-                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight"
+                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight uppercase"
                     text={content.titulo}
                     element="h2"
                 />
-                <h4 className="text-2xl md:text-3xl 2xl:text-4xl mb-10 2xl:mb-20">{content.subtitulo}</h4>
+                <h4 className="text-2xl md:text-3xl 2xl:text-4xl mb-10 2xl:mb-20">
+                    {content.subtitulo}
+                </h4>
 
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3 md:mb-5 min-[1440px]:mb-10 flex gap-3 md:gap-5 lg:gap-6 flex-col">
@@ -107,7 +109,7 @@ export const ContactForm = ({ content }) => {
                                 name="area"
                                 value={data.area}
                                 onChange={handleChange}
-                                className="appearance-none bg-primary border-0 rounded-full text-white text-center font-bold text-lg md:text-xl 2xl:text-2xl max-w-64 pl-5 pr-11 bg-none focus:border focus:border-secondary outline-none"
+                                className="appearance-none bg-primary border-0 rounded-full text-white text-center font-bold text-lg md:text-xl 2xl:text-2xl max-w-64 pl-5 pr-11 bg-none focus:border focus:border-secondary outline-none cursor-pointer"
                                 style={{
                                     WebkitAppearance: "none",
                                     MozAppearance: "none",
@@ -144,7 +146,8 @@ export const ContactForm = ({ content }) => {
                                 value={data.nome}
                                 onChange={handleChange}
                                 placeholder="Seu nome"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200
+                                border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.nome && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -166,7 +169,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.email}
                                 onChange={handleChange}
                                 placeholder="Seu e-mail"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.email && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -192,7 +195,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.telefone}
                                 onChange={handleChange}
                                 placeholder="(DDD) + número"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.telefone && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -214,7 +217,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.assunto}
                                 onChange={handleChange}
                                 placeholder="Sobre o que quer falar"
-                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.assunto && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">
@@ -237,7 +240,7 @@ export const ContactForm = ({ content }) => {
                                 value={data.mensagem}
                                 onChange={handleChange}
                                 placeholder="Escreva aqui..."
-                                className="w-full h-40 2xl:h-48 resize-none px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 placeholder:text-gray-500 placeholder:text-opacity-70"
+                                className="w-full h-40 2xl:h-48 resize-none px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.mensagem && (
                                 <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">

@@ -68,7 +68,7 @@ export const CultivationProduction = ({ content }) => {
                             {partesTitulo.map((parte, i) => (
                                 <LetterReveal
                                     key={i}
-                                    className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2`}
+                                    className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2 uppercase pt-1.5`}
                                     text={parte.trim()}
                                     element="h2"
                                 />
@@ -77,7 +77,7 @@ export const CultivationProduction = ({ content }) => {
                                 <p>{content[0].subtitulo}</p>
                             </div>
                             <div
-                                className="text-xs md:text-sm xl:text-base text-custom-gray mt-8 2xl:mt-12 lg:text-balance [&>p:first-of-type]:font-bold [&>p:first-of-type]:text-[22px]"
+                                className="text-xs md:text-sm xl:text-base text-custom-gray mt-8 2xl:mt-12 lg:text-balance [&>p:first-of-type]:font-bold [&>p:first-of-type]:pb-7 [&>p:first-of-type]:text-[22px]"
                                 dangerouslySetInnerHTML={{
                                     __html: content[0].texto,
                                 }}

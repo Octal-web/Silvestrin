@@ -11,7 +11,7 @@ export const HomeBrands = ({ brands }) => {
             <div className="relative container max-w-large">
                 <div className="flex flex-col lg:flex-row justify-between items-center">
                     <LetterReveal
-                        className="font-secondary text-primary text-5xl md:text-6xl 2xl:text-7xl font-black mb-3 mr-auto"
+                        className="font-secondary text-primary text-5xl md:text-6xl 2xl:text-7xl font-black mb-3 mr-auto uppercase"
                         text="Linha de produtos"
                         element="h1"
                     />

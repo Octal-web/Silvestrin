@@ -11,7 +11,7 @@ export const TransportSlides = ({ content, slides }) => {
     return (
         <section className="relative py-10 lg:py-32 bg-tertiary">
             <div className="container max-w-[92em]">
-                <h4 className="font-secondary text-lg md:text-xl 2xl:text-2xl text-white text-center font-black tracking-wider  mb-12">
+                <h4 className="font-secondary text-lg md:text-xl 2xl:text-2xl text-white text-center font-black tracking-wider uppercase mb-12">
                     {content.titulo}
                 </h4>
             </div>

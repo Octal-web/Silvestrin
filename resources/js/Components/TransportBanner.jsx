@@ -20,7 +20,7 @@ export const TransportBanner = ({ content }) => {
                 {partesTitulo.map((parte, i) => (
                     <LetterReveal
                         key={i}
-                        className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2`}
+                        className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2 uppercase`}
                         text={parte.trim()}
                         element="h1"
                     />

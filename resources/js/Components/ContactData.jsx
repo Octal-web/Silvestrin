@@ -85,7 +85,7 @@ export const ContactData = ({ data, content }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <Reveal className="py-10 lg:py-20">
                         <LetterReveal
-                            className="font-secondary text-primary text-4xl md:text-5xl 2xl:text-6xl font-black leading-tight max-w-[700px] mb-10"
+                            className="font-secondary text-primary text-4xl md:text-5xl 2xl:text-6xl font-black leading-tight max-w-[700px] mb-10 uppercase"
                             text={content[0].titulo}
                             element="h1"
                         />

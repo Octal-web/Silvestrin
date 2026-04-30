@@ -72,7 +72,7 @@ export const TransportInfra = ({ content }) => {
                 <Reveal direction="right">
                     <div className="ml-auto max-w-[772px] mt-4 lg:mt-8">
                         <LetterReveal
-                            className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-[1.2] md:max-w-[20rem] text-center md:text-start"
+                            className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-[1.2] md:max-w-[422px] pt-1.5 text-center md:text-start uppercase"
                             text={content.titulo}
                             element="h2"
                         />

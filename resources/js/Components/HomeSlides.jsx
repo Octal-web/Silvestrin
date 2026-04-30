@@ -113,7 +113,7 @@ export const HomeSlides = ({ slides }) => {
 
                             <div className="absolute inset-0 bg-eng-primary mix-blend-color-dodge opacity-40" />
 
-                            <div className="container max-w-large h-full">
+                            <div className="container max-w-large h-full mt-24">
                                 <div
                                     className={`flex flex-col relative w-full h-full md:w-[70%] xl:w-1/2 max-w-[550px] justify-end pb-36 transition-opacity duration-1000 ease-in-out z-[1] ${
                                         activeIndex === index
@@ -122,15 +122,15 @@ export const HomeSlides = ({ slides }) => {
                                     }`}
                                 >
                                     {slide.titulo && (
-                                        <h2 className="font-secondary text-5xl md:text-6xl 2xl:text-7xl font-black text-white text-balance leading-[1.1] mb-5" dangerouslySetInnerHTML={{ __html: slide.titulo }} />
+                                        <h2 className="font-secondary text-5xl md:text-6xl 2xl:text-7xl font-black text-white text-balance uppercase leading-[1.1] mb-5" dangerouslySetInnerHTML={{ __html: slide.titulo }} />
                                     )}
                                     {slide.descricao && (
-                                        <div className="text-sm lg:text-base text-white text-balance max-w-sm mb-8">
+                                        <div className="text-sm lg:text-base text-custom-gray text-balance max-w-sm mb-8">
                                             <p>{slide.descricao}</p>
                                         </div>
                                     )}
                                     {slide.link && (
-                                        <a href={slide.link} className="block px-6 2xl:px-8 py-3 gap-2 rounded-full bg-primary text-white text-base md:text-lg 2xl:text-xl font-normal transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow w-fit cursor-pointer" target="_blank" rel="noopener noreferrer">{slide.texto_botao}</a>
+                                        <a href={slide.link} className="block px-6 2xl:px-8 py-3 gap-2 rounded-full bg-primary text-white text-base md:text-lg 2xl:text-xl font-normal transition-all hover:bg-secondary hover:shadow w-fit cursor-pointer" target="_blank" rel="noopener noreferrer">{slide.texto_botao}</a>
                                     )}
                                 </div>
                             </div>
