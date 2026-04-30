@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Certificacao;
 use Illuminate\Support\Facades\App;
 
 use Inertia\Inertia;
@@ -170,32 +169,6 @@ abstract class Controller
                     ];
                 });
 
-            $certificacoes = Certificacao::query()
-                ->where([
-                    'excluido' => NULL,
-                    'visivel' => true
-                ])
-                ->with([
-                    'certificacoesIdiomas' => function ($q) use ($idioma) {
-                        $q->whereHas('idiomas', function ($r) use ($idioma) {
-                            $r->where('codigo', $idioma)
-                                ->orWhere('padrao', true);
-                        })
-                            ->orderBy('idioma_id', 'DESC');
-                    }
-                ])
-                ->orderBy('ordem', 'ASC')
-                ->orderBy('id', 'DESC')
-                ->get()
-                ->map(function ($certificacao) {
-                    return [
-                        'id' => $certificacao->id,
-                        'logo' => rafator('content/certifications/thumbs/' . $certificacao->logo),
-                        'nome' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->nome : null,
-                        'descricao' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->descricao : null,
-                    ];
-                });
-
             $pagina = Pagina::query()
                 ->where([
                     'controladora' => $controller,
@@ -239,6 +212,7 @@ abstract class Controller
                         'logo' => rafator('content/brands/thumbs/' . $marca->logo),
                         'nome' => $marca->marcasIdiomas->isNotEmpty() ? $marca->marcasIdiomas[0]->nome : null,
                         'slug' => $marca->slug,
+                        'parceiro' => $marca->parceiro
                     ];
                 });
 
@@ -264,7 +238,6 @@ abstract class Controller
                 'controller' => $controller,
                 'action' => $action,
                 'conteudos' => $conteudos,
-                'certificacoes' => $certificacoes,
                 'marcasMenu' => $marcasMenu,
                 'idiomas' => $idiomas,
                 'idioma' => $idioma,
