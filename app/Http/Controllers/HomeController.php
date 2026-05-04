@@ -56,32 +56,6 @@ class HomeController extends Controller
                 ];
             });
 
-        $certificacoes = Certificacao::query()
-            ->where([
-                'excluido' => NULL,
-                'visivel' => true
-            ])
-            ->with([
-                'certificacoesIdiomas' => function ($q) use ($idioma) {
-                    $q->whereHas('idiomas', function ($r) use ($idioma) {
-                        $r->where('codigo', $idioma)
-                            ->orWhere('padrao', true);
-                    })
-                        ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->map(function ($certificacao) {
-                return [
-                    'id' => $certificacao->id,
-                    'logo' => rafator('content/certifications/thumbs/' . $certificacao->logo),
-                    'nome' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->nome : null,
-                    'descricao' => $certificacao->certificacoesIdiomas->isNotEmpty() ? $certificacao->certificacoesIdiomas[0]->descricao : null,
-                ];
-            });
-
         $valores = Valor::query()
             ->where([
                 'excluido' => NULL,
@@ -139,7 +113,6 @@ class HomeController extends Controller
             'slides' => $slides,
             'valores' => $valores,
             'marcas' => $marcas,
-            'certificacoes' => $certificacoes,
             'tradicaoVideo' => $tradicaoVideo
         ]);
     }
