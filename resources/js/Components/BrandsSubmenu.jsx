@@ -45,13 +45,13 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
             className={`fixed right-1/2 translate-x-1/2 top-[88px] w-screen bg-white shadow-md overflow-hidden -z-[1] transition-[height,transform] duration-300${isHeaderVisible ? "" : " -translate-y-full"}`}
             style={{ height: `${height}px` }}
         >
-            <div ref={containerRef} className="grid grid-cols-4 items-stretch gap-20 xl:gap-10 2xl:container">
-                <div className="p-10 col-span-2 ml-[5%]">
+            <div ref={containerRef} className="grid grid-cols-4 gap-20 xl:gap-10 2xl:container">
+                <div className="pl-10 pt-10 col-span-2 ml-[5%]">
                     <h4 className="mb-4 text-sm text-gray-500 font-semibold">
                         Nossas marcas
                     </h4>
                     <div className="relative flex">
-                        <div className="flex items-center gap-5 xl:gap-10 justify-evenly">
+                        <div className="flex items-center justify-between w-full gap-5 2xl:gap-0">
                             {others.map((marca, index) => (
                                 <Link
                                     key={index}
@@ -62,7 +62,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                                 >
                                     <img
                                         src={marca.logo}
-                                        className="max-w-24 max-h-14 xl:max-w-32 xl:max-h-16"
+                                        className="max-w-24 max-h-14 2xl:max-w-32 2xl:max-h-16"
                                         onLoad={() =>
                                             setImagesLoaded((prev) => prev + 1)
                                         }
@@ -72,7 +72,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-gray-100 py-10 pl-10 px-5 xl:px-10 2xl:px-20 ml-auto min-w-full z-10 col-span-1">
+                <div className="bg-gray-100 py-10 pl-10 px-5 xl:px-10 2xl:px-20 ml-auto min-w-full z-10 col-span-1 mr-[-12%]">
                     <h4 className="mb-4 text-sm text-gray-500 font-semibold">
                         Marcas parceiras
                     </h4>
@@ -88,7 +88,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                             >
                                 <img
                                     src={marca.logo}
-                                    className="max-w-24 max-h-14 xl:max-w-32 xl:max-h-16"
+                                    className="max-w-24 max-h-14 2xl:max-w-32 2xl:max-h-16"
                                     onLoad={() =>
                                         setImagesLoaded((prev) => prev + 1)
                                     }

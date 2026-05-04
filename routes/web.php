@@ -15,6 +15,9 @@ use App\Http\Controllers\Manager\UsuariosController;
 use App\Http\Controllers\Manager\ConteudosController as ManagerConteudosController;
 use App\Http\Controllers\Manager\ImagensController as ManagerImagensController;
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
+use App\Http\Controllers\Manager\PaginasController as ManagerPaginasController;
+use App\Http\Controllers\Manager\SlidesController as ManagerSlidesController;
+use App\Http\Controllers\Manager\ValoresController as ManagerValoresController;
 use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
@@ -83,6 +86,15 @@ Route::prefix('/manager')->group(function () {
         Route::get('/slides/editar/{id}', [ManagerSlidesController::class, 'editar'])->name('Manager.Slides.editar');
         Route::post('/slides/editar/{id}', [ManagerSlidesController::class, 'atualizar'])->name('Manager.Slides.atualizar');
         Route::get('/slides/baixar-video/{id}/{video}', [ManagerSlidesController::class, 'baixarVideo'])->name('Manager.Slides.baixarVideo');
+
+        Route::post('/valores/ordenar', [ManagerValoresController::class, 'ordenar'])->name('Manager.Valores.ordenar');
+        Route::post('/valores/visibilidade/{id}', [ManagerValoresController::class, 'visibilidade'])->name('Manager.Valores.visibilidade');
+        Route::post('/valores/excluir/{id}', [ManagerValoresController::class, 'excluir'])->name('Manager.Valores.excluir');
+
+        Route::get('/valores/adicionar', [ManagerValoresController::class, 'adicionar'])->name('Manager.Valores.adicionar');
+        Route::post('/valores/adicionar', [ManagerValoresController::class, 'novo'])->name('Manager.Valores.novo');
+        Route::get('/valores/editar/{id}', [ManagerValoresController::class, 'editar'])->name('Manager.Valores.editar');
+        Route::post('/valores/editar/{id}', [ManagerValoresController::class, 'atualizar'])->name('Manager.Valores.atualizar');
 
         Route::post('/marcas/ordenar', [ManagerMarcasController::class, 'ordenar'])->name('Manager.Marcas.ordenar');
         Route::post('/marcas/visibilidade/{id}', [ManagerMarcasController::class, 'visibilidade'])->name('Manager.Marcas.visibilidade');

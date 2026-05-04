@@ -12,9 +12,9 @@ export const HomeCertification = ({ certification }) => {
                 />
                 <Reveal>
                     <img
-                        src={certification.logo}
+                        src={certification.imagem}
                         className="mx-auto mb-5 2xl:mb-16 mt-16 2xl:mt-28 w-36 lg:w-fit"
-                        alt={certification.nome}
+                        alt={certification.titulo}
                     />
                 </Reveal>
 
@@ -23,7 +23,7 @@ export const HomeCertification = ({ certification }) => {
                         <div
                             className="whitespace-pre-line text-sm lg:text-base text-custom-gray"
                             dangerouslySetInnerHTML={{
-                                __html: certification.descricao,
+                                __html: certification.texto,
                             }}
                         />
                     </div>

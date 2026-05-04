@@ -10,7 +10,7 @@ import { HomeSteps } from '@/Components/HomeSteps';
 import { HomeValues } from '@/Components/HomeValues';
 
 const Page = () => {
-    const { slides, valores, marcas, tradicaoVideo, conteudos, certificacoes } = usePage().props;
+    const { slides, valores, marcas, tradicaoVideo, conteudos } = usePage().props;
 
     return (
         <DefaultLayout>
@@ -22,7 +22,7 @@ const Page = () => {
 
             <HomeSteps content={conteudos[1]} steps={[conteudos[2], conteudos[3], conteudos[4], conteudos[5]]} video={tradicaoVideo} />
 
-            <HomeCertification certification={certificacoes[0]}/>
+            <HomeCertification certification={conteudos[12]}/>
 
             {/* <HomeTeam content={conteudos[6]} /> */}
 
