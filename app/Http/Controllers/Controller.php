@@ -12,8 +12,6 @@ use App\Models\Conteudo;
 use App\Models\DadosGerais;
 use App\Models\Marca;
 
-use Illuminate\Support\Str;
-
 abstract class Controller
 {
     public function __construct()
@@ -99,7 +97,8 @@ abstract class Controller
                         'habilitar_link' => $conteudo->parametro->habilitar_link ? true : false,
                         'video' => $conteudo->conteudosIdiomas->isNotEmpty() ? $conteudo->conteudosIdiomas[0]->video : null,
                         'habilitar_video' => $conteudo->parametro->habilitar_video ? true : false,
-                        'habilitar_arquivo' => $conteudo->parametro->habilitar_arquivo ? true : false,
+                        'habilitar_arq' => $conteudo->parametro->habilitar_arq ? true : false,
+                        'arquivo' => count($conteudo->conteudosIdiomas) ? rafator('content/files/' . $conteudo->conteudosIdiomas[0]->arquivo) : null,
                         'nova_aba' => $conteudo->conteudosIdiomas->isNotEmpty() && $conteudo->conteudosIdiomas[0]->nova_aba ? true : false,
                         'minimizavel' => $conteudo->parametro->minimizavel ? true : false,
                         'galeria' => $conteudo->parametro->galeria ? true : false,
@@ -113,7 +112,7 @@ abstract class Controller
                     'descricao' => count($pagina->paginasIdiomas) ? $pagina->paginasIdiomas[0]->descricao : null,
                     'titulo_compartilhamento' => count($pagina->paginasIdiomas) ? $pagina->paginasIdiomas[0]->titulo_compartilhamento : null,
                     'descricao_compartilhamento' => count($pagina->paginasIdiomas) ? $pagina->paginasIdiomas[0]->descricao_compartilhamento : null,
-                    'imagem' => $pagina->imagem
+                    'imagem' => rafator('/content/pages/' . $pagina->imagem),
                 ];
             }
 
@@ -243,28 +242,5 @@ abstract class Controller
                 'idioma' => $idioma,
             ]);
         }
-    }
-
-    protected function getLanguages($record, $translationModel, $language)
-    {
-        $idiomas = Idioma::query()
-            ->orderByDesc('padrao')
-            ->orderBy('codigo')
-            ->pluck('id', 'codigo')
-            ->toArray();
-
-        $translationProperty = Str::snake($translationModel);
-
-        if (!$language) {
-            return reset($idiomas);
-        } elseif (!$record->$translationProperty) {
-            if (!array_key_exists($language, $idiomas)) {
-                return false;
-            }
-
-            return $idiomas[$language];
-        }
-
-        return $record->$translationProperty[0]->idioma;
     }
 }
