@@ -10,7 +10,7 @@ import { TransportSlides } from "@/Components/TransportSlides";
 import { TransportTechAndSecurity } from "@/Components/TransportTechAndSecurity";
 
 const Page = () => {
-    const { certificacoes, imagensGaleria, conteudos } = usePage().props;
+    const { imagensGaleria, conteudos } = usePage().props;
 
     return (
         <DefaultLayout>
@@ -27,7 +27,7 @@ const Page = () => {
 
             <TransportTechAndSecurity content={conteudos[7]} />
 
-            <TransportCertification certification={certificacoes[3]} />
+            <TransportCertification certification={conteudos[12]} />
         </DefaultLayout>
     );
 };
