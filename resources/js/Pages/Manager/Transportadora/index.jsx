@@ -29,17 +29,19 @@ const Page = () => {
                 idioma={idioma.codigo}
             />
 
-            <FormContent
-                content={conteudos[8]}
-                full={true}
-                idioma={idioma.codigo}
-            />
+            <div className="grid lg:gap-x-4 lg:grid-cols-2">
+                <FormContent
+                    content={conteudos[8]}
+                    full={false}
+                    idioma={idioma.codigo}
+                />
 
-            <FormContent
-                content={conteudos[9]}
-                full={true}
-                idioma={idioma.codigo}
-            />
+                <FormContent
+                    content={conteudos[9]}
+                    full={false}
+                    idioma={idioma.codigo}
+                />
+            </div>
 
             <FormContent
                 content={conteudos[6]}
