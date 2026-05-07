@@ -26,37 +26,6 @@ class ConteudosService extends Service
      */
     public function editarConteudo($request, $id)
     {
-        $request->validate(
-            [
-                'conteudosIdiomas.0.titulo' => $request->exists('conteudosIdiomas.0.titulo') ? 'required' : 'nullable',
-                'conteudosIdiomas.0.subtitulo' => $request->exists('conteudosIdiomas.0.subtitulo') ? 'required' : 'nullable',
-                'conteudosIdiomas.0.texto' => $request->exists('conteudosIdiomas.0.texto') ? 'required' : 'nullable',
-                'conteudosIdiomas.0.link' => $request->exists('conteudosIdiomas.0.link') ? 'required|url' : 'nullable',
-                'conteudosIdiomas.0.video' => $request->exists('conteudosIdiomas.0.video') ? 'required|url' : 'nullable',
-                'img' => $request->hasFile('img') ? 'image|mimes:png,jpg|max:5120' : 'nullable',
-                'img_mobile' => $request->hasFile('img_mobile') ? 'image|mimes:png,jpg|max:5120' : 'nullable',
-                'conteudosIdiomas.0.arq' => $request->exists('conteudosIdiomas.0.arq') ? 'file|mimes:pdf|max:2048' : 'nullable',
-            ],
-            [
-                'conteudosIdiomas.0.titulo.required' => 'Por favor, informe o título.',
-                'conteudosIdiomas.0.subtitulo.required' => 'Por favor, informe o subtítulo.',
-                'conteudosIdiomas.0.texto.required' => 'Por favor, informe o texto.',
-                'conteudosIdiomas.0.link.required' => 'Por favor, informe o link.',
-                'conteudosIdiomas.0.link.url' => 'Por favor, informe um link válido.',
-                'conteudosIdiomas.0.video.required' => 'Por favor, informe o link do vídeo.',
-                'conteudosIdiomas.0.video.url' => 'Por favor, informe um link de vídeo válido.',
-                'img.image' => 'Por favor, selecione uma imagem válida.',
-                'img.mimes' => 'Os formatos de imagem válidos são: JPG e PNG.',
-                'img.max' => 'Por favor, envie um arquivo menor que 5MB.',
-                'img_mobile.image' => 'Por favor, selecione uma imagem mobile válida.',
-                'img_mobile.mimes' => 'Os formatos de imagem mobile válidos são: JPG e PNG.',
-                'img_mobile.max' => 'Por favor, envie um arquivo menor que 5MB.',
-                'conteudosIdiomas.0.arq.file' => 'Por favor, selecione um arquivo válido.',
-                'conteudosIdiomas.0.arq.mimes' => 'O formato de arquivo permitido é .pdf.',
-                'conteudosIdiomas.0.arq.max' => 'O tamanho do arquivo deve ser menor que 2MB.',
-            ]
-        );
-
         $conteudo = Conteudo::query()
             ->where('id', $id)
             ->with('Parametro')
@@ -132,8 +101,10 @@ class ConteudosService extends Service
             $conteudo_idioma->arquivo = $this->service->gerarNome($request->file('arq'));
         }
 
-        $response = $conteudo->save();
-        $response = $conteudo_idioma->save();
+        $responseConteudo = $conteudo->save();
+        $responseIdioma = $conteudo_idioma->save();
+
+        $response = $responseConteudo && $responseIdioma;
 
         if ($response) {
 
@@ -152,7 +123,7 @@ class ConteudosService extends Service
                     File::delete(public_path('content/display/') . $conteudoOriginal->imagem_mobile);
                 }
 
-                $this->service->salvar($request->file('img'), 'content/display/', $conteudo->imagem_mobile);
+                $this->service->salvar($request->file('img_mobile'), 'content/display/', $conteudo->imagem_mobile);
             }
 
             if ($conteudo->parametro->habilitar_arq && $request->file('arq') && $request->file('arq')->getError() == 0) {
