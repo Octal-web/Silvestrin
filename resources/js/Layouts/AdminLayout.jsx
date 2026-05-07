@@ -2,12 +2,14 @@ import { Head, Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
 import {
+    faAppleWhole,
     faBars,
     faHome,
     faInfoCircle,
     faPowerOff,
     faSignOut,
     faTimes,
+    faTrowel,
     faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,36 +43,29 @@ const menus = [
         ],
     },
     {
+        id: 3,
+        label: "Produtos",
+        icon: faAppleWhole,
+        controllers: ["Produtos", "Categorias", "Marcas"],
+        subMenu: [
+            { label: "Produtos", href: route("Manager.Produtos.index") },
+            { label: "Categorias", href: route("Manager.Categorias.index") },
+        ],
+    },
+    {
         id: 4,
+        label: "Cultivo",
+        icon: faTrowel,
+        href: route("Manager.Cultivo.index"),
+        controllers: ["Cultivo"],
+    },
+    {
+        id: 5,
         label: "Transportadora",
         icon: faTruck,
         href: route("Manager.Transportadora.index"),
         controllers: ["Transportadora"],
     },
-    // {
-    //     id: 3,
-    //     label: "Produtos",
-    //     icon: faWineBottle,
-    //     controllers: ["Linhas", "Categorias", "Produtos"],
-    //     subMenu: [
-    //         { label: "Linhas", href: route("Manager.Linhas.index") },
-    //         { label: "Produtos", href: route("Manager.Produtos.index") },
-    //     ],
-    // },
-    // {
-    //     id: 4,
-    //     label: "Enoturismo",
-    //     icon: faWineGlass,
-    //     href: route("Manager.Enoturismo.index"),
-    //     controllers: ["Enoturismo", "Experiencias"],
-    // },
-    // {
-    //     id: 5,
-    //     label: "Contato",
-    //     icon: faEnvelope,
-    //     href: route("Manager.Contato.index"),
-    //     controllers: ["Contato", "Newsletter"],
-    // },
     // {
     //     id: 6,
     //     label: "Política de Privacidade",
