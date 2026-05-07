@@ -1,19 +1,27 @@
+import { InputCheckbox } from "./InputCheckbox";
+import { InputColor } from "./InputColor";
+import { InputDatetime } from "./InputDatetime";
+import { InputFileDropzone } from "./InputFileDropzone";
+import { InputFileImage } from "./InputFileImage";
+import { InputLink } from "./InputLink";
+import { InputNumber } from "./InputNumber";
+import { InputSelect } from "./InputSelect";
+import { InputTag } from "./InputTag";
+import { InputText } from "./InputText";
+import { InputTextArea } from "./InputTextArea";
+import { InputTipTapEditor } from "./InputTipTapEditor";
 
-import { InputCheckbox } from './InputCheckbox';
-import { InputDatetime } from './InputDatetime';
-import { InputFileDropzone } from './InputFileDropzone';
-import { InputFileImage } from './InputFileImage';
-import { InputLink } from './InputLink';
-import { InputNumber } from './InputNumber';
-import { InputSelect } from './InputSelect';
-import { InputTag } from './InputTag';
-import { InputText } from './InputText';
-import { InputTextArea } from './InputTextArea';
-import { InputTipTapEditor } from './InputTipTapEditor';
-
-export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, handleImageCrop }) => {
+export const FormGroup = ({
+    input,
+    idioma,
+    imagem,
+    value,
+    toolbar,
+    onChange,
+    handleImageCrop,
+}) => {
     switch (input.tipo) {
-        case 'texto':
+        case "texto":
             return (
                 <InputText
                     title={input.titulo}
@@ -24,9 +32,8 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'texto_longo':
-            return (
-                input.editor ?
+        case "texto_longo":
+            return input.editor ? (
                 <InputTipTapEditor
                     title={input.titulo}
                     name={input.name}
@@ -36,7 +43,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     toolbar={input.toolbar}
                     onChange={onChange}
                 />
-                :
+            ) : (
                 <InputTextArea
                     title={input.titulo}
                     name={input.name}
@@ -46,7 +53,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'numero':
+        case "numero":
             return (
                 <InputNumber
                     title={input.titulo}
@@ -58,18 +65,30 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'imagem':
+
+        case "cor":
             return (
-                <InputFileImage 
+                <InputColor
                     title={input.titulo}
                     name={input.name}
-                    imagem={(input.imagem || value) ?? '/admin/img/others/select.png'} 
-                    size={{ largura: input.largura, altura: input.altura }} 
-                    allowCrop={input.crop ? true : false} 
+                    value={value}
+                    onChange={onChange}
+                />
+            );
+        case "imagem":
+            return (
+                <InputFileImage
+                    title={input.titulo}
+                    name={input.name}
+                    imagem={
+                        input.imagem || value || "/admin/img/others/select.png"
+                    }
+                    size={{ largura: input.largura, altura: input.altura }}
+                    allowCrop={input.crop ? true : false}
                     onImageCrop={handleImageCrop}
                 />
             );
-        case 'check':
+        case "check":
             return (
                 <InputCheckbox
                     title={input.titulo}
@@ -78,7 +97,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'select':
+        case "select":
             return (
                 <InputSelect
                     title={input.titulo}
@@ -90,7 +109,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     isMulti={input.isMulti}
                 />
             );
-        case 'video':
+        case "video":
             return (
                 <InputFileDropzone
                     title={input.titulo}
@@ -102,7 +121,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onDelete={() => onChange(input.name, null)}
                 />
             );
-        case 'arquivo':
+        case "arquivo":
             return (
                 <InputFileDropzone
                     title={input.titulo}
@@ -114,7 +133,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onDelete={() => onChange(input.name, null)}
                 />
             );
-        case 'data_hora':
+        case "data_hora":
             return (
                 <InputDatetime
                     title={input.titulo}
@@ -125,7 +144,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'link':
+        case "link":
             return (
                 <InputLink
                     title={input.titulo}
@@ -136,7 +155,7 @@ export const FormGroup = ({ input, idioma, imagem, value, toolbar, onChange, han
                     onChange={onChange}
                 />
             );
-        case 'tag':
+        case "tag":
             return (
                 <InputTag
                     title={input.titulo}

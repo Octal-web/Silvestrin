@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Link, useForm } from '@inertiajs/react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactSortable } from "react-sortablejs";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IndividualContent } from './IndividualContent';
 import { IndividualItem } from './IndividualItem';
@@ -46,7 +46,7 @@ export const BlockContent = ({ content }) => {
                 {content.addParametros && content.addParametros.length > 0 ? (
                     <div className="flex">
                         {content.addParametros.map((parameter, index) => (
-                            <Link href={route(`Manager.${content.controller}.adicionar`, {tipo: parameter})} className="flex items-center border border-stroke bg-white px-3 py-2 rounded-md transition-all hover:bg-slate-100 ml-2">
+                            <Link key={index} href={route(`Manager.${content.controller}.adicionar`, {tipo: parameter})} className="flex items-center border border-stroke bg-white px-3 py-2 rounded-md transition-all hover:bg-slate-100 ml-2">
                                 <FontAwesomeIcon icon={faPlus} className="text-slate-700 mr-2" />
                                 {`Adicionar ${parameter}`}
                             </Link>
@@ -122,7 +122,7 @@ export const BlockContent = ({ content }) => {
                     content.addParametros && content.addParametros.length > 0 ? (
                         <div className="flex">
                             {content.addParametros.map((parameter, index) => (
-                                <Link href={route(`Manager.${content.controller}.adicionar`, {tipo: parameter})} className="flex items-center border border-stroke bg-white px-3 py-2 rounded-md transition-all hover:bg-slate-100 ml-2">
+                                <Link key={index} href={route(`Manager.${content.controller}.adicionar`, {tipo: parameter})} className="flex items-center border border-stroke bg-white px-3 py-2 rounded-md transition-all hover:bg-slate-100 ml-2">
                                     <FontAwesomeIcon icon={faPlus} className="text-slate-700 mr-2" />
                                     {`Adicionar ${parameter}`}
                                 </Link>

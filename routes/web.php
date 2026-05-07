@@ -18,6 +18,7 @@ use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 use App\Http\Controllers\Manager\PaginasController as ManagerPaginasController;
 use App\Http\Controllers\Manager\SlidesController as ManagerSlidesController;
 use App\Http\Controllers\Manager\ValoresController as ManagerValoresController;
+use App\Http\Controllers\Manager\ParceriasController as ManagerParceriasController;
 use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
@@ -65,7 +66,7 @@ Route::prefix('/manager')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::put('/paginas/editar/{id}', [ManagerPaginasController::class, 'editarAction'])->name('Manager.Paginas.editar');
 
-        Route::put('/conteudos/editar/{id}', [ManagerConteudosController::class, 'editarAction'])->name('Manager.Conteudos.editar');
+        Route::post('/conteudos/editar/{id}', [ManagerConteudosController::class, 'editarAction'])->name('Manager.Conteudos.editar');
         Route::post('/conteudos/baixar-arquivo/{id}', [ManagerConteudosController::class, 'baixarArquivo'])->name('Manager.Conteudos.baixarArquivo');
 
         Route::get('/imagens/{id}', [ManagerImagensController::class, 'conteudo'])->name('Manager.Imagens.conteudo');
@@ -108,7 +109,7 @@ Route::prefix('/manager')->group(function () {
 
         Route::get('/institucional', [ManagerInstitucionalController::class, 'index'])->name('Manager.Institucional.index');
 
-        Route::get('/institucional/sustentabilidade', [ManagerInstitucionalController::class, 'sustentabilida'])->name('Manager.Institucional.index');
+        Route::get('/institucional/sustentabilidade', [ManagerInstitucionalController::class, 'sustentabilidade'])->name('Manager.Institucional.sustentabilidade');
 
         Route::post('/parcerias/ordenar', [ManagerParceriasController::class, 'ordenar'])->name('Manager.Parcerias.ordenar');
         Route::post('/parcerias/visibilidade/{id}', [ManagerParceriasController::class, 'visibilidade'])->name('Manager.Parcerias.visibilidade');

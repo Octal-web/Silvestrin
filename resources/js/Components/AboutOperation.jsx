@@ -34,7 +34,7 @@ export const AboutOperation = ({ content }) => {
                         <Reveal direction="left" className="">
                             <div className="ml-auto max-w-[772px] mt-8">
                                 <LetterReveal
-                                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[303px] mx-auto md:mx-0 text-center md:text-start uppercase"
+                                    className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[343px] mx-auto md:mx-0 text-center md:text-start uppercase"
                                     text={content[1].titulo}
                                     element="h2"
                                 />

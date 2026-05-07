@@ -37,7 +37,7 @@ export const FormContent = ({ content, full, toolbar, idioma, arqTipo = 'arquivo
         setIsModalOpen(false);
     };
 
-    const { data, setData, put, processing, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         conteudosIdiomas: [
             {
                 ...(content.titulo ? { titulo: content.titulo } : {}),
@@ -70,7 +70,7 @@ export const FormContent = ({ content, full, toolbar, idioma, arqTipo = 'arquivo
         });
     };
 
-    const handleImageCrop = (croppedImage) => {
+    const handleImageCrop = (croppedImage) => {        
         setData(prevData => ({
             ...prevData,
             img: croppedImage
@@ -82,11 +82,10 @@ export const FormContent = ({ content, full, toolbar, idioma, arqTipo = 'arquivo
 
         const idioma_url = new URLSearchParams(window.location.search).get('lang');
 
-        put(route('Manager.Conteudos.editar', {id: content.id, lang: idioma_url}), {
+        post(route('Manager.Conteudos.editar', {id: content.id, lang: idioma_url}), {
             preserveScroll: true,
         });
 
-        console.log(data)
     };
 
     const toggleCollapse = () => {

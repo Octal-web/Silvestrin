@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Manager\DadosGeraisRequest;
 use Inertia\Inertia;
-use App\Http\Requests\Manager\PostGeneralDataRequest;
-use App\Models\Certificacao;
 use App\Models\DadosGerais;
 use App\Models\Slide;
 use App\Models\Valor;
@@ -71,35 +69,10 @@ class HomeController extends Controller
                 ];
             });
 
-        $certificacoes = Certificacao::query()
-            ->where([
-                'excluido' => NULL
-            ])
-            ->with([
-                'certificacoesIdiomas' => function ($q) {
-                    $q->whereHas('idiomas', function ($r) {
-                        $r->Where('padrao', true);
-                    })
-                        ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'visivel' => $item->visivel,
-                    'nome' => $item->certificacoesIdiomas->isNotEmpty() ? $item->certificacoesIdiomas[0]->nome : null,
-                    'logo' => rafator('content/certifications/thumbs/' . $item->logo)
-                ];
-            });
-
         return Inertia::render('Manager/Home/index', [
             'dadosGerais' => $dadosGerais,
             'slides' => $slides,
             'valores' => $valores,
-            'certificacoes' => $certificacoes
         ]);
     }
 
@@ -111,7 +84,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function atualizarInfo(PostGeneralDataRequest $request)
+    public function atualizarInfo(DadosGeraisRequest $request)
     {
         if ($request->ajax()) {
             $dados_gerais = DadosGerais::first();

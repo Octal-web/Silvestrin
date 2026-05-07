@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
     faBars,
     faHome,
+    faInfoCircle,
     faPowerOff,
     faSignOut,
     faTimes
@@ -15,35 +16,29 @@ import { MenuItem } from "@/Components/Manager/MenuItem";
 import { NotificationMessage } from "@/Components/Manager/NotificationMessage";
 
 const menus = [
-    //Alterar
-
     {
         id: 1,
         label: "Home",
         icon: faHome,
         href: route("Manager.Home.index"),
-        controllers: ["Home", "Slides"], //Serve para referenciar que os controllers pertencem a home
+        controllers: ["Home", "Slides", "Valores"],
     },
-    // {
-    //     id: 2,
-    //     label: "Institucional",
-    //     icon: faInfoCircle,
-    //     controllers: ["Institucional", "Vinhedos", "Acontecimentos"],
-    //     subMenu: [
-    //         {
-    //             label: "Institucional",
-    //             href: route("Manager.Institucional.index"),
-    //         },
-    //         {
-    //             label: "História",
-    //             href: route("Manager.Institucional.historia"),
-    //         },
-    //         {
-    //             label: "Sustentabilidade",
-    //             href: route("Manager.Institucional.sustentabilidade"),
-    //         },
-    //     ],
-    // },
+    {
+        id: 2,
+        label: "Institucional",
+        icon: faInfoCircle,
+        controllers: ["Institucional", "Parcerias"],
+        subMenu: [
+            {
+                label: "Institucional",
+                href: route("Manager.Institucional.index"),
+            },
+            {
+                label: "Sustentabilidade",
+                href: route("Manager.Institucional.sustentabilidade"),
+            },
+        ],
+    },
     // {
     //     id: 3,
     //     label: "Produtos",
@@ -134,7 +129,7 @@ const AdminLayout = ({ children }) => {
     return (
         <>
             <Head>
-                <title>Pizzato | Manager</title>
+                <title>Silvestrin | Manager</title>
                 <link rel="icon" href={`/favicon.ico`} type="image/x-icon" />
             </Head>
             <header></header>

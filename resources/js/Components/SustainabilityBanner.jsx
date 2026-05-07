@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export const SustainabilityBanner = ({ content }) => {
-    const partesTitulo = content.texto ? content.titulo.split("\r\n") : [];
+    const partesTitulo = content.texto ? content.titulo.split(/ (.+)/) : [];
     const partesSubtitulo = content.texto
         ? content.subtitulo.split("\r\n\r\n")
         : [];
@@ -60,7 +60,7 @@ export const SustainabilityBanner = ({ content }) => {
                             />
                         ))}
 
-                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 mt-10 border-b pb-10 2xl:pb-16">
+                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 mt-4 border-b pb-10 2xl:pb-16">
                             {partesSubtitulo.map((parte, i) => (
                                 <p className="max-w-[623px] mx-auto" key={i}>{parte}</p>
                             ))}

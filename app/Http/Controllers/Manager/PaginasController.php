@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Manager\PaginaRequest;
 use App\Services\PaginasService;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class PaginasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function editarAction(Request $request, $id)
+    public function editarAction(PaginaRequest $request, $id)
     {
         if ($request->ajax()) {
             $response = $this->service->editarPagina($request, $id);
