@@ -7,7 +7,8 @@ import {
     faInfoCircle,
     faPowerOff,
     faSignOut,
-    faTimes
+    faTimes,
+    faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -38,6 +39,13 @@ const menus = [
                 href: route("Manager.Institucional.sustentabilidade"),
             },
         ],
+    },
+    {
+        id: 4,
+        label: "Transportadora",
+        icon: faTruck,
+        href: route("Manager.Transportadora.index"),
+        controllers: ["Transportadora"],
     },
     // {
     //     id: 3,
