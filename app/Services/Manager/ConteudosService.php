@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Manager;
 
 use App\Models\Conteudo;
 use App\Models\ConteudoIdioma;
