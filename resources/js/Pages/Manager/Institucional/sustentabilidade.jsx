@@ -19,8 +19,7 @@ const Page = () => {
     };
 
     const breadcrumbItems = [
-        // { label: 'Home', link: 'Home.index' },
-        // { label: 'Projects', link: 'Home.index' },
+        { label: 'Institucional', link: 'Manager.Institucional.index' },
     ];
 
     return (

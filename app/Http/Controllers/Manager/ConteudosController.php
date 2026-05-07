@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\ConteudoRequest;
 use App\Models\Conteudo;
-use App\Services\ConteudosService;
+use App\Services\Manager\ConteudosService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;

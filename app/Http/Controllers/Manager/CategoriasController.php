@@ -3,20 +3,22 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Manager\ParceriaRequest;
+
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Valor;
-use App\Services\Manager\ParceriasService;
+use App\Http\Requests\Manager\CategoriaRequest;
+use App\Models\Categoria;
+use App\Models\Marca;
+use App\Services\Manager\CategoriasService;
 use Carbon\Carbon;
 
 
-class ParceriasController extends Controller
+class CategoriasController extends Controller
 {
 
     protected $service;
 
-    public function __construct(ParceriasService $service)
+    public function __construct(CategoriasService $service)
     {
         parent::__construct();
         $this->service = $service;
@@ -27,9 +29,69 @@ class ParceriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        $marcas = Marca::query()
+            ->where([
+                'excluido' => NULL
+            ])
+            ->with([
+                'marcasIdiomas' => function ($q) {
+                    $q->whereHas('idiomas', function ($r) {
+                        $r->Where('padrao', true);
+                    })
+                        ->orderBy('idioma_id', 'DESC');
+                }
+            ])
+            ->orderBy('ordem', 'ASC')
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'visivel' => $item->visivel,
+                    'titulo' => $item->marcasIdiomas->isNotEmpty() ? $item->marcasIdiomas[0]->nome : null,
+                    'imagem' => rafator('content/brands/thumbs/' . $item->logo)
+                ];
+            });
+
+        $categorias = Categoria::query()
+            ->where([
+                'excluido' => NULL
+            ])
+            ->with([
+                'categoriasIdiomas' => function ($q) {
+                    $q->whereHas('idiomas', function ($r) {
+                        $r->Where('padrao', true);
+                    })
+                        ->orderBy('idioma_id', 'DESC');
+                }
+            ])
+            ->orderBy('ordem', 'ASC')
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'visivel' => $item->visivel,
+                    'titulo' => $item->categoriasIdiomas->isNotEmpty() ? $item->categoriasIdiomas[0]->nome : null,
+                ];
+            });
+
+        return Inertia::render('Manager/Categorias/index', [
+            'marcas' => $marcas,
+            'categorias' => $categorias,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function adicionar()
     {
-        return Inertia::render('Manager/Parcerias/adicionar');
+        return Inertia::render('Manager/Categorias/adicionar');
     }
 
     /**
@@ -38,21 +100,15 @@ class ParceriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function novo(ParceriaRequest $request)
+    public function novo(CategoriaRequest $request)
     {
         if ($request->ajax()) {
-            $arquivo = $request->file('imagem');
-
-            if (!$arquivo) {
-                return Inertia::location(route('Manager.Institucional.sustentabilidade'));
-            }
-
             $idioma = inertia()->getShared('idioma');
 
-            $response = $this->service->cadastrarParceria($idioma, $request);
+            $response = $this->service->cadastrarCategoria($idioma, $request);
 
             if ($response) {
-                return to_route('Manager.Institucional.sustentabilidade')->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!']);
+                return to_route('Manager.Categorias.index')->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!']);
             }
         }
     }
@@ -66,15 +122,15 @@ class ParceriasController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Institucional.sustentabilidade'));
+            return Inertia::location(route('Manager.Categorias.index'));
         }
 
-        [$parceriaData, $idioma, $idiomas] = $this->service->editarParceria($id);
+        [$categoriaData, $idioma, $idiomas] = $this->service->editarCategoria($id);
 
-        return Inertia::render('Manager/Parcerias/editar', [
+        return Inertia::render('Manager/Categorias/editar', [
             'idiomas' => $idiomas,
             'idioma' => $idioma,
-            'parceria' => $parceriaData
+            'categoria' => $categoriaData
         ]);
     }
 
@@ -85,16 +141,16 @@ class ParceriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function atualizar(ParceriaRequest $request, $id)
+    public function atualizar(CategoriaRequest $request, $id)
     {
         if ($request->ajax()) {
-            $response = $this->service->atualizarParceria($request, $id);
+            $response = $this->service->atualizarCategoria($request, $id);
 
             return $response
-                ? to_route('Manager.Institucional.sustentabilidade')->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!'])
-                : to_route('Manager.Institucional.sustentabilidade')->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações.']);
+                ? to_route('Manager.Categorias.index')->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!'])
+                : to_route('Manager.Categorias.index')->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações.']);
         }
-        return to_route('Manager.Institucional.sustentabilidade')->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações. Tente novamente mais tarde.']);
+        return to_route('Manager.Categorias.index')->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações. Tente novamente mais tarde.']);
     }
 
     /**
@@ -111,7 +167,7 @@ class ParceriasController extends Controller
                 return $request->header('referer');
             }
 
-            $exclusao = Valor::query()
+            $exclusao = Categoria::query()
                 ->where([
                     'excluido' => NULL,
                     'id' => $id

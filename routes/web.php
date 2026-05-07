@@ -21,6 +21,7 @@ use App\Http\Controllers\Manager\ValoresController as ManagerValoresController;
 use App\Http\Controllers\Manager\ParceriasController as ManagerParceriasController;
 use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
+use App\Http\Controllers\Manager\CultivoController as ManagerCultivoController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
 use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasController;
 use App\Http\Controllers\Manager\TransportadoraController as ManagerTransportadoraController;
@@ -44,8 +45,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
     Route::get('/transportadora', [TransportadoraController::class, 'index'])->name('Transportadora.index');
 
-    Route::get('/produtos', [ProdutosController::class, 'marcas'])->name('Produtos.marcas');
-    Route::get('/produtos/frutas', [ProdutosController::class, 'frutas'])->name('Produtos.frutas');
+    Route::get('/produtos', [ProdutosController::class, 'index'])->name('Produtos.index');
 
     Route::get('/cultivo', [CultivoController::class, 'index'])->name('Cultivo.index');
 
@@ -121,6 +121,9 @@ Route::prefix('/manager')->group(function () {
         Route::post('/parcerias/editar/{id}', [ManagerParceriasController::class, 'atualizar'])->name('Manager.Parcerias.atualizar');
 
 
+        Route::get('/cultivo', [ManagerCultivoController::class, 'index'])->name('Manager.Cultivo.index');
+
+
         Route::get('/produtos', [ManagerProdutosController::class, 'index'])->name('Manager.Produtos.index');
 
         Route::post('/produtos/ordenar', [ManagerProdutosController::class, 'ordenar'])->name('Manager.Produtos.ordenar');
@@ -131,6 +134,9 @@ Route::prefix('/manager')->group(function () {
         Route::post('/produtos/adicionar', [ManagerProdutosController::class, 'novo'])->name('Manager.Produtos.novo');
         Route::get('/produtos/editar/{id}', [ManagerProdutosController::class, 'editar'])->name('Manager.Produtos.editar');
         Route::post('/produtos/editar/{id}', [ManagerProdutosController::class, 'atualizar'])->name('Manager.Produtos.atualizar');
+
+
+        Route::get('/categorias', [ManagerCategoriasController::class, 'index'])->name('Manager.Categorias.index');
 
 
         Route::post('/categorias/ordenar', [ManagerCategoriasController::class, 'ordenar'])->name('Manager.Categorias.ordenar');

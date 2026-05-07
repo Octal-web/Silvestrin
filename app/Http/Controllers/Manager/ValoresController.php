@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\Manager\ValorRequest;
 use App\Models\Valor;
-use App\Services\ValoresService;
+use App\Services\Manager\ValoresService;
 use Carbon\Carbon;
 
 

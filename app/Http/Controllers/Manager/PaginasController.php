@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\PaginaRequest;
-use App\Services\PaginasService;
+use App\Services\Manager\PaginasService;
 use Illuminate\Http\Request;
 
 class PaginasController extends Controller

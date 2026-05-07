@@ -19,7 +19,7 @@ export const HomeBrands = ({ brands }) => {
                     <div className="flex flex-wrap justify-center lg:flex-row gap-6">
                         <Reveal>
                             <Link
-                                href={route("Produtos.marcas", {
+                                href={route("Produtos.index", {
                                     marca: "todas-silvestrin",
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
@@ -30,7 +30,7 @@ export const HomeBrands = ({ brands }) => {
 
                         <Reveal delay={5}>
                             <Link
-                                href={route("Produtos.marcas", {
+                                href={route("Produtos.index", {
                                     marca: "todas-parceiras",
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
@@ -41,7 +41,7 @@ export const HomeBrands = ({ brands }) => {
 
                         <Reveal delay={10}>
                             <Link
-                                href={route("Produtos.marcas", {
+                                href={route("Produtos.index", {
                                     categoria: "a-granel",
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
@@ -56,7 +56,7 @@ export const HomeBrands = ({ brands }) => {
                     {others.map((item, index) => (
                         <Reveal key={index} delay={index}>
                             <Link
-                                href={route("Produtos.marcas", {
+                                href={route("Produtos.index", {
                                     marca: item.slug,
                                 })}
                                 className="group"
@@ -79,7 +79,7 @@ export const HomeBrands = ({ brands }) => {
                             {partners.map((item, index) => (
                                 <Reveal key={index} delay={index}>
                                     <Link
-                                        href={route("Produtos.marcas", {
+                                        href={route("Produtos.index", {
                                             marca: item.slug,
                                             parceiro: item.parceiro,
                                         })}

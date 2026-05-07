@@ -55,7 +55,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                             {others.map((marca, index) => (
                                 <Link
                                     key={index}
-                                    href={route("Produtos.marcas", {
+                                    href={route("Produtos.index", {
                                         marca: marca.slug,
                                     })}
                                     className="transition-all hover:scale-110 hover:opacity-80"
@@ -80,7 +80,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                         {partners.map((marca, index) => (
                             <Link
                                 key={index}
-                                href={route("Produtos.marcas", {
+                                href={route("Produtos.index", {
                                     marca: marca.slug,
                                     parceira: 1
                                 })}
@@ -98,7 +98,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                     </div>
                 </div>
                 <Link
-                    href={route("Produtos.marcas", {
+                    href={route("Produtos.index", {
                         categoria: "a-granel",
                     })}
                     className="flex flex-col items-center justify-center min-h-[180px] w-full bg-primary transition-all hover:bg-secondary col-span-1 z-20"
