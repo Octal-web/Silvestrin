@@ -21,13 +21,18 @@ class ValorRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nome'  => 'required',
-            'texto'  => 'required',
-            'icone' => (inertia()->getShared('action') === 'novo'
-                ? 'required|image|mimes:png,jpg|max:2048'
-                : 'nullable|image|mimes:png,jpg|max:2048'),
+        $rules = [
+            'nome' => 'required',
+            'texto' => 'required',
         ];
+
+        if ($this->hasFile('icone')) {
+            $rules['icone'] = 'image|mimes:png,jpg|max:2048';
+        } elseif (inertia()->getShared('action') === 'novo') {
+            $rules['icone'] = 'required';
+        }
+
+        return $rules;
     }
 
     /**
