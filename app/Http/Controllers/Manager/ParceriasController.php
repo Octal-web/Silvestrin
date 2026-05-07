@@ -7,7 +7,7 @@ use App\Http\Requests\Manager\ParceriaRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Valor;
-use App\Services\ParceriasService;
+use App\Services\Manager\ParceriasService;
 use Carbon\Carbon;
 
 

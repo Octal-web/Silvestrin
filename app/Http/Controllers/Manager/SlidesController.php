@@ -10,7 +10,7 @@ use App\Models\Idioma;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\Manager\SlideRequest;
-use App\Services\SlidesService;
+use App\Services\Manager\SlidesService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
-use App\Services\ImagensService;
+use App\Services\Manager\ImagensService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
