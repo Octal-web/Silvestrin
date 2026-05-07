@@ -17,7 +17,6 @@ const Page = () => {
     const { data, setData, post, errors } = useForm(parceria);
 
     const breadcrumbItems = [
-        { label: "Home", link: "Manager.Home.index" },
         {
             label: "Sustentabilidade",
             link: "Manager.Institucional.sustentabilidade",

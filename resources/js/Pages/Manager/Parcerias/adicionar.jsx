@@ -18,7 +18,6 @@ const Page = () => {
     const { data, setData, post, processing, errors } = useForm();
 
     const breadcrumbItems = [
-        { label: "Home", link: "Manager.Home.index" },
         {
             label: "Sustentabilidade",
             link: "Manager.Institucional.sustentabilidade",
