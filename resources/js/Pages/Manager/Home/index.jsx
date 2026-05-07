@@ -5,6 +5,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { BlockContent } from "@/Components/Manager/BlockContent";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
+import { GeneralData } from "@/Components/Manager/GeneralData";
 import { PageSettings } from "@/Components/Manager/PageSettings";
 import AdminLayout from "@/Layouts/AdminLayout";
 
@@ -48,7 +49,7 @@ const Page = () => {
             />
             <PageSettings page={pagina} idioma={idioma.codigo} />
 
-            {/* <GeneralData /> */}
+            <GeneralData />
 
             <BlockContent content={contentSlides} />
 
@@ -91,7 +92,7 @@ const Page = () => {
                 />
             </div>
 
-                        <FormContent
+            <FormContent
                 content={conteudos[12]}
                 full={true}
                 idioma={idioma.codigo}
