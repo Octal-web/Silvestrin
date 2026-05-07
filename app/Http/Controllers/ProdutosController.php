@@ -16,7 +16,7 @@ class ProdutosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function marcas()
+    public function index()
     {
         $idioma = inertia()->getShared('idioma');
 
