@@ -27,29 +27,6 @@ class PaginasService extends Service
      */
     public function editarPagina($request, $id)
     {
-        $request->validate(
-            [
-                'paginasIdiomas.0.titulo' => 'required|max:60',
-                'paginasIdiomas.0.descricao' => 'required|max:300',
-                'paginasIdiomas.0.titulo_compartilhamento' => 'required|max:60',
-                'paginasIdiomas.0.descricao_compartilhamento' => 'required|max:300',
-                'img' => 'nullable|image|mimes:png,jpg|max:2048',
-            ],
-            [
-                'paginasIdiomas.0.titulo.required' => 'Por favor, informe o título.',
-                'paginasIdiomas.0.titulo.max' => 'O título da página deve conter no máximo 60 caracteres.',
-                'paginasIdiomas.0.descricao.required' => 'Por favor, informe a descrição da página.',
-                'paginasIdiomas.0.descricao.max' => 'A descrição da página deve conter no máximo 300 caracteres.',
-                'paginasIdiomas.0.titulo_compartilhamento.required' => 'Por favor, informe o título exibido ao compartilhar.',
-                'paginasIdiomas.0.titulo_compartilhamento.max' => 'O título exibido ao compartilhar deve conter no máximo 60 caracteres.',
-                'paginasIdiomas.0.descricao_compartilhamento.required' => 'Por favor, informe a descrição exibida ao compartilhar.',
-                'paginasIdiomas.0.descricao_compartilhamento.max' => 'A descrição exibida ao compartilhar deve conter no máximo 300 caracteres.',
-                'img.image' => 'Por favor, selecione uma imagem válida.',
-                'img.mimes' => 'Os formatos de imagem válidos são: JPG e PNG.',
-                'img.max' => 'Por favor, envie um arquivo menor que 2MB.',
-            ]
-        );
-
         $pagina = Pagina::query()
             ->where([
                 'id' => $id
