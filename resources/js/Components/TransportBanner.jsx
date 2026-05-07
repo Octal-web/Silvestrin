@@ -28,7 +28,7 @@ export const TransportBanner = ({ content }) => {
 
                 <div
                     className="text-xs md:text-sm 2xl:text-base text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12 max-w-3xl mx-auto"
-                    dangerouslySetInnerHTML={{ __html: content.texto }}
+                    dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"),}}
                 />
             </div>
         </section>

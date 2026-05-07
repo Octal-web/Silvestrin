@@ -106,7 +106,7 @@ export const CultivationExperimental = ({ content }) => {
                             <div
                                 className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance mt-5"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[1].texto,
+                                    __html: content[1].texto.replace(/\n/g, "<br />"),
                                 }}
                             />
                         </div>

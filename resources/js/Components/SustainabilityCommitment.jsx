@@ -112,7 +112,7 @@ export const SustainabilityCommitment = ({ content }) => {
                             <div
                                 className="text-sm 2xl:text-base text-custom-gray text-balance mt-4 mb-6 2xl:my-8 lg:max-w-[682px] mx-auto"
                                 dangerouslySetInnerHTML={{
-                                    __html: content.texto,
+                                    __html: content.texto.replace(/\n/g, "<br />"),
                                 }}
                             />
                         </div>

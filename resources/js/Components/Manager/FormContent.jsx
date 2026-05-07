@@ -220,7 +220,7 @@ export const FormContent = ({ content, full, toolbar, idioma, arqTipo = 'arquivo
                                 </div>
 
                                 { content.habilitar_img_mobile &&
-                                    <div className={`col-span-12 ${full ? ' lg:col-span-4' : ''}`}>
+                                    <div className={`col-span-12 ${full ? ' lg:col-span-8' : ''}`}>
                                         <InputFileImage title="Imagem Mobile" name="img_mobile" imagem={content.imagem_mobile} size={{largura: content.largura_img_mobile, altura: content.altura_img_mobile}} crop={content.recortar_img_mobile ? true : false} onImageCrop={handleImageCrop} />
                                         {errors['img_mobile'] && <p className="text-sm text-red-500 -mt-5 mb-3">{errors['img_mobile']}</p>}
                                     </div>

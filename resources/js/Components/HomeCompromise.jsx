@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 
 import LetterReveal from './LetterReveal';
 
@@ -81,7 +81,7 @@ export const HomeCompromise = ({ content }) => {
             <div className="relative container max-w-large">
                 <div className="text-center">
                     <LetterReveal className="font-secondary text-white text-5xl font-black leading-tight uppercase mb-2" text={content.titulo} element="h2" />
-                    <div className="text-white whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content.texto }} />
+                    <div className="text-white whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }} />
                 </div>
             </div>
 

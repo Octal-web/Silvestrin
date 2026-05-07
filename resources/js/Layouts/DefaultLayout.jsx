@@ -408,24 +408,10 @@ const DefaultLayout = ({ children }) => {
                             <div className="flex flex-wrap justify-center gap-2">
                                 <Link
                                     href={route("Politicas.privacidade")}
-                                    className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100 border-r-2 pr-2"
+                                    className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100"
                                 >
                                     Política de Privacidade
                                 </Link>
-
-                                <Link
-                                    href={route("Politicas.privacidade")}
-                                    className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100 border-r-2 pr-2"
-                                >
-                                    Política de cookies
-                                </Link>
-
-                                <a
-                                    href={route("Politicas.privacidade")}
-                                    className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100"
-                                >
-                                    Definições de cookies
-                                </a>
                             </div>
 
                             <span className="text-white text-xs sm:text-sm text-center opacity-70 mb-5 md:mb-0">
