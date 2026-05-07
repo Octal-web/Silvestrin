@@ -1,11 +1,13 @@
 import { usePage } from "@inertiajs/react";
 
 import { BlockContent } from "@/Components/Manager/BlockContent";
+import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
 import AdminLayout from "@/Layouts/AdminLayout";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
-    const { conteudos, idioma, parcerias } = usePage().props;
+    const { conteudos, idioma, parcerias, idiomas } = usePage().props;
 
     const contentPartnerships = {
         nome: ["Parcerias", "parceria"],
@@ -16,8 +18,21 @@ const Page = () => {
         conteudos: parcerias,
     };
 
+    const breadcrumbItems = [
+        // { label: 'Home', link: 'Home.index' },
+        // { label: 'Projects', link: 'Home.index' },
+    ];
+
     return (
         <AdminLayout>
+            <Breadcrumb
+                icon={faLeaf}
+                items={breadcrumbItems}
+                current="Sustentabilidade"
+                idioma={idioma.codigo}
+                idiomas={idiomas}
+            />
+
             <FormContent
                 content={conteudos[0]}
                 full={true}
