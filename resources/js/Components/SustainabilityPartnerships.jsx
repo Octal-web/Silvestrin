@@ -119,7 +119,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                                 <div
                                     className={`text-sm 2xl:text-base ${!item.subtitulo && "pt-7 2xl:pt-10"} ${item.cor ? "text-custom-gray" : "text-white"} lg:text-balance`}
                                     dangerouslySetInnerHTML={{
-                                        __html: item.texto,
+                                        __html: item.texto.replace(/\n/g, "<br />"),
                                     }}
                                 />
                             </Reveal>
