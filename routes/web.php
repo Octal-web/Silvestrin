@@ -23,7 +23,7 @@ use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
 use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasController;
-use App\Http\Controllers\Manager\ContatoController as ManagerContatoController;
+use App\Http\Controllers\Manager\TransportadoraController as ManagerTransportadoraController;
 use App\Http\Controllers\Manager\PoliticasController as ManagerPoliticasController;
 
 /*
@@ -143,9 +143,7 @@ Route::prefix('/manager')->group(function () {
         Route::post('/categorias/editar/{id}', [ManagerCategoriasController::class, 'atualizar'])->name('Manager.Categorias.atualizar');
 
 
-        Route::get('/contato', [ManagerContatoController::class, 'index'])->name('Manager.Contato.index');
-        Route::get('/contato/visualizar/{id}', [ManagerContatoController::class, 'visualizar'])->name('Manager.Contato.visualizar');
-        Route::post('/contato/excluir/{id}', [ManagerContatoController::class, 'excluir'])->name('Manager.Contato.excluir');
+        Route::get('/transportadora', [ManagerTransportadoraController::class, 'index'])->name('Manager.Transportadora.index');
 
 
         Route::get('/politicas/privacidade', [ManagerPoliticasController::class, 'privacidade'])->name('Manager.Politicas.privacidade');
