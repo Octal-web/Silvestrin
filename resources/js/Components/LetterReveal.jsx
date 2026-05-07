@@ -39,6 +39,7 @@ const LetterReveal = ({ text, className, element = "div", style = "" }) => {
                 <span
                     key={wi}
                     style={{ display: "inline-block", whiteSpace: "nowrap", marginRight: "0.25em" }}
+                    className="pt-2"
                 >
                     {word.split("").map((char, ci) => (
                         <span
