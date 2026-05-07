@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Manager\ConteudoRequest;
 use App\Models\Conteudo;
 use App\Services\ConteudosService;
 use Illuminate\Http\Request;
@@ -29,14 +29,14 @@ class ConteudosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function editarAction(Request $request, $id)
+    public function editarAction(ConteudoRequest $request, $id)
     {
         if ($request->ajax()) {
             $response = $this->service->editarConteudo($request, $id);
 
             return $response
-                ? to_route('Manager.Home.index')->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!'])
-                : to_route('Manager.Home.index')->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações.']);
+                ? redirect()->back()->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!'])
+                : redirect()->back()->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações.']);
         }
         return Inertia::location(route('Manager.Usuarios.login'));
     }
@@ -65,7 +65,7 @@ class ConteudosController extends Controller
             return Inertia::location(route('Manager.Home.index'));
         }
 
-        return Response::download(File::path('content/files/' . $conteudo_idioma->arquivo));
+        return Response::download(File::path('content/files/' . $conteudo->conteudo_idioma->arquivo));
     }
 
     /**
@@ -89,8 +89,8 @@ class ConteudosController extends Controller
                 ->with('Parametro')
                 ->first();
 
-            $arquivo = $conteudo_idioma->arquivo;
-            $conteudo_idioma->arquivo = null;
+            $arquivo = $conteudo->conteudo_idioma->arquivo;
+            $conteudo->conteudo_idioma->arquivo = null;
 
             if ($conteudo->save()) {
                 File::delete('content/files/' . $arquivo);
