@@ -15,7 +15,7 @@ export const SustainabilityReuse = ({ content }) => {
                         <div
                             className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 xl:max-w-[462px]"
                             dangerouslySetInnerHTML={{
-                                __html: content.texto,
+                                __html: content.texto.replace(/\n/g, "<br />"),
                             }}
                         />
                     </Reveal>

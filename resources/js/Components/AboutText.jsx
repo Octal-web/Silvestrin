@@ -87,7 +87,7 @@ export const AboutText = ({ content, video }) => {
                             ))}
                         </div>
 
-                        <div className="text-xs md:text-sm 2xl:text-base text-gray-800 sm:text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12" dangerouslySetInnerHTML={{ __html: content.texto }} /> 
+                        <div className="text-xs md:text-sm 2xl:text-base text-gray-800 sm:text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12" dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }} /> 
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 
-import { Reveal } from './Reveal';
 import LetterReveal from './LetterReveal';
+import { Reveal } from './Reveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +51,7 @@ export const HomeStation = ({ content }) => {
                     <Reveal direction="left" className="">
                         <div className="ml-auto max-w-[772px] mt-8">
                             <LetterReveal className="font-secondary text-custom-red text-5xl font-black leading-tight max-w-[14.2em] uppercase" text={content.titulo} element="h2" />
-                            <div className="max-w-[30em] text-neutral-600 text-balance my-10" dangerouslySetInnerHTML={{ __html: content.texto }} /> 
+                            <div className="max-w-[30em] text-neutral-600 text-balance my-10" dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }} /> 
                         </div>
                     </Reveal>
                     

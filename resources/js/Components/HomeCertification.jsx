@@ -23,7 +23,7 @@ export const HomeCertification = ({ certification }) => {
                         <div
                             className="whitespace-pre-line text-sm lg:text-base text-custom-gray"
                             dangerouslySetInnerHTML={{
-                                __html: certification.texto,
+                                __html: certification.texto.replace(/\n/g, "<br />"),
                             }}
                         />
                     </div>

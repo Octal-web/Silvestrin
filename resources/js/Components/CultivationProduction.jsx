@@ -12,6 +12,11 @@ export const CultivationProduction = ({ content }) => {
         ? content[0].titulo.split("\r\n")
         : [];
 
+    const textoPartes = content[0].texto ? content[0].texto.split("\n") : [];
+
+    const primeiroParagrafo = textoPartes.shift();
+    const restanteTexto = textoPartes.join("<br/>");
+
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
 
@@ -74,12 +79,20 @@ export const CultivationProduction = ({ content }) => {
                             <div className="text-xl md:text-2xl 2xl:text-3xl">
                                 <p>{content[0].subtitulo}</p>
                             </div>
-                            <div
-                                className="text-xs md:text-sm xl:text-base text-custom-gray mt-8 2xl:mt-12 lg:text-balance [&>p:first-of-type]:font-bold [&>p:first-of-type]:pb-7 [&>p:first-of-type]:text-[22px]"
-                                dangerouslySetInnerHTML={{
-                                    __html: content[0].texto,
-                                }}
-                            />
+                            <div className="text-xs md:text-sm xl:text-base text-custom-gray mt-8 2xl:mt-12 lg:text-balance">
+                                <p className="font-bold pb-3 text-[22px]">
+                                    {primeiroParagrafo}
+                                </p>
+
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: restanteTexto.replace(
+                                            /\n/g,
+                                            "<br />",
+                                        ),
+                                    }}
+                                />
+                            </div>
 
                             <div className="flex gap-3 lg:gap-6 mt-11">
                                 <img

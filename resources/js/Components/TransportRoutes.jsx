@@ -72,7 +72,7 @@ export const TransportRoutes = ({ content }) => {
                     <div
                         className="md:max-w-[41em] md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start "
                         dangerouslySetInnerHTML={{
-                            __html: content.texto,
+                            __html: content.texto.replace(/\n/g, "<br />"),
                         }}
                     />
                 </Reveal>

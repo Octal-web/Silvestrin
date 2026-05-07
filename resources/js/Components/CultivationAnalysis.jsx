@@ -86,7 +86,7 @@ export const CultivationAnalysis = ({ content, video }) => {
                             <div
                                 className="[&_ul_li]:mt-2 [&_ul]:pl-0 [&_ul_li]:list-none [&_ul_li]:relative [&_ul_li]:pt-1 [&_ul_li]:pl-10 [&_ul_li]:before:content-[''] [&_ul_li]:before:absolute [&_ul_li]:before:left-0 [&_ul_li]:before:top-1 [&_ul_li]:before:w-7 [&_ul_li]:before:h-7 [&_ul_li]:before:bg-no-repeat [&_ul_li]:before:bg-contain [&_ul_li]:before:bg-[url('/content/display/b25b3b334c89c50ae74ad94cc5b9fce0.png')] text-custom-gray text-sm 2xl:text-base"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[0].texto,
+                                    __html: content[0].texto
                                 }}
                             />
                         </div>

@@ -27,15 +27,15 @@ export const CultivationBanner = ({ content }) => {
                             />
                         ))}
 
-                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 border-b pb-10 2xl:pb-12">
+                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 border-b pb-6 2xl:pb-8">
                             {partesSubtitulo.map((parte, i) => (
                                 <p key={i}>{parte}</p>
                             ))}
                         </div>
 
                         <div
-                            className="text-sm xl:text-base text-custom-gray text-center mt-10 2xl:mt-pb-12 [&_p_+_p]:mt-0"
-                            dangerouslySetInnerHTML={{ __html: content.texto }}
+                            className="text-sm xl:text-base text-custom-gray text-center mt-6 2xl:mt-8"
+                            dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br/>"), }}
                         />
                     </div>
                 </div>

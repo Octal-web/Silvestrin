@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import LetterReveal from './LetterReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,7 +87,7 @@ export const TransportStrategy = ({ content }) => {
                     <h1 className="font-secondary text-white text-center text-7xl font-black leading-[1.2] uppercase -mt-2">{content.titulo}</h1>
                     <h1 className="font-secondary text-secondary text-center text-7xl font-black leading-[1.2] uppercase -mt-2">{content.subtitulo}</h1>                       
                     
-                    <div className="text-center text-white max-w-[1145px] mx-auto mt-10" dangerouslySetInnerHTML={{ __html: content.texto }} /> 
+                    <div className="text-center text-white max-w-[1145px] mx-auto mt-10" dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }} /> 
                 </div>
             </div>
 

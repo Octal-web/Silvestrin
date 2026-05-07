@@ -17,7 +17,7 @@ export const AboutOperation = ({ content }) => {
                             <div
                                 className="text-sm 2xl:text-base text-custom-gray text-balance mt-4 mb-6 2xl:my-8"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[0].texto,
+                                    __html: content[0].texto.replace(/\n/g, "<br />"),
                                 }}
                             />
                         </div>
@@ -41,7 +41,7 @@ export const AboutOperation = ({ content }) => {
                                 <div
                                     className=" text-sm 2xl:text-base text-center md:text-start max-w-md text-custom-gray text-balance my-8"
                                     dangerouslySetInnerHTML={{
-                                        __html: content[1].texto,
+                                        __html: content[1].texto.replace(/\n/g, "<br />"),
                                     }}
                                 />
                             </div>
@@ -78,7 +78,7 @@ export const AboutOperation = ({ content }) => {
                             <div
                                 className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 max-w-md"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[2].texto,
+                                    __html: content[2].texto.replace(/\n/g, "<br />"),
                                 }}
                             />
                         </Reveal>

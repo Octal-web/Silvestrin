@@ -85,7 +85,7 @@ export const SustainabilityProject = ({ content }) => {
                             <div
                                 className=" text-sm 2xl:text-base text-center md:text-start lg:max-w-[498px] text-custom-gray text-balance my-8"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[0].texto,
+                                    __html: content[0].texto.replace(/\n/g, "<br />"),
                                 }}
                             />
                         </div>
@@ -102,7 +102,7 @@ export const SustainabilityProject = ({ content }) => {
                         <div
                             className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 lg:max-w-[511px]"
                             dangerouslySetInnerHTML={{
-                                __html: content[1].texto,
+                                __html: content[1].texto.replace(/\n/g, "<br />"),
                             }}
                         />
                     </Reveal>

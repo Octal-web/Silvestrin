@@ -68,7 +68,7 @@ export const SustainabilityBanner = ({ content }) => {
 
                         <div
                             className="text-sm xl:text-base text-black sm:text-custom-gray text-center mt-10 2xl:mt-12 [&_p_+_p]:mt-0 max-w-[913px] mx-auto"
-                            dangerouslySetInnerHTML={{ __html: content.texto }}
+                            dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }}
                         />
                     </div>
                 </div>

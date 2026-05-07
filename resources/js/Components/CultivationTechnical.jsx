@@ -22,7 +22,7 @@ export const CultivationTechnical = ({ content }) => {
                         <div
                             className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance my-5"
                             dangerouslySetInnerHTML={{
-                                __html: content.texto,
+                                __html: content.texto.replace(/\n/g, "<br />"),
                             }}
                         />
                     </div>
