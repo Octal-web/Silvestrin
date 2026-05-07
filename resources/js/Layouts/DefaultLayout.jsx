@@ -112,7 +112,7 @@ const DefaultLayout = ({ children }) => {
         },
         {
             name: "Produtos",
-            route: "Produtos.marcas",
+            route: "Produtos.index",
             controller: "Produtos",
             external: false,
             submenu: "Produtos",
