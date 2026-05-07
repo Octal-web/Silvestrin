@@ -204,7 +204,7 @@ class ValoresService extends Service
             ->first();
 
         if (!$response) {
-            return redirect()->back()->with('message', ['type' => 'error', 'msg' => 'Registro não encontrado!']);
+            return false;
         }
 
         $response->visivel = 1 - $response->visivel;
