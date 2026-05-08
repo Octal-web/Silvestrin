@@ -54,7 +54,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/contato', [ContatoController::class, 'index'])->name('Contato.index');
     Route::post('/contato/enviar', [ContatoController::class, 'enviar'])->name('Contato.enviar');
 
-    Route::get('/politica-de-privacidade', [PoliticasController::class, 'privacidade'])->name('Politicas.privacidade');
+    Route::get('/politica-de-privacidade', [PoliticasController::class, 'index'])->name('Politicas.index');
 });
 
 Route::prefix('/manager')->group(function () {
@@ -152,7 +152,7 @@ Route::prefix('/manager')->group(function () {
         Route::get('/transportadora', [ManagerTransportadoraController::class, 'index'])->name('Manager.Transportadora.index');
 
 
-        Route::get('/politicas/privacidade', [ManagerPoliticasController::class, 'privacidade'])->name('Manager.Politicas.privacidade');
+        Route::get('/politicas/privacidade', [ManagerPoliticasController::class, 'index'])->name('Manager.Politicas.index');
     });
 });
 
