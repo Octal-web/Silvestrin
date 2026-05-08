@@ -50,7 +50,7 @@ export const CookieModal = ({ acceptCookies, visible }) => {
                             <div>
                                 <p>
                                 Utilizamos cookies para oferecer uma melhor experiência, melhorar o desempenho, analisar como você interage em nosso site e personalizar conteúdo. Para mais informações acesse nossa{' '} 
-                                <Link href={route('Politicas.privacidade')} className="underline">política de privacidade</Link>.
+                                <Link href={route('Politicas.index')} className="underline">política de privacidade</Link>.
                                 </p>
                             </div>
                             <button

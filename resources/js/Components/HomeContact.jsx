@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { InputMask } from '@react-input/mask';
+import { useEffect, useRef, useState } from 'react';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -160,7 +160,7 @@ export const HomeContact = ({ isHome = true, content }) => {
                                     <span className="peer-checked:content-[''] peer-checked:absolute peer-checked:inset-1 rounded-full peer-checked:bg-primary" />
                                 </label>
 
-                                <span className="text-neutral-600 ml-2">Li e concordo com a <Link href={route('Politicas.privacidade')} className="underline" target="_blank" rel="noopener noreferrer">Política de Privacidade</Link></span>
+                                <span className="text-neutral-600 ml-2">Li e concordo com a <Link href={route('Politicas.index')} className="underline" target="_blank" rel="noopener noreferrer">Política de Privacidade</Link></span>
                             </label>
                             {errors.politica && <p className="text-xs text-white bg-red-900 px-3 py-1.5 mt-2">{errors.politica}</p>}
                         </div>
