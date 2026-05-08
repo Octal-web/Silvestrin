@@ -9,7 +9,7 @@ const AuthLayout = ({ children }) => {
                     content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no"
                 />
                 <meta charset="utf-8" />
-                <title>Pizzato | Acesso</title>
+                <title>Silvestrin | Acesso</title>
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
 
