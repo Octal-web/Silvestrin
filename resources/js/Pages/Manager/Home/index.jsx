@@ -33,7 +33,7 @@ const Page = () => {
         nome: ["Valores", "valor"],
         controller: "Valores",
         imagens: true,
-        imgClass: "",
+        imgClass: "object-scale-down",
         editavel: true,
         conteudos: valores,
     };
