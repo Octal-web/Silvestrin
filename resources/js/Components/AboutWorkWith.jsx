@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { InputMask } from "@react-input/mask";
+import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -369,7 +369,7 @@ export const AboutWorkWith = ({ content }) => {
                                 <span className="text-neutral-600 ml-2">
                                     Li e concordo com a{" "}
                                     <Link
-                                        href={route("Politicas.privacidade")}
+                                        href={route("Politicas.index")}
                                         className="underline"
                                         target="_blank"
                                         rel="noopener noreferrer"

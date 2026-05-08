@@ -282,7 +282,7 @@ const DefaultLayout = ({ children }) => {
                 </div>
             </header>
 
-            <main className="overflow-hidden pt-[95px] sm:pt-[109px] md:pt-[90px] 2xl:pt-[118px]">
+            <main className="overflow-hidden pt-[95px] sm:pt-[109px] md:pt-[90px] 2xl:pt-[118px] min-h-screen">
                 {children}
             </main>
 
@@ -404,10 +404,10 @@ const DefaultLayout = ({ children }) => {
 
                 <div className="bg-tertiary py-3 lg:py-6">
                     <div className="container max-w-large">
-                        <div className="grid xl:grid-cols-3 gap-3 xl:gap-16 items-center">
+                        <div className="grid lg:grid-cols-3 gap-3 xl:gap-16 items-center">
                             <div className="flex flex-wrap justify-center gap-2">
                                 <Link
-                                    href={route("Politicas.privacidade")}
+                                    href={route("Politicas.index")}
                                     className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100"
                                 >
                                     Política de Privacidade

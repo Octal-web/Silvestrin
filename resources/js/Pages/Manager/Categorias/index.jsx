@@ -25,7 +25,7 @@ const Page = () => {
         nome: ["Marcas", "marca"],
         controller: "Marcas",
         imagens: true,
-        imgClass: "",
+        imgClass: "aspect-square object-contain",
         editavel: true,
         conteudos: marcas,
     };

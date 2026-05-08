@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
     faAppleWhole,
     faBars,
+    faFileText,
     faHome,
     faInfoCircle,
     faPowerOff,
@@ -66,13 +67,13 @@ const menus = [
         href: route("Manager.Transportadora.index"),
         controllers: ["Transportadora"],
     },
-    // {
-    //     id: 6,
-    //     label: "Política de Privacidade",
-    //     icon: faFileText,
-    //     href: route("Manager.Politicas.privacidade"),
-    //     controllers: ["Politicas"],
-    // },
+    {
+        id: 6,
+        label: "Política de Privacidade",
+        icon: faFileText,
+        href: route("Manager.Politicas.index"),
+        controllers: ["Politicas"],
+    },
 ];
 
 const AdminLayout = ({ children }) => {

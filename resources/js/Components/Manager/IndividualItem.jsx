@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Link, useForm } from '@inertiajs/react';
+import { useEffect, useRef, useState } from 'react';
 
+import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { ConfirmModal } from './ConfirmModal';
 
@@ -62,6 +62,10 @@ export const IndividualItem = ({ individualContent, imagensPath, imagensClass, c
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(() => {
+        setIsChecked(individualContent.visivel || false);
+    }, [individualContent.visivel]);
 
     return (
         <tr ref={rowRef} className="bg-slate-50">

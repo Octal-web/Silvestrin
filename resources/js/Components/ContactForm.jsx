@@ -267,7 +267,7 @@ export const ContactForm = ({ content }) => {
                                 <span className="text-neutral-600 ml-2 text-sm 2xl:text-base">
                                     Aceito os{" "}
                                     <Link
-                                        href={route("Politicas.privacidade")}
+                                        href={route("Politicas.index")}
                                         className="underline font-bold"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -276,7 +276,7 @@ export const ContactForm = ({ content }) => {
                                     </Link>{" "}
                                     e a{" "}
                                     <Link
-                                        href={route("Politicas.privacidade")}
+                                        href={route("Politicas.index")}
                                         className="underline font-bold"
                                         target="_blank"
                                         rel="noopener noreferrer"

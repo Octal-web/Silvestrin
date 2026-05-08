@@ -1,5 +1,5 @@
 import { Link, useForm } from "@inertiajs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,9 +24,7 @@ export const IndividualContent = ({
     });
 
     const handleCheckboxChange = () => {
-        const newValue = !isChecked;
-
-        setIsChecked(newValue);
+        setIsChecked(!isChecked);
         setLoading(true);
 
         post(
@@ -40,11 +38,13 @@ export const IndividualContent = ({
                         response.props.message &&
                         response.props.message.type === "success"
                     ) {
-                        setIsChecked(!newValue);
+                        setIsChecked(!isChecked);
+                    } else {
+                        setIsChecked(isChecked);
                     }
                 },
                 onError: () => {
-                    setIsChecked(!newValue);
+                    setIsChecked(isChecked);
                 },
                 onFinish: () => {
                     setLoading(false);
@@ -60,6 +60,10 @@ export const IndividualContent = ({
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(() => {
+        setIsChecked(individualContent.visivel || false);
+    }, [individualContent.visivel]);
 
     return (
         <>
