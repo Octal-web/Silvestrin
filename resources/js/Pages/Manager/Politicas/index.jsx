@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faFileText } from "@fortawesome/free-solid-svg-icons";
 
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
@@ -16,7 +16,7 @@ const Page = () => {
     return (
         <AdminLayout>
             <Breadcrumb
-                icon={faHome}
+                icon={faFileText}
                 items={breadcrumbItems}
                 current="Política de privacidade"
                 idioma={idioma.codigo}

@@ -3,7 +3,7 @@ import { usePage } from "@inertiajs/react";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
+import { faTrowel } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
     const { conteudos, idioma, idiomas } = usePage().props;
@@ -18,7 +18,7 @@ const Page = () => {
     return (
         <AdminLayout>
             <Breadcrumb
-                icon={faTruck}
+                icon={faTrowel}
                 items={breadcrumbItems}
                 current="Cultivo"
                 idioma={idioma.codigo}
