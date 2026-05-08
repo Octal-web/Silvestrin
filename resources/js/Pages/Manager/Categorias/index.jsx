@@ -3,7 +3,7 @@ import { usePage } from "@inertiajs/react";
 import { BlockContent } from "@/Components/Manager/BlockContent";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faList } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
     const { idioma, idiomas, marcas, categorias } = usePage().props;
@@ -33,7 +33,7 @@ const Page = () => {
     return (
         <AdminLayout>
             <Breadcrumb
-                icon={faInfoCircle}
+                icon={faList}
                 items={breadcrumbItems}
                 current="Categorias"
                 idioma={idioma.codigo}

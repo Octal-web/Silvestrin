@@ -38,12 +38,12 @@ const Login = () => {
 
     return (
         <AuthLayout>
-            <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white">
+            <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 text-white">
                 <div className="w-full max-w-[400px] animate-fade-in-down">
-                    <div className="p-8 space-y-8 bg-white bg-opacity-10 rounded-lg shadow-lg">
+                    <div className="p-8 space-y-8 bg-primary rounded-lg shadow-lg">
                         <div className="flex justify-center">
                             <img
-                                src={`/admin/img/logo.png`}
+                                src={`/site/img/logo.png`}
                                 className="my-3 w-44"
                             />
                         </div>
@@ -62,7 +62,7 @@ const Login = () => {
                                         id="email"
                                         name="email"
                                         type="text"
-                                        className="appearance-none rounded relative block w-full px-3 py-2 text-sm border border-gray-300 placeholder-gray-500 text-gray-900 focus:ring-black focus:border-black focus:ring-indigo-500"
+                                        className="appearance-none rounded relative block w-full px-3 py-2 text-sm border border-gray-300 placeholder-gray-500 text-gray-900 focus:ring-secondary focus:border-black"
                                         placeholder="E-mail"
                                         value={data.email}
                                         onChange={handleChange}
@@ -80,7 +80,7 @@ const Login = () => {
                                         id="password"
                                         name="password"
                                         type="password"
-                                        className="appearance-none rounded relative block w-full px-3 py-2 text-sm border border-gray-300 placeholder-gray-500 text-gray-900 focus:ring-black focus:border-black focus:ring-indigo-500"
+                                        className="appearance-none rounded relative block w-full px-3 py-2 text-sm border border-gray-300 placeholder-gray-500 text-gray-900 focus:ring-secondary focus:border-black"
                                         placeholder="Senha"
                                         value={data.password}
                                         onChange={handleChange}
@@ -112,7 +112,7 @@ const Login = () => {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="group relative w-full py-2 px-5 border border-transparent text-sm rounded-md text-white bg-black hover:bg-opacity-80 transition-all"
+                                        className="group relative w-full py-2 px-5 border border-transparent text-sm rounded-md text-white bg-secondary hover:bg-opacity-80 transition-all"
                                     >
                                         <FontAwesomeIcon
                                             icon={faRightToBracket}
@@ -126,7 +126,7 @@ const Login = () => {
                     </div>
 
                     <div className="mt-6 text-center text-sm text-gray-400">
-                        &copy; {currentYear} Pizzato. Desenvolvido por Octal
+                        &copy; {currentYear} Silvestrin. Desenvolvido por Octal
                         Web.
                     </div>
                 </div>

@@ -31,52 +31,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::query()
-            ->where([
-                'excluido' => NULL
-            ])
-            ->with([
-                'marcasIdiomas' => function ($q) {
-                    $q->whereHas('idiomas', function ($r) {
-                        $r->Where('padrao', true);
-                    })
-                        ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'visivel' => $item->visivel,
-                    'titulo' => $item->marcasIdiomas->isNotEmpty() ? $item->marcasIdiomas[0]->nome : null,
-                    'imagem' => rafator('content/brands/thumbs/' . $item->logo)
-                ];
-            });
 
-        $categorias = Categoria::query()
-            ->where([
-                'excluido' => NULL
-            ])
-            ->with([
-                'categoriasIdiomas' => function ($q) {
-                    $q->whereHas('idiomas', function ($r) {
-                        $r->Where('padrao', true);
-                    })
-                        ->orderBy('idioma_id', 'DESC');
-                }
-            ])
-            ->orderBy('ordem', 'ASC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'visivel' => $item->visivel,
-                    'titulo' => $item->categoriasIdiomas->isNotEmpty() ? $item->categoriasIdiomas[0]->nome : null,
-                ];
-            });
+        [$categorias, $marcas] = $this->service->carregarDadosCategoria();
 
         return Inertia::render('Manager/Categorias/index', [
             'marcas' => $marcas,

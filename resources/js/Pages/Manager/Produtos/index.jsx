@@ -4,7 +4,7 @@ import { BlockContent } from "@/Components/Manager/BlockContent";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
     const { conteudos, idioma, idiomas, produtos } = usePage().props;
@@ -26,7 +26,7 @@ const Page = () => {
     return (
         <AdminLayout>
             <Breadcrumb
-                icon={faInfoCircle}
+                icon={faAppleWhole}
                 items={breadcrumbItems}
                 current="Produtos"
                 idioma={idioma.codigo}
