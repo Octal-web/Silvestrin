@@ -9,6 +9,56 @@ const translations = {
         403: (url) =>
             `Você não tem permissão para acessar esta página: <strong>${url}</strong>.`,
         back: "Voltar",
+
+        trabalhe: "Trabalhe Conosco",
+        comercial: "Comercial",
+
+        sobre: "Sobre",
+        responsabilidade: "Responsabilidade Socioambiental",
+        produtos: "Produtos",
+        cultivo: "Cultivo",
+        transportadora: "Transportadora",
+        contato: "Contato",
+        rastreamento: "Rastreamento",
+        silvestrin: "A Silvestrin",
+
+        politica: "Política de Privacidade",
+        direitos: "Todos os direitos reservados",
+        desenvolvido: "Desenvolvido por",
+        redes: "Nossas redes",
+        matriz: "Matriz",
+
+        cookie: "Utilizamos cookies para oferecer uma melhor experiência, melhorar o desempenho, analisar como você interage em nosso site e personalizar conteúdo. Para mais informações acesse nossa ",
+        aceitar: "Aceitar todos os cookies",
+
+        marcas: "Nossas marcas",
+        parceiras: "Marcas parceiras",
+        granel: "Produtos a granel",
+        frutas: "Frutas a granel",
+        parceiros: "Parceiros",
+        todas: "Todas",
+
+        certificacao: "Certificação",
+
+        unidades: "Outras Unidades:",
+        fone: "Fone",
+        silvestrinFruta: "Frutas - Matriz",
+        cep: "CEP",
+
+        escolha: "Escolha:",
+        nome: "Nome completo",
+        nomePlaceholder: "Seu nome",
+        telefone: "Telefone",
+        telefonePlaceholder: "(DDD) + número",
+        mensagem: "Mensagem",
+        mensagemPlaceholder: "Escreva aqui...",
+        assunto: "Assunto",
+        assuntoPlaceholder: "Sobre o que quer falar",
+        email: "Email",
+        emailPlaceholder: "Seu e-mail",
+        enviar: "Enviar mensagem",
+        termo: "Aceito a ",
+        termoContinuacao: " do site da Silvestrin",
     },
 
     en: {
@@ -19,6 +69,56 @@ const translations = {
         403: (url) =>
             `Sorry, you are forbidden from accessing this page: <strong>${url}</strong>.`,
         back: "Back",
+
+        trabalhe: "Work with Us",
+        comercial: "Commercial",
+
+        sobre: "About",
+        responsabilidade: "Social and Environmental Responsibility",
+        produtos: "Products",
+        cultivo: "Cultivation",
+        transportadora: "Transport",
+        contato: "Contact",
+        rastreamento: "Tracking",
+        silvestrin: "The Silvestrin",
+
+        politica: "Privacy Policy",
+        direitos: "All rights reserved",
+        desenvolvido: "Developed by",
+        redes: "Our networks",
+        matriz: "Matrix",
+
+        cookie: "We use cookies to offer a better experience, improve performance, analyze how you interact with our site, and personalize content. For more information, please visit our ",
+        aceitar: "Accept all cookies",
+
+        marcas: "Our brands",
+        parceiras: "Partner brands",
+        granel: "Bulk products",
+        frutas: "Bulk fruit",
+        parceiros: "Partners",
+        todas: "All",
+
+        certificacao: "Certification",
+
+        unidades: "Other Units:",
+        fone: "Phone",
+        silvestrinFruta: "Fruits - Matrix",
+        cep: "Zip Code",
+
+        escolha: "Choice:",
+        nome: "Full name",
+        nomePlaceholder: "Your name",
+        telefone: "Phone",
+        telefonePlaceholder: "(DDD) + number",
+        mensagem: "Message",
+        mensagemPlaceholder: "Write here...",
+        assunto: "Subject",
+        assuntoPlaceholder: "What do you want to talk about",
+        email: "Email",
+        emailPlaceholder: "Your email",
+        enviar: "Send message",
+        termo: "I accept ",
+        termoContinuacao: " from the Silvestrin website",
     },
 
     es: {
@@ -29,14 +129,64 @@ const translations = {
         403: (url) =>
             `No tienes permiso para acceder a esta página: <strong>${url}</strong>.`,
         back: "Volver",
+
+        trabalhe: "Trabaja con Nosotros",
+        comercial: "Comercial",
+
+        sobre: "Acerca",
+        responsabilidade: "Responsabilidad social y ambiental",
+        produtos: "Productos",
+        cultivo: "Cultivo",
+        transportadora: "Transporte",
+        contato: "Contacto",
+        rastreamento: "Seguimiento",
+        silvestrin: "La Silvestrin",
+
+        politica: "Política de privacidad",
+        direitos: "Reservados todos los derechos",
+        desenvolvido: "Desarrollado por",
+        redes: "Nuestras redes",
+        matriz: "Matriz",
+
+        cookie: "Utilizamos cookies para ofrecer una mejor experiencia, mejorar el rendimiento, analizar cómo interactúa con nuestro sitio y personalizar el contenido. Para obtener más información, visite nuestra ",
+        aceitar: "Aceptar todas las cookies",
+
+        marcas: "Nuestras marcas",
+        parceiras: "Marcas asociadas",
+        granel: "Productos a granel",
+        frutas: "Fruta a granel",
+        parceiros: "Asociadas",
+        todas: "Todo",
+
+        certificacao: "Certificación",
+
+        unidades: "Otras Unidades:",
+        fone: "Teléfono",
+        silvestrinFruta: "Frutas - Matriz",
+        cep: "Código Postal",
+
+        escolha: "Elección:",
+        nome: "Nombre completo",
+        nomePlaceholder: "Su nombre",
+        telefone: "Teléfono",
+        telefonePlaceholder: "(DDD) + número",
+        mensagem: "Mensaje",
+        mensagemPlaceholder: "Escribe aquí...",
+        assunto: "Sujeto",
+        assuntoPlaceholder: "De qué quieres hablar",
+        email: "Correo electrónico",
+        emailPlaceholder: "Tu correo electrónico",
+        enviar: "Enviar mensaje",
+        termo: "Acepto la ",
+        termoContinuacao: " del sitio web de Silvestrin",
     },
 };
 
 export function useLang() {
-    const { language } = usePage().props;
+    const { language, idioma } = usePage().props;
 
     return (key, value = null) => {
-        const translation = translations[language]?.[String(key)];
+        const translation = translations[language ?? idioma]?.[String(key)];
 
         if (typeof translation === "function") {
             return translation(value);
