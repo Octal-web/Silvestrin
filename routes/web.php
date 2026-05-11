@@ -26,6 +26,7 @@ use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController
 use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasController;
 use App\Http\Controllers\Manager\TransportadoraController as ManagerTransportadoraController;
 use App\Http\Controllers\Manager\PoliticasController as ManagerPoliticasController;
+use App\Http\Controllers\Manager\ContatoController as ManagerContatoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,7 @@ Route::prefix('/manager')->group(function () {
         Route::post('/imagens/conteudo/excluir/{id}', [ManagerImagensController::class, 'excluir'])->name('Manager.Imagens.excluir');
 
         Route::get('/home', [ManagerHomeController::class, 'index'])->name('Manager.Home.index');
+        Route::post('/home/atualizar/dados', [ManagerHomeController::class, 'atualizarInfo'])->name('Manager.Home.atualizarInfo');
 
         Route::post('/slides/ordenar', [ManagerSlidesController::class, 'ordenar'])->name('Manager.Slides.ordenar');
         Route::post('/slides/visibilidade/{id}', [ManagerSlidesController::class, 'visibilidade'])->name('Manager.Slides.visibilidade');
@@ -147,6 +149,11 @@ Route::prefix('/manager')->group(function () {
         Route::post('/categorias/adicionar', [ManagerCategoriasController::class, 'novo'])->name('Manager.Categorias.novo');
         Route::get('/categorias/editar/{id}', [ManagerCategoriasController::class, 'editar'])->name('Manager.Categorias.editar');
         Route::post('/categorias/editar/{id}', [ManagerCategoriasController::class, 'atualizar'])->name('Manager.Categorias.atualizar');
+
+
+        Route::get('/contato', [ManagerContatoController::class, 'index'])->name('Manager.Contato.index');
+        Route::get('/contato/visualizar/{id}', [ManagerContatoController::class, 'visualizar'])->name('Manager.Contato.visualizar');
+        Route::post('/contato/excluir/{id}', [ManagerContatoController::class, 'excluir'])->name('Manager.Contato.excluir');
 
 
         Route::get('/transportadora', [ManagerTransportadoraController::class, 'index'])->name('Manager.Transportadora.index');

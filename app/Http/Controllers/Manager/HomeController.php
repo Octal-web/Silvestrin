@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\DadosGeraisRequest;
 use Inertia\Inertia;
-use App\Models\DadosGerais;
 use App\Services\Manager\HomeService;
 
 class HomeController extends Controller

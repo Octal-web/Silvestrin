@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import { SwiperButton } from "./SwiperButton";
 
 export const TransportSlides = ({ content, slides }) => {
     const prevButtonRef = useRef(null);
@@ -37,45 +38,31 @@ export const TransportSlides = ({ content, slides }) => {
                     >
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
-                                <div className="flex justify-center scale-75 [.swiper-slide-active_&]:scale-100 container md:block">
-                                    <img
-                                        src={slide.imagem}
-                                        className="aspect-video rounded-3xl object-cover block w-full"
-                                    />
-                                </div>
+                                <Image imagem={slide.imagem} />
                             </SwiperSlide>
                         ))}
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
-                                <div className="flex justify-center scale-75 [.swiper-slide-active_&]:scale-100 container md:block">
-                                    <img
-                                        src={slide.imagem}
-                                        className="aspect-video rounded-3xl object-cover block w-full"
-                                    />
-                                </div>
+                                <Image imagem={slide.imagem} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
 
                     <div className="hidden lg:flex lg:justify-center absolute top-1/2 -translate-y-1/2 z-[10] justify-between w-full lg:gap-[54%] 2xl:gap-[57%]">
-                        <button
+                        <SwiperButton
                             ref={prevButtonRef}
+                            isPrev={true}
                             onClick={() =>
                                 swiperRef.current?.swiper.slidePrev()
                             }
-                            className="group size-16 2xl:size-20 flex items-center justify-center bg-white rounded-full shadow-md transition ease-out duration-200 disabled:opacity-60 hover:bg-primary"
-                        >
-                            <ArrowIcon className="fill-primary opacity-80 rotate-180 transition-all group-hover:opacity-100 group-hover:fill-white" />
-                        </button>
-                        <button
+                        />
+
+                        <SwiperButton
                             onClick={() =>
                                 swiperRef.current?.swiper.slideNext()
                             }
                             ref={nextButtonRef}
-                            className="group size-16 2xl:size-20 flex items-center justify-center bg-white rounded-full shadow-md transition ease-out duration-200 disabled:opacity-60 hover:bg-primary"
-                        >
-                            <ArrowIcon className="fill-primary opacity-80 transition-all group-hover:opacity-100 group-hover:fill-white" />
-                        </button>
+                        />
                     </div>
                 </div>
             )}
@@ -83,16 +70,15 @@ export const TransportSlides = ({ content, slides }) => {
     );
 };
 
-const ArrowIcon = ({ className }) => {
+const Image = ({ imagem }) => {
     return (
-        <svg
-            width="30"
-            height="30"
-            viewBox="0 0 25 25"
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M19.023 10.938 10.273 2.188 12.5 0l12.5 12.5L12.5 25l-2.227-2.188 8.75-8.75H0v-3.125h19.023z" />
-        </svg>
+        <div className="flex justify-center scale-75 [.swiper-slide-active_&]:scale-100 container md:block">
+            <img
+                src={imagem}
+                className="aspect-video rounded-3xl object-cover block w-full"
+                alt="imagens carrossel"
+                aria-hidden="true"
+            />
+        </div>
     );
 };

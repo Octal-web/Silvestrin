@@ -15,9 +15,9 @@ export const AboutOperation = ({ content }) => {
                                 element="h2"
                             />
                             <div
-                                className="text-sm 2xl:text-base text-custom-gray text-balance mt-4 mb-6 2xl:my-8"
+                                className="text-sm 2xl:text-base text-custom-gray  mt-4 mb-6 2xl:my-8 whitespace-pre-line"whitespace-pre-line
                                 dangerouslySetInnerHTML={{
-                                    __html: content[0].texto.replace(/\n/g, "<br />"),
+                                    __html: content[0].texto,
                                 }}
                             />
                         </div>
@@ -39,9 +39,9 @@ export const AboutOperation = ({ content }) => {
                                     element="h2"
                                 />
                                 <div
-                                    className=" text-sm 2xl:text-base text-center md:text-start max-w-md text-custom-gray text-balance my-8"
+                                    className=" text-sm 2xl:text-base text-center md:text-start max-w-md text-custom-gray text-balance my-8 whitespace-pre-line"
                                     dangerouslySetInnerHTML={{
-                                        __html: content[1].texto.replace(/\n/g, "<br />"),
+                                        __html: content[1].texto,
                                     }}
                                 />
                             </div>
@@ -76,9 +76,9 @@ export const AboutOperation = ({ content }) => {
                                 element="h2"
                             />
                             <div
-                                className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 max-w-md"
+                                className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 max-w-md whitespace-pre-line"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[2].texto.replace(/\n/g, "<br />"),
+                                    __html: content[2].texto,
                                 }}
                             />
                         </Reveal>

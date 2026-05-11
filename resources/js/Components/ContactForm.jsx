@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { useLang } from "@/Hooks/useLang";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AnimatedCheckMark from "./AnimatedCheckMark";
@@ -13,6 +14,7 @@ import LetterReveal from "./LetterReveal";
 gsap.registerPlugin(ScrollTrigger);
 
 export const ContactForm = ({ content }) => {
+    const lang = useLang();
     const { message } = usePage().props;
 
     const [loading, setLoading] = useState(false);
@@ -31,11 +33,11 @@ export const ContactForm = ({ content }) => {
     const radioOptions = [
         {
             value: "comercial",
-            label: "Comercial",
+            label: lang("comercial"),
         },
         {
             value: "trabalhe",
-            label: "Trabalhe Conosco",
+            label: lang("trabalhe"),
         },
     ];
 
@@ -76,6 +78,7 @@ export const ContactForm = ({ content }) => {
                     email: "",
                     telefone: "",
                     mensagem: "",
+                    assunto: "",
                     politica: false,
                 });
 
@@ -102,7 +105,7 @@ export const ContactForm = ({ content }) => {
                             htmlFor="area"
                             className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                         >
-                            Escolha:
+                            {lang("escolha")}
                         </label>
                         <div className="relative w-fit mb-7 2xl:mb-14">
                             <select
@@ -138,14 +141,14 @@ export const ContactForm = ({ content }) => {
                                 htmlFor="nome"
                                 className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
-                                Nome completo
+                                {lang("nome")}
                             </label>
                             <input
                                 type="text"
                                 name="nome"
                                 value={data.nome}
                                 onChange={handleChange}
-                                placeholder="Seu nome"
+                                placeholder={lang("nomePlaceholder")}
                                 className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200
                                 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
@@ -161,14 +164,14 @@ export const ContactForm = ({ content }) => {
                                 htmlFor="email"
                                 className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
-                                Email
+                                {lang("email")}
                             </label>
                             <input
                                 type="text"
                                 name="email"
                                 value={data.email}
                                 onChange={handleChange}
-                                placeholder="Seu e-mail"
+                                placeholder={lang("emailPlaceholder")}
                                 className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.email && (
@@ -185,7 +188,7 @@ export const ContactForm = ({ content }) => {
                                 htmlFor="telefone"
                                 className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
-                                Telefone
+                                {lang("fone")}
                             </label>
                             <InputMask
                                 type="text"
@@ -194,7 +197,7 @@ export const ContactForm = ({ content }) => {
                                 replacement={{ _: /\d/ }}
                                 value={data.telefone}
                                 onChange={handleChange}
-                                placeholder="(DDD) + número"
+                                placeholder={lang("telefonePlaceholder")}
                                 className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.telefone && (
@@ -209,14 +212,14 @@ export const ContactForm = ({ content }) => {
                                 htmlFor="assunto"
                                 className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
-                                Assunto
+                                {lang("assunto")}
                             </label>
                             <input
                                 type="text"
                                 name="assunto"
                                 value={data.assunto}
                                 onChange={handleChange}
-                                placeholder="Sobre o que quer falar"
+                                placeholder={lang("assuntoPlaceholder")}
                                 className="w-full h-12 px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.assunto && (
@@ -233,13 +236,13 @@ export const ContactForm = ({ content }) => {
                                 htmlFor="mensagem"
                                 className="inline-block text-base md:text-lg 2xl:text-xl text-neutral-600 font-semibold 2xl:mb-2"
                             >
-                                Mensagem
+                                {lang("mensagem")}
                             </label>
                             <textarea
                                 name="mensagem"
                                 value={data.mensagem}
                                 onChange={handleChange}
-                                placeholder="Escreva aqui..."
+                                placeholder={lang("mensagemPlaceholder")}
                                 className="w-full h-40 2xl:h-48 resize-none px-0 2xl:text-xl bg-neutral-100 border-0 focus:border-b focus:outline-none focus:ring-0 focus:border-b-secondary focus:shadow-inner transition-colors duration-200 border-b border-gray-200 placeholder:text-gray-500 placeholder:text-opacity-70"
                             />
                             {errors.mensagem && (
@@ -265,25 +268,16 @@ export const ContactForm = ({ content }) => {
                                 </label>
 
                                 <span className="text-neutral-600 ml-2 text-sm 2xl:text-base">
-                                    Aceito os{" "}
+                                    {lang("termo")}
                                     <Link
                                         href={route("Politicas.index")}
                                         className="underline font-bold"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        Termos de uso
-                                    </Link>{" "}
-                                    e a{" "}
-                                    <Link
-                                        href={route("Politicas.index")}
-                                        className="underline font-bold"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Política de privacidade
-                                    </Link>{" "}
-                                    do site da Silvestrin
+                                        {lang("politica")}
+                                    </Link>
+                                    {lang("termoContinuacao")}
                                 </span>
                             </label>
                             {errors.politica && (
@@ -298,7 +292,7 @@ export const ContactForm = ({ content }) => {
                             className="relative px-8 py-3 w-fit lg:text-xl 2xl:text-2xl bg-primary text-white text-center font-semibold rounded-full whitespace-nowrap transition-all hover:bg-secondary"
                         >
                             {!loading ? (
-                                "Enviar mensagem"
+                                lang("enviar")
                             ) : (
                                 <>
                                     <div
@@ -326,7 +320,7 @@ export const ContactForm = ({ content }) => {
                                         </span>
                                     </div>
                                     <span className="opacity-0">
-                                        Enviar mensagem
+                                        {lang("enviar")}
                                     </span>
                                 </>
                             )}

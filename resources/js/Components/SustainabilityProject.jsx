@@ -21,6 +21,7 @@ export const SustainabilityProject = ({ content }) => {
             imageRef.current,
             {
                 rotation: -20,
+                scaleX: -1
             },
             {
                 rotation: -26,
@@ -37,7 +38,7 @@ export const SustainabilityProject = ({ content }) => {
             <img
                 ref={imageRef}
                 src={orange}
-                className="hidden md:block absolute max-h-[30%] lg:max-h-[30%] 2xl:max-h-[90%] -left-[10%] lg:-left-[12%] -top-20 drop-shadow-lg z-10"
+                className="hidden md:block absolute max-h-[30%] lg:max-h-[30%] 2xl:max-h-[90%] -left-[10%] lg:-left-[8%] -top-20 drop-shadow-2xl z-10"
             />
             <div className="container max-w-large">
                 <div className="flex flex-col-reverse justify-center md:flex md:flex-row md:justify-start items-center mx-auto md:mx-0">
@@ -83,9 +84,9 @@ export const SustainabilityProject = ({ content }) => {
                                 element="h2"
                             />
                             <div
-                                className=" text-sm 2xl:text-base text-center md:text-start lg:max-w-[498px] text-custom-gray text-balance my-8"
+                                className=" text-sm 2xl:text-base text-center md:text-start lg:max-w-[498px] text-custom-gray text-balance my-8 whitespace-pre-line"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[0].texto.replace(/\n/g, "<br />"),
+                                    __html: content[0].texto
                                 }}
                             />
                         </div>
@@ -100,9 +101,9 @@ export const SustainabilityProject = ({ content }) => {
                             element="h2"
                         />
                         <div
-                            className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 lg:max-w-[511px]"
+                            className="text-sm 2xl:text-base text-center md:text-start text-custom-gray text-balance py-8 lg:max-w-[511px] whitespace-pre-line"
                             dangerouslySetInnerHTML={{
-                                __html: content[1].texto.replace(/\n/g, "<br />"),
+                                __html: content[1].texto
                             }}
                         />
                     </Reveal>

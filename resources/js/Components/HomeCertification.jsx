@@ -1,13 +1,15 @@
+import { useLang } from "@/Hooks/useLang";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
 export const HomeCertification = ({ certification }) => {
+    const lang = useLang();
     return (
         <section className="container">
             <div className="mb-40 mt-36 bg-white border-2 border-secondary rounded-3xl relative max-w-6xl mx-auto shadow-2xl ">
                 <LetterReveal
                     className="font-secondary text-white bg-secondary w-fit round text-3xl md:text-4xl 2xl:text-5xl font-black mb-3 rounded-full py-3 lg:py-5 px-10 lg:px-30 2xl:px-40 absolute -top-7 lg:-top-10 left-1/2 -translate-x-1/2 uppercase"
-                    text="Certificação"
+                    text={lang("certificacao")}
                     element="h1"
                 />
                 <Reveal>
@@ -21,9 +23,9 @@ export const HomeCertification = ({ certification }) => {
                 <div className="relative container max-w-large mb-10 lg:mb-20">
                     <div className="text-center">
                         <div
-                            className="whitespace-pre-line text-sm lg:text-base text-custom-gray"
+                            className="whitespace-pre-line text-sm lg:text-base text-custom-gray whitespace-pre-line"
                             dangerouslySetInnerHTML={{
-                                __html: certification.texto.replace(/\n/g, "<br />"),
+                                __html: certification.texto
                             }}
                         />
                     </div>

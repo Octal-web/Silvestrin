@@ -2,11 +2,12 @@ import { usePage } from "@inertiajs/react";
 
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
+import { PageSettings } from "@/Components/Manager/PageSettings";
 import AdminLayout from "@/Layouts/AdminLayout";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
-    const { conteudos, idioma, idiomas } = usePage().props;
+    const { pagina, conteudos, idioma, idiomas } = usePage().props;
 
     const breadcrumbItems = [
         // { label: 'Home', link: 'Home.index' },
@@ -22,6 +23,7 @@ const Page = () => {
                 idioma={idioma.codigo}
                 idiomas={idiomas}
             />
+            <PageSettings page={pagina} idioma={idioma.codigo} />
 
             <FormContent
                 content={conteudos[0]}

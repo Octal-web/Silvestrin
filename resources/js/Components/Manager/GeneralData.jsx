@@ -61,14 +61,14 @@ export const GeneralData = () => {
                 name: "filiais",
                 tamanho: "col-span-12 lg:col-span-4",
                 tipo: "texto_longo",
-                max: 16,
+
             },
             {
                 titulo: "E-mail",
                 name: "emails",
                 tamanho: "col-span-12 lg:col-span-4",
                 tipo: "texto_longo",
-                max: 50,
+                max: 100
             },
         ],
         [

@@ -70,9 +70,9 @@ export const TransportRoutes = ({ content }) => {
                         element="h2"
                     />
                     <div
-                        className="md:max-w-[41em] md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start "
+                        className="md:max-w-[41em] md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start whitespace-pre-line"
                         dangerouslySetInnerHTML={{
-                            __html: content.texto.replace(/\n/g, "<br />"),
+                            __html: content.texto
                         }}
                     />
                 </Reveal>

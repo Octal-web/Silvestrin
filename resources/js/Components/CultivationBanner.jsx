@@ -2,22 +2,23 @@ import LetterReveal from "./LetterReveal";
 
 export const CultivationBanner = ({ content }) => {
     const partesTitulo = content.texto ? content.titulo.split(/ (.+)/) : [];
+    console.log(content.subtitulo)
     const partesSubtitulo = content.texto
         ? content.subtitulo.split("\r\n\r\n")
         : [];
 
     return (
         <section
-            className="relative bg-no-repeat bg-fill 2xl:bg-cover min-w-screen h-fit min-h-[782px] -mt-16 md:-mt-10"
+            className="relative bg-no-repeat bg-fill 2xl:bg-cover min-w-screen h-fit min-h-[782px] -pt-16 md:-pt-10"
             style={{
                 backgroundImage: `url(${content.imagem})`,
             }}
         >
-            <div className="absolute inset-0 bg-black/5"></div>
+            <div className="absolute inset-0 bg-black/ 5"></div>
 
             <div className="min-h-[calc(100vh_-_110px)]">
                 <div className="container max-w-medium ">
-                    <div className="py-40">
+                    <div className="py-30">
                         {partesTitulo.map((parte, i) => (
                             <LetterReveal
                                 key={i}
@@ -29,13 +30,13 @@ export const CultivationBanner = ({ content }) => {
 
                         <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 border-b pb-6 2xl:pb-8">
                             {partesSubtitulo.map((parte, i) => (
-                                <p key={i}>{parte}</p>
+                                <p className="max-w-[623px] mx-auto" key={i}>{parte}</p>
                             ))}
                         </div>
 
                         <div
-                            className="text-sm xl:text-base text-custom-gray text-center mt-6 2xl:mt-8"
-                            dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br/>"), }}
+                            className="text-sm xl:text-base text-custom-gray text-center mt-6 2xl:mt-8 whitespace-pre-line [&_p_+_p]:mt-0"
+                            dangerouslySetInnerHTML={{ __html: content.texto }}
                         />
                     </div>
                 </div>

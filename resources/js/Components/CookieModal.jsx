@@ -1,3 +1,4 @@
+import { useLang } from '@/Hooks/useLang';
 import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
@@ -14,6 +15,7 @@ const setCookie = (name, value, days) => {
     };
 
 export const CookieModal = ({ acceptCookies, visible }) => {
+    const lang = useLang();
     const [showModal, setShowModal] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
 
@@ -49,15 +51,15 @@ export const CookieModal = ({ acceptCookies, visible }) => {
                         <div className="bg-white px-8 py-6 shadow-md mb-10">
                             <div>
                                 <p>
-                                Utilizamos cookies para oferecer uma melhor experiência, melhorar o desempenho, analisar como você interage em nosso site e personalizar conteúdo. Para mais informações acesse nossa{' '} 
-                                <Link href={route('Politicas.index')} className="underline">política de privacidade</Link>.
+                                {lang("cookie")}
+                                <Link href={route('Politicas.index')} className="underline lowercase">{lang("politica")}</Link>.
                                 </p>
                             </div>
                             <button
                                 onClick={handleAcceptCookies}
                                 className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow truncate ml-auto mt-2"
                             >
-                            Aceitar todos os cookies
+                            {lang("aceitar")}
                           </button>
                         </div>
                     </div>

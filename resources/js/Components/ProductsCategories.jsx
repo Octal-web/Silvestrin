@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+import { useLang } from "@/Hooks/useLang";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,49 +14,55 @@ const CardItem = ({
     onClickAll,
     isCategory,
     group,
-}) => (
-    <>
-        <h3 className="text-primary lg:text-white text-lg lg:text-xl font-semibold mb-1 2xl:mb-2 mt-5 lg:mt-0 px-3">
-            {title}
-        </h3>
+}) => {
+    const lang = useLang();
+    return (
+        <>
+            <h3 className="text-primary lg:text-white text-lg lg:text-xl font-semibold mb-1 2xl:mb-2 mt-5 lg:mt-0 px-3">
+                {title}
+            </h3>
 
-        <ul className="space-y-1">
-            <li>
-                <button
-                    onClick={onClickAll}
-                    className={`w-full lg:text-left pb-0.5 lg:pb-1 px-3 rounded text-base 2xl:text-lg transition-colors ${
-                        selected === `todas-${group}` || selected === "a-granel"
-                            ? "underline lg:text-white font-bold"
-                            : "lg:text-white hover:bg-black hover:bg-opacity-10"
-                    }`}
-                >
-                    Todas
-                </button>
-            </li>
-
-            {items.map((item) => (
-                <li key={item.id}>
+            <ul className="space-y-1">
+                <li>
                     <button
-                        onClick={() =>
-                            isCategory
-                                ? onClick(item.slug)
-                                : onClick(item.slug, item.parceiro)
-                        }
+                        onClick={onClickAll}
                         className={`w-full lg:text-left pb-0.5 lg:pb-1 px-3 rounded text-base 2xl:text-lg transition-colors ${
-                            selected === item.slug
+                            selected === `todas-${group}` ||
+                            selected === "a-granel"
                                 ? "underline lg:text-white font-bold"
                                 : "lg:text-white hover:bg-black hover:bg-opacity-10"
                         }`}
                     >
-                        {item.nome}
+                        {lang("todas")}
                     </button>
                 </li>
-            ))}
-        </ul>
-    </>
-);
+
+                {items.map((item) => (
+                    <li key={item.id}>
+                        <button
+                            onClick={() =>
+                                isCategory
+                                    ? onClick(item.slug)
+                                    : onClick(item.slug, item.parceiro)
+                            }
+                            className={`w-full lg:text-left pb-0.5 lg:pb-1 px-3 rounded text-base 2xl:text-lg transition-colors ${
+                                selected === item.slug
+                                    ? "underline lg:text-white font-bold"
+                                    : "lg:text-white hover:bg-black hover:bg-opacity-10"
+                            }`}
+                        >
+                            {item.nome}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </>
+    );
+};
 
 export const ProductsCategories = ({ brands, categories, hasChanged }) => {
+    const lang = useLang();
+
     const [selectedBrand, setSelectedBrand] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [showMobileFilter, setShowMobileFilter] = useState(false);
@@ -196,7 +203,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                         selected={selectedBrand}
                         items={others}
                         isCategory={false}
-                        title="Nossas marcas"
+                        title={lang("marcas")}
                         onClick={handleBrandClick}
                         onClickAll={() => handleAllBrands("silvestrin")}
                         group="silvestrin"
@@ -206,7 +213,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                         selected={selectedBrand}
                         items={partners}
                         isCategory={false}
-                        title="Marcas parceiras"
+                        title={lang("parceiros")}
                         onClick={handleBrandClick}
                         onClickAll={() => handleAllBrands("parceiras")}
                         group="parceiras"
@@ -216,7 +223,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                         selected={selectedCategory}
                         items={categories}
                         isCategory={true}
-                        title="Frutas a granel"
+                        title={lang("frutas")}
                         onClick={handleCategoryClick}
                         onClickAll={handleAllCategories}
                     />
@@ -234,7 +241,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                                 selected={selectedBrand}
                                 items={others}
                                 isCategory={false}
-                                title="Nossas marcas"
+                                title={lang("marcas")}
                                 onClick={handleBrandClick}
                                 onClickAll={() => handleAllBrands("silvestrin")}
                                 group="silvestrin"
@@ -246,7 +253,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                                 selected={selectedBrand}
                                 items={partners}
                                 isCategory={false}
-                                title="Marcas parceiras"
+                                title={lang("parceiros")}
                                 onClick={handleBrandClick}
                                 onClickAll={() => handleAllBrands("parceiras")}
                                 group="parceiras"
@@ -257,7 +264,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
                             <CardItem
                                 selected={selectedCategory}
                                 items={categories}
-                                title="Frutas a granel"
+                                title={lang("frutas")}
                                 isCategory={true}
                                 onClick={handleCategoryClick}
                                 onClickAll={handleAllCategories}

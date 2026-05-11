@@ -5,8 +5,10 @@ import Lenis from "@studio-freight/lenis";
 
 import { CookieModal } from "@/Components/CookieModal";
 import { MenuItem } from "@/Components/MenuItem";
+import { useLang } from "@/Hooks/useLang";
 
 const DefaultLayout = ({ children }) => {
+    const lang = useLang();
     const [isVisible, setIsVisible] = useState(true);
     const [isAtTop, setIsAtTop] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -104,34 +106,34 @@ const DefaultLayout = ({ children }) => {
 
     const menuItems = [
         {
-            name: "Sobre",
+            name: lang("sobre"),
             route: "Institucional.index",
             controller: "Institucional",
             external: false,
             submenu: "Sobre",
         },
         {
-            name: "Produtos",
+            name: lang("produtos"),
             route: "Produtos.index",
             controller: "Produtos",
             external: false,
             submenu: "Produtos",
         },
         {
-            name: "Cultivo",
+            name: lang("cultivo"),
             route: "Cultivo.index",
             controller: "Cultivo",
             external: false,
         },
         { name: "Euro Company", route: "https://google.com", external: true },
         {
-            name: "Transportadora",
+            name: lang("transportadora"),
             route: "Transportadora.index",
             controller: "Transportadora",
             external: false,
         },
         {
-            name: "Contato",
+            name: lang("contato"),
             route: "Contato.index",
             controller: "Contato",
             external: false,
@@ -220,7 +222,7 @@ const DefaultLayout = ({ children }) => {
                                                 href={route("Contato.index")}
                                                 className="block px-8 py-2 gap-2 rounded-full bg-secondary text-white text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow truncate"
                                             >
-                                                Trabalhe Conosco
+                                                {lang("trabalhe")}
                                             </Link>
                                         </li>
 
@@ -231,7 +233,7 @@ const DefaultLayout = ({ children }) => {
                                                 rel="noopener noreferrer"
                                                 className="block px-8 py-2 gap-2 rounded-full bg-white text-secondary text-sm md:text-lg lg:text-sm xl:text-base 2xl:text-lg font-bold ring-1 ring-white transition-all hover:bg-white hover:text-tertiary hover:ring-secondary hover:shadow"
                                             >
-                                                Rastreamento
+                                                {lang("rastreamento")}
                                             </a>
                                         </li>
                                     </ul>
@@ -294,7 +296,7 @@ const DefaultLayout = ({ children }) => {
                         </div>
 
                         <div className="w-4/5">
-                            <div className="flex flex-col-reverse lg:flex-row 2xl:ml-20 lg:justify-between lg:items-center pt-10 pb-4 border-b pb-4">
+                            <div className="flex flex-col-reverse lg:flex-row 2xl:ml-20 lg:justify-between lg:items-center pt-10 pb-4 border-b">
                                 <nav>
                                     <ul className="flex flex-wrap max-sm:gap-y-4 gap-8 2xl:gap-16 mt-4 lg:mt-0 justify-center">
                                         {menuItems.map((item, index) => (
@@ -323,7 +325,7 @@ const DefaultLayout = ({ children }) => {
 
                                 <nav className="flex items-center justify-center">
                                     <p className="text-xs text-white font-light mr-4">
-                                        Nossas redes:
+                                        {lang("redes")}:
                                     </p>
                                     <ul className="flex items-center gap-3">
                                         <li>
@@ -378,7 +380,7 @@ const DefaultLayout = ({ children }) => {
                                 <li>
                                     <p className="text-white text-sm font-light leading-tight">
                                         <span className="font-bold mr-3">
-                                            Matriz:
+                                            {lang("matriz")}:
                                         </span>
                                         {dadosGerais.endereco}
                                     </p>
@@ -410,18 +412,17 @@ const DefaultLayout = ({ children }) => {
                                     href={route("Politicas.index")}
                                     className="text-white text-sm font-medium transition-all opacity-70 hover:opacity-100"
                                 >
-                                    Política de Privacidade
+                                    {lang("politica")}
                                 </Link>
                             </div>
 
                             <span className="text-white text-xs sm:text-sm text-center opacity-70 mb-5 md:mb-0">
-                                © {new Date().getFullYear()} Silvestrin | Todos
-                                os direitos reservados.
+                                © {new Date().getFullYear()} Silvestrin | {lang("direitos")}
                             </span>
 
                             <div className="flex justify-center lg:justify-end items-center gap-4">
                                 <span className="text-white text-xs sm:text-sm opacity-70">
-                                    Desenvolvido por:{" "}
+                                    {lang("desenvolvido")}:{" "}
                                 </span>
                                 <img
                                     src={`/site/img/8poroito-logo.png`}

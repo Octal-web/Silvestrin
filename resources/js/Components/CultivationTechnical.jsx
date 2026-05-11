@@ -20,9 +20,9 @@ export const CultivationTechnical = ({ content }) => {
                             element="h2"
                         />
                         <div
-                            className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance my-5"
+                            className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance my-5 whitespace-pre-line"
                             dangerouslySetInnerHTML={{
-                                __html: content.texto.replace(/\n/g, "<br />"),
+                                __html: content.texto
                             }}
                         />
                     </div>

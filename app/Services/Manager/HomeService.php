@@ -76,10 +76,9 @@ class HomeService extends Service
 
         $dados_gerais->endereco = $request->endereco;
         $dados_gerais->cep = $request->cep;
-        $dados_gerais->cidade = $request->cidade;
         $dados_gerais->telefone = $request->telefone;
-        $dados_gerais->whatsapp = $request->whatsapp;
-        $dados_gerais->email = $request->email;
+        $dados_gerais->filiais = $request->filiais;
+        $dados_gerais->emails = $request->emails;
         $dados_gerais->instagram = $request->instagram ? $request->instagram : null;
         $dados_gerais->facebook = $request->facebook ? $request->facebook : null;
         $dados_gerais->linkedin = $request->linkedin ? $request->linkedin : null;
