@@ -45,8 +45,8 @@ class HomeController extends Controller
                 return [
                     'id' => $slide->id,
                     'tipo' => $slide->tipo,
-                    'imagem' => $slide->tipo == 'imagem' ? rafator('content/slides/d/' . $slide->imagem) : null,
-                    'imagem_mobile' => $slide->tipo == 'imagem' ? rafator('content/slides/m/' . $slide->imagem_mobile) : null,
+                    'imagem' => $slide->tipo == 'imagem' ? rafator('content/slides/images/d/' . $slide->imagem) : null,
+                    'imagem_mobile' => $slide->tipo == 'imagem' ? rafator('content/slides/images/m/' . $slide->imagem_mobile) : null,
                     'video' => $slide->tipo == 'video' ? rafator('content/slides/videos/d/' . $slide->video) : null,
                     'video_mobile' => $slide->tipo == 'video' ? rafator('content/slides/videos/m/' . $slide->video_mobile) : null,
                     'titulo' => $slide->slidesIdiomas->isNotEmpty() ? $slide->slidesIdiomas[0]->titulo : null,
