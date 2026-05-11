@@ -2,12 +2,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
+import { useLang } from "@/Hooks/useLang";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const TransportTechAndSecurity = ({ content }) => {
+    const lang = useLang();
+
     const sectionRef = useRef(null);
     const startImageRef = useRef(null);
     const endImageRef = useRef(null);
@@ -89,7 +92,7 @@ export const TransportTechAndSecurity = ({ content }) => {
             <img
                 ref={startImageRef}
                 src="/content/display/911fa8daaaf588bf65154be322d7f04b.png"
-                className="absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-4 lg:-left-16 2xl:-left-20  drop-shadow-lg z-10"
+                className="absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-4 lg:-left-16 2xl:-left-20  drop-shadow-2xl z-10"
                 style={{ top: "0%" }}
             />
 
@@ -97,7 +100,7 @@ export const TransportTechAndSecurity = ({ content }) => {
                 ref={endImageRef}
                 src="/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png"
                 className="absolute max-h-[15%] md:max-h-[36%] 2xl:max-h-[58%] -right-10
-                lg:-right-20 2xl:-right-44 drop-shadow-lg z-10"
+                lg:-right-20 2xl:-right-44 drop-shadow-2xl z-10"
                 style={{ top: "0%" }}
             />
 
@@ -109,9 +112,9 @@ export const TransportTechAndSecurity = ({ content }) => {
                         element="h2"
                     />
                     <div
-                        className="md:max-w-[410px] text-custom-gray md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start "
+                        className="md:max-w-[410px] text-custom-gray md:text-balance mt-10 text-sm 2xl:text-base text-center md:text-start whitespace-pre-line"
                         dangerouslySetInnerHTML={{
-                            __html: content.texto.replace(/\n/g, "<br />"),
+                            __html: content.texto
                         }}
                     />
                 </Reveal>
@@ -126,7 +129,7 @@ export const TransportTechAndSecurity = ({ content }) => {
 
                 <LetterReveal
                     className="font-secondary text-white bg-secondary w-fit round text-3xl md:text-4xl 2xl:text-5xl font-black mb-3 rounded-full py-3 lg:py-5 px-10 lg:px-30 2xl:px-40 absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 uppercase"
-                    text="Certificação"
+                    text={lang("certificacao")}
                     element="h1"
                 />
             </div>
