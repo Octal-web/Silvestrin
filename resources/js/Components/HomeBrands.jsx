@@ -1,9 +1,12 @@
 import { Link } from "@inertiajs/react";
 
+import { useLang } from "@/Hooks/useLang";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
 export const HomeBrands = ({ brands }) => {
+    const lang = useLang(); 
+
     const partners = brands.filter((item) => item.parceiro === 1);
     const others = brands.filter((item) => item.parceiro !== 1);
     return (
@@ -24,7 +27,7 @@ export const HomeBrands = ({ brands }) => {
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
-                                Nossas marcas
+                                {lang("marcas")}
                             </Link>
                         </Reveal>
 
@@ -35,7 +38,7 @@ export const HomeBrands = ({ brands }) => {
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
-                                Marcas parceiras
+                                {lang("parceiras")}
                             </Link>
                         </Reveal>
 
@@ -46,7 +49,7 @@ export const HomeBrands = ({ brands }) => {
                                 })}
                                 className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
-                                Produtos a granel
+                                {lang("granel")}
                             </Link>
                         </Reveal>
                     </div>
@@ -73,7 +76,7 @@ export const HomeBrands = ({ brands }) => {
                     {partners.length > 0 && (
                         <div className="border-2 col-span-4 md:col-span-3 border-primary rounded-3xl p-6 mb-12 relative flex items-center justify-evenly px-10 gap-7 md:gap-40">
                             <span className="absolute bg-primary text-white px-6 py-0.5 rounded-full -top-3.5 left-7">
-                                Parceiros
+                                {lang("parceiros")}
                             </span>
 
                             {partners.map((item, index) => (

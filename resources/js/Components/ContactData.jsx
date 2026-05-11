@@ -1,11 +1,14 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { useLang } from "@/Hooks/useLang";
 import { useEffect, useId, useRef } from "react";
 import LetterReveal from "./LetterReveal";
 import { Reveal } from "./Reveal";
 
 export const ContactData = ({ data, content }) => {
+    const lang = useLang();
+
     const id = useId();
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
@@ -55,8 +58,9 @@ export const ContactData = ({ data, content }) => {
         return { label, value };
     });
 
-    const filiais = data.filiais.split("\r\n\r\n").map((bloco) => {
-        const lines = bloco.split("\r\n");
+
+    const filiais = data.filiais.split("\n\n").map((bloco) => {
+        const lines = bloco.split("\n");
 
         const title = lines[0];
 
@@ -73,11 +77,12 @@ export const ContactData = ({ data, content }) => {
         };
     });
 
+
     return (
         <section className="relative z-[1]" ref={sectionRef}>
             <img
                 ref={imageRef}
-                src={content[1].imagem}
+                src={content.imagem_mobile}
                 className="hidden sm:block absolute max-h-[7%] z-10 md:max-h-[17%] 2xl:max-h-[78%] right-0 drop-shadow-lg"
                 style={{ top: '0%' }}
             />
@@ -86,27 +91,27 @@ export const ContactData = ({ data, content }) => {
                     <Reveal className="py-10 lg:py-20">
                         <LetterReveal
                             className="font-secondary text-primary text-4xl md:text-5xl 2xl:text-6xl font-black leading-tight max-w-[700px] mb-10 uppercase"
-                            text={content[0].titulo}
+                            text={content.titulo}
                             element="h1"
                         />
                         <ul className="max-w-[231px] text-custom-gray">
                             <li className="text-xs lg:text-sm font-light leading-tight mb-3">
                                 <span className="block font-bold">
-                                    Silvestrin Frutas - Matriz
+                                    Silvestrin {lang("silvestrinFruta")}
                                 </span>
-                                {data.endereco} - CEP {data.cep}
+                                {data.endereco} - {lang("cep")} {data.cep}
                             </li>
 
                             <li>
                                 <p className="leading-tight font-bold text-xs lg:text-sm">
-                                    Fone: {data.telefone}
+                                    {lang("fone")}: {data.telefone}
                                 </p>
                             </li>
                         </ul>
 
                         <div className="max-w-[650px]">
                             <div className="bg-primary rounded-full px-5 py-1 w-fit text-white font-bold mt-16 md:mt-20 mb-6 text-sm md:text-base">
-                                Outras Unidades:
+                                {lang("unidades")}
                             </div>
                             <ul className="grid grid-cols-2 gap-y-6 gap-x-6 md:gap-y-12 md:gap-x-15 text-custom-gray text-xs lg:text-sm">
                                 {filiais.map((item, index) => (
@@ -189,7 +194,7 @@ export const ContactData = ({ data, content }) => {
                                 style={{ clipPath: `url(#custom-shape-${id})` }}
                             >
                                 <img
-                                    src={content[0].imagem}
+                                    src={content.imagem}
                                     className="w-full"
                                     alt="homem ao celular"
                                 />
