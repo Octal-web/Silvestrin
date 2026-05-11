@@ -3,11 +3,12 @@ import { usePage } from "@inertiajs/react";
 import { BlockContent } from "@/Components/Manager/BlockContent";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
+import { PageSettings } from "@/Components/Manager/PageSettings";
 import AdminLayout from "@/Layouts/AdminLayout";
 import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
-    const { conteudos, idioma, parcerias, idiomas } = usePage().props;
+    const { pagina, conteudos, idioma, parcerias, idiomas } = usePage().props;
 
     const contentPartnerships = {
         nome: ["Parcerias", "parceria"],
@@ -31,6 +32,8 @@ const Page = () => {
                 idioma={idioma.codigo}
                 idiomas={idiomas}
             />
+
+            <PageSettings page={pagina} idioma={idioma.codigo} />
 
             <FormContent
                 content={conteudos[0]}

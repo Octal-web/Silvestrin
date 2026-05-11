@@ -3,11 +3,12 @@ import { usePage } from "@inertiajs/react";
 import { BlockContent } from "@/Components/Manager/BlockContent";
 import { Breadcrumb } from "@/Components/Manager/Breadcrumb";
 import { FormContent } from "@/Components/Manager/FormContent";
+import { PageSettings } from "@/Components/Manager/PageSettings";
 import AdminLayout from "@/Layouts/AdminLayout";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
-    const { conteudos, idioma, idiomas, produtos } = usePage().props;
+    const { pagina, conteudos, idioma, idiomas, produtos } = usePage().props;
 
     const breadcrumbItems = [
         // { label: 'Home', link: 'Home.index' },
@@ -32,6 +33,8 @@ const Page = () => {
                 idioma={idioma.codigo}
                 idiomas={idiomas}
             />
+
+            <PageSettings page={pagina} idioma={idioma.codigo} />
 
             <div className="grid lg:gap-x-4 lg:grid-cols-3">
                 <FormContent
