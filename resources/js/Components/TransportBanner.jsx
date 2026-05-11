@@ -27,8 +27,8 @@ export const TransportBanner = ({ content }) => {
                 ))}
 
                 <div
-                    className="text-xs md:text-sm 2xl:text-base text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12 max-w-3xl mx-auto"
-                    dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"),}}
+                    className="text-xs md:text-sm 2xl:text-base text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12 max-w-3xl mx-auto whitespace-pre-line [&_p_+_p]:mt-0"
+                    dangerouslySetInnerHTML={{ __html: content.texto}}
                 />
             </div>
         </section>

@@ -76,9 +76,9 @@ export const TransportInfra = ({ content }) => {
                             element="h2"
                         />
                         <div
-                            className="md:max-w-md max-h-64 text-custom-gray text-balance my-8 truncate text-sm 2xl:text-base text-center md:text-start"
+                            className="md:max-w-md max-h-64 text-custom-gray text-balance my-8 truncate text-sm 2xl:text-base text-center md:text-start whitespace-pre-line"
                             dangerouslySetInnerHTML={{
-                                __html: content.texto.replace(/\n/g, "<br />"),
+                                __html: content.texto
                             }}
                         />
                     </div>

@@ -44,7 +44,7 @@ export const SustainabilityBanner = ({ content }) => {
             <img
                 ref={imageRef}
                 src="/content/display/6c849a1449c4a626dce6a920ca7fc51f.png"
-                className="hidden md:block absolute max-h-[30%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] -bottom-10 lg:-right-[20%] lg:-bottom-[20%] drop-shadow-lg 2xl:-bottom-[450px]"
+                className="hidden md:block absolute max-h-[30%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] -bottom-10 lg:-right-[20%] lg:-bottom-[20%] drop-shadow-2xl 2xl:-bottom-[450px]"
             />
             <div className="absolute inset-0 bg-black/5"></div>
 
@@ -60,15 +60,15 @@ export const SustainabilityBanner = ({ content }) => {
                             />
                         ))}
 
-                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 mt-4 border-b pb-10 2xl:pb-16">
+                        <div className="text-lg md:text-xl 2xl:text-2xl mx-auto text-center [&_p_+_p]:mt-0 -mt-10 border-b pb-10">
                             {partesSubtitulo.map((parte, i) => (
                                 <p className="max-w-[623px] mx-auto" key={i}>{parte}</p>
                             ))}
                         </div>
 
                         <div
-                            className="text-sm xl:text-base text-black sm:text-custom-gray text-center mt-10 2xl:mt-12 [&_p_+_p]:mt-0 max-w-[913px] mx-auto"
-                            dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }}
+                            className="text-sm xl:text-base text-black sm:text-custom-gray text-center mt-10 [&_p_+_p]:mt-0 max-w-[913px] mx-auto whitespace-pre-line"
+                            dangerouslySetInnerHTML={{ __html: content.texto }}
                         />
                     </div>
                 </div>

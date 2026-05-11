@@ -83,7 +83,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                         <img
                             ref={endImageRef}
                             src="/content/display/6c849a1449c4a626dce6a920ca7fc51f.png"
-                            className="hidden md:block absolute max-h-[25%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] lg:-right-[8%] 2xl:-right-[12%] z-10 -top-20 lg:-top-30 2xl:-top-60"
+                            className="hidden md:block absolute max-h-[25%] lg:max-h-[50%] 2xl:max-h-[78%] -right-[10%] lg:-right-[8%] 2xl:-right-[12%] z-10 -top-20 lg:-top-30 2xl:-top-60 drop-shadow-2xl"
                         />
                     )}
                     <div className="2xl:container 2xl:max-w-large">
@@ -92,7 +92,7 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                         >
                             <Reveal
                                 direction={`${index % 2 === 1 ? "right" : "left"}`}
-                                className={` 2xl:px-0 ${index % 2 === 1 ? "lg:order-1 mr-auto lg:pr-[11%]" : "max-lg:order-1 lg:ml-auto lg:pl-[11%]"}`}
+                                className={` 2xl:px-0 ${index % 2 === 1 ? "lg:order-1 mr-auto lg:pr-[11%]" : "max-lg:order-1  lg:pl-[11%]"}`}
                             >
                                 {item.logo && (
                                     <img
@@ -117,9 +117,9 @@ export const SustainabilityPartnerships = ({ content, partnerships }) => {
                                     </div>
                                 )}
                                 <div
-                                    className={`text-sm 2xl:text-base ${!item.subtitulo && "pt-7 2xl:pt-10"} ${item.cor ? "text-custom-gray" : "text-white"} lg:text-balance`}
+                                    className={`whitespace-pre-line text-sm 2xl:text-base lg:max-w-[630px] ${!item.subtitulo && "pt-7 2xl:pt-10"} ${item.cor ? "text-custom-gray" : "text-white"}`}
                                     dangerouslySetInnerHTML={{
-                                        __html: item.texto.replace(/\n/g, "<br />"),
+                                        __html: item.texto
                                     }}
                                 />
                             </Reveal>

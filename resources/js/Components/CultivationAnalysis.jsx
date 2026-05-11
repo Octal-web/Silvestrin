@@ -98,12 +98,12 @@ export const CultivationAnalysis = ({ content, video }) => {
                 <img
                     ref={rightImageRef}
                     src="/content/display/75201cafed6e11cd757266eb08f6c330.png"
-                    className="hidden lg:block absolute lg:max-h-[40%] 2xl:max-h-[50%] -right-[20%] lg:-right-[10%] drop-shadow-lg top-20 2xl:-top-[4%] z-10"
+                    className="hidden lg:block absolute lg:max-h-[40%] 2xl:max-h-[50%] -right-[20%] lg:-right-[10%] drop-shadow-2xl top-20 2xl:-top-[4%] z-10"
                 />
                 <img
                     ref={leftImageRef}
                     src="/content/display/a9b9dbdca63c73157be10aa0d9eb0b41.png"
-                    className="hidden sm:block absolute w-40 md:w-50 2xl:w-80 sm:-left-20 md:-left-30 drop-shadow-lg z-[1]"
+                    className="hidden sm:block absolute w-40 md:w-50 2xl:w-80 sm:-left-20 md:-left-30 drop-shadow-2xl z-[1]"
                 />
                 <div className="container max-w-large">
                     <LetterReveal

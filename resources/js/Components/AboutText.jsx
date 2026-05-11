@@ -81,13 +81,13 @@ export const AboutText = ({ content, video }) => {
                             <LetterReveal key={i} className="font-secondary text-primary text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] -mt-2 uppercase" text={parte.trim()} element="h1" />
                         ))}
                         
-                        <div className="text-xl 2xl:text-2xl text-center [&_p_+_p]:mt-0 mt-4 border-b border-gray-200 pb-4">
+                        <div className="text-xl 2xl:text-2xl text-center [&_p_+_p]:mt-0 mt-4 border-b border-gray-200 pb-10">
                             {partesSubtitulo.map((parte, i) => (
                                 <p key={i} className={i !== 0 ? 'font-bold' : ''}>{parte}</p>
                             ))}
                         </div>
 
-                        <div className="text-xs md:text-sm 2xl:text-base text-gray-800 sm:text-custom-gray text-center mt-10 2xl:mt-12 2xl:pt-12" dangerouslySetInnerHTML={{ __html: content.texto.replace(/\n/g, "<br />"), }} /> 
+                        <div className="text-xs md:text-sm 2xl:text-base text-gray-800 sm:text-custom-gray text-center pt-10 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content.texto }} /> 
                     </div>
                 </div>
             </div>

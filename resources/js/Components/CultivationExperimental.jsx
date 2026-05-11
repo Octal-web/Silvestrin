@@ -104,9 +104,9 @@ export const CultivationExperimental = ({ content }) => {
                                 element="h2"
                             />
                             <div
-                                className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance mt-5"
+                                className=" text-sm 2xl:text-base text-start text-custom-gray lg:text-balance mt-5 whitespace-pre-line"
                                 dangerouslySetInnerHTML={{
-                                    __html: content[1].texto.replace(/\n/g, "<br />"),
+                                    __html: content[1].texto
                                 }}
                             />
                         </div>
