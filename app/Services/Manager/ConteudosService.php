@@ -22,7 +22,7 @@ class ConteudosService extends Service
      * Set the language based in the id
      * 
      * @param object $request
-     * @param string $id
+     * @param int $id
      */
     public function editarConteudo($request, $id)
     {

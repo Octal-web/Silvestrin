@@ -23,7 +23,7 @@ class PaginasService extends Service
      * Generate random name
      * 
      * @param object $request
-     * @param string $id
+     * @param int $id
      */
     public function editarPagina($request, $id)
     {
