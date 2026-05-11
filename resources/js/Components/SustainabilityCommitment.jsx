@@ -79,12 +79,12 @@ export const SustainabilityCommitment = ({ content }) => {
                 <img
                     ref={startImageRef}
                     src="/content/display/d851e5a40cf21d2f7c71d0578e8ef29b.png"
-                    className="hidden md:block absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-30 lg:-left-32 2xl:-left-60 drop-shadow-lg z-10 -top-60 xl:-top-96 2xl:-top-[450px]"
+                    className="hidden md:block absolute max-h-[20%] md:max-h-[36%] 2xl:max-h-[48%] -left-30 lg:-left-32 2xl:-left-60 drop-shadow-2xl z-10 -top-60 xl:-top-96 2xl:-top-[450px]"
                 />
                 <img
                     ref={endImageRef}
                     src="/content/display/c618f705552e2f248371f2213642cdf7.png"
-                    className="hidden md:block absolute max-h-[36%] xl:max-h-[58%] 2xl:max-h-[78%] -right-20 xl:-right-44 2xl:-right-72 drop-shadow-lg z-10 -top-60 xl:-top-96 2xl:-top-[480px]"
+                    className="hidden md:block absolute max-h-[36%] xl:max-h-[58%] 2xl:max-h-[78%] -right-20 xl:-right-44 2xl:-right-72 drop-shadow-2xl z-10 -top-60 xl:-top-96 2xl:-top-[480px]"
                 />
 
                 <img
@@ -110,9 +110,9 @@ export const SustainabilityCommitment = ({ content }) => {
                                 ))}
                             </div>
                             <div
-                                className="text-sm 2xl:text-base text-custom-gray text-balance mt-4 mb-6 2xl:my-8 lg:max-w-[682px] mx-auto"
+                                className="text-sm 2xl:text-base text-custom-gray text-balance mt-4 mb-6 2xl:my-8 lg:max-w-[682px] mx-auto whitespace-pre-line"
                                 dangerouslySetInnerHTML={{
-                                    __html: content.texto.replace(/\n/g, "<br />"),
+                                    __html: content.texto
                                 }}
                             />
                         </div>
