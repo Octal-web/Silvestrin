@@ -63,12 +63,12 @@ class SlidesService extends Service
 
         if ($response) {
             if ($tipo == 'imagem') {
-                $this->service->salvar($img, 'content/slides/d/', $slide->imagem);
-                $this->service->salvar($img_mobile, 'content/slides/m/', $slide->imagem_mobile);
+                $this->service->salvar($img, 'content/slides/images/d/', $slide->imagem);
+                $this->service->salvar($img_mobile, 'content/slides/images/m/', $slide->imagem_mobile);
+            } elseif ($tipo == 'video') {
+                $this->service->salvar($video, 'content/slides/videos/d/',  $slide->video);
+                $this->service->salvar($video_mobile, 'content/slides/videos/m/',  $slide->video_mobile);
             }
-        } else if ($tipo == 'video') {
-            $this->service->salvar($video, 'content/slides/videos/d/',  $slide->video);
-            $this->service->salvar($video_mobile, 'content/slides/videos/m/',  $slide->video_mobile);
         }
 
         return $response;
@@ -125,8 +125,8 @@ class SlidesService extends Service
         ];
 
         if ($slide->tipo === 'imagem') {
-            $slideData['imagem'] = rafator('content/slides/d/' . $slide->imagem);
-            $slideData['imagem_mobile'] = rafator('content/slides/m/' . $slide->imagem_mobile);
+            $slideData['imagem'] = rafator('content/slides/images/d/' . $slide->imagem);
+            $slideData['imagem_mobile'] = rafator('content/slides/images/m/' . $slide->imagem_mobile);
         }
 
         return [$slideData, $idioma, $idiomas];
@@ -219,31 +219,31 @@ class SlidesService extends Service
         if ($response) {
             if ($slide->tipo == 'imagem') {
                 if ($img && $img->isValid()) {
-                    if ($slide->imagem && isset($slideOriginal) && File::exists(public_path('content/slides/d/' . $slideOriginal->imagem))) {
-                        File::delete(public_path('content/slides/d/' . $slideOriginal->imagem));
+                    if ($slide->imagem && isset($slideOriginal) && File::exists(public_path('content/slides/images/d/' . $slideOriginal->imagem))) {
+                        File::delete(public_path('content/slides/images/d/' . $slideOriginal->imagem));
                     }
-                    $this->service->salvar($img, 'content/slides/d/', $slide->imagem);
+                    $this->service->salvar($img, 'content/slides/images/d/', $slide->imagem);
                 }
 
-                if ($slide->imagem_mobile && isset($slideOriginal) && File::exists(public_path('content/slides/d/' . $slideOriginal->imagem_mobile))) {
-                    File::delete(public_path('content/slides/m/' . $slideOriginal->imagem_mobile));
+                if ($slide->imagem_mobile && isset($slideOriginal) && File::exists(public_path('content/slides/images/d/' . $slideOriginal->imagem_mobile))) {
+                    File::delete(public_path('content/slides/images/m/' . $slideOriginal->imagem_mobile));
                 }
-                $this->service->salvar($img_mobile, 'content/slides/m/', $slide->imagem_mobile);
+                $this->service->salvar($img_mobile, 'content/slides/images/m/', $slide->imagem_mobile);
             }
-        }
-        if ($slide->tipo == 'video') {
-            if ($video && $video->isValid()) {
-                if ($slide->video && isset($slideOriginal) && File::exists(public_path('content/slides/videos/d/' . $slideOriginal->video))) {
-                    File::delete(public_path('content/slides/videos/d/' . $slideOriginal->video));
+            if ($slide->tipo == 'video') {
+                if ($video && $video->isValid()) {
+                    if ($slide->video && isset($slideOriginal) && File::exists(public_path('content/slides/videos/d/' . $slideOriginal->video))) {
+                        File::delete(public_path('content/slides/videos/d/' . $slideOriginal->video));
+                    }
+                    $this->service->salvar($video, 'content/slides/videos/d/', $slide->video);
                 }
-                $this->service->salvar($video, 'content/slides/videos/d/', $slide->video);
-            }
 
-            if ($video_mobile && $video_mobile->isValid()) {
-                if ($slide->video_mobile && isset($slideOriginal) && File::exists(public_path('content/slides/videos/m/' . $slideOriginal->video_mobile))) {
-                    File::delete(public_path('content/slides/videos/m/' . $slideOriginal->video_mobile));
+                if ($video_mobile && $video_mobile->isValid()) {
+                    if ($slide->video_mobile && isset($slideOriginal) && File::exists(public_path('content/slides/videos/m/' . $slideOriginal->video_mobile))) {
+                        File::delete(public_path('content/slides/videos/m/' . $slideOriginal->video_mobile));
+                    }
+                    $this->service->salvar($video_mobile, 'content/slides/videos/m/', $slide->video_mobile);
                 }
-                $this->service->salvar($video_mobile, 'content/slides/videos/m/', $slide->video_mobile);
             }
         }
 
