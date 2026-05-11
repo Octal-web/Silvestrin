@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
     faAppleWhole,
     faBars,
+    faEnvelope,
     faFileText,
     faHome,
     faInfoCircle,
@@ -69,6 +70,13 @@ const menus = [
     },
     {
         id: 6,
+        label: "Contato",
+        icon: faEnvelope,
+        href: route("Manager.Contato.index"),
+        controllers: ["Contato"],
+    },
+    {
+        id: 7,
         label: "Política de Privacidade",
         icon: faFileText,
         href: route("Manager.Politicas.index"),
