@@ -1,7 +1,9 @@
+import { useLang } from "@/Hooks/useLang";
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 
 export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
+    const lang = useLang();
     const { marcasMenu } = usePage().props;
     const [visible, setVisible] = useState(false);
     const [height, setHeight] = useState(0);
@@ -42,13 +44,13 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
     return (
         <div
             ref={menuRef}
-            className={`fixed right-1/2 translate-x-1/2 top-[88px] w-screen bg-white shadow-md overflow-hidden -z-[1] transition-[height,transform] duration-300${isHeaderVisible ? "" : " -translate-y-full"}`}
+            className={`fixed right-1/2 translate-x-1/2 top-[105%] w-screen bg-white shadow-md overflow-hidden -z-[1] transition-[height,transform] duration-300${isHeaderVisible ? "" : " -translate-y-full"}`}
             style={{ height: `${height}px` }}
         >
             <div ref={containerRef} className="grid grid-cols-4 gap-20 xl:gap-10 2xl:container">
                 <div className="pl-10 pt-10 col-span-2 ml-[5%]">
                     <h4 className="mb-4 text-sm text-gray-500 font-semibold">
-                        Nossas marcas
+                        {lang("marcas")}
                     </h4>
                     <div className="relative flex">
                         <div className="flex items-center justify-between w-full gap-5 2xl:gap-0">
@@ -74,7 +76,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                 </div>
                 <div className="bg-gray-100 py-10 pl-10 px-5 xl:px-10 2xl:px-20 ml-auto min-w-full z-10 col-span-1 mr-[-12%]">
                     <h4 className="mb-4 text-sm text-gray-500 font-semibold">
-                        Marcas parceiras
+                        {lang("parceiras")}
                     </h4>
                     <div className="flex items-center justify-between gap-5 xl:gap-10 ">
                         {partners.map((marca, index) => (
@@ -104,7 +106,7 @@ export const BrandsSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
                     className="flex flex-col items-center justify-center min-h-[180px] w-full bg-primary transition-all hover:bg-secondary col-span-1 z-20"
                 >
                     <h4 className="mt-1.5 font-bold max-w-[108px] text-2xl 2xl:text-3xl text-white">
-                        Frutas a granel
+                        {lang("frutas")}
                     </h4>
                 </Link>
             </div>
