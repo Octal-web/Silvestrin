@@ -23,19 +23,20 @@ class SlideRequest extends FormRequest
     {
         return [
             'titulo'  => 'required',
-            // 'descricao'  => 'required',
-            'link'  => 'nullable|url',
+            'descricao'  => 'required',
+            'link'  => 'nullable',
+            'texto_botao'  => 'nullable',
             'img' => request('tipo') !== 'imagem'
                 ? 'nullable'
                 : (inertia()->getShared('action') === 'novo'
-                    ? 'required|image|mimes:png,jpg|max:2048'
-                    : 'nullable|image|mimes:png,jpg|max:2048'),
+                    ? 'required|image|mimes:png,jpg|max:4096'
+                    : 'nullable|image|mimes:png,jpg|max:4096'),
 
             'img_mobile' => request('tipo') !== 'imagem'
                 ? 'nullable'
                 : (inertia()->getShared('action') === 'novo'
-                    ? 'required|image|mimes:png,jpg|max:2048'
-                    : 'nullable|image|mimes:png,jpg|max:2048'),
+                    ? 'required|image|mimes:png,jpg|max:4096'
+                    : 'nullable|image|mimes:png,jpg|max:4096'),
 
             'vid' => request('tipo') !== 'video'
                 ? 'nullable'
@@ -61,15 +62,14 @@ class SlideRequest extends FormRequest
         return [
             'titulo.required'  => 'Por favor, informe o título.',
             'descricao.required'  => 'Por favor, informe a descrição.',
-            'link.url'  => 'Por favor, informe um link válido.',
             'img.required' => 'Por favor, selecione uma imagem.',
             'img.image' => 'Por favor, selecione uma imagem válida.',
             'img.mimes' => 'Os formatos de imagem válidos são: JPG e PNG.',
-            'img.max' => 'Por favor, envie um arquivo menor que 2MB.',
+            'img.max' => 'Por favor, envie um arquivo menor que 4MB.',
             'img_mobile.required' => 'Por favor, selecione uma imagem mobile.',
             'img_mobile.image' => 'Por favor, selecione uma imagem mobile válida.',
             'img_mobile.mimes' => 'Os formatos de imagem mobile válidos são: JPG e PNG.',
-            'img_mobile.max' => 'Por favor, envie um arquivo menor que 2MB.',
+            'img_mobile.max' => 'Por favor, envie um arquivo menor que 4MB.',
             'vid.required' => 'Por favor, selecione um vídeo.',
             'vid.mimetypes' => 'Os formatos de vídeo válidos são: MP4, AVI e WEBM.',
             'vid.max' => 'Por favor, envie um arquivo menor que 50MB.',
