@@ -55,7 +55,7 @@ export const ProductsList = ({
                                 <img
                                     src={brand.logo}
                                     alt={brand.nome}
-                                    className="w-28 md:size-full md:max-w-sm mx-auto lg:mx-0"
+                                    className="w-28 md:w-full md:max-w-60 mx-auto lg:mx-0"
                                 />
                                 <p className="text-sm md:text-base 2xl:text-lg opacity-90 leading-relaxed max-w-xl ">
                                     {brand.descricao ||
