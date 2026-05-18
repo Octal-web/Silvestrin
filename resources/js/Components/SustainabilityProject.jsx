@@ -43,7 +43,7 @@ export const SustainabilityProject = ({ content }) => {
             <div className="container max-w-large">
                 <div className="flex flex-col-reverse justify-center md:flex md:flex-row md:justify-start items-center mx-auto md:mx-0">
                     <Reveal direction="left">
-                        <div className="block">
+                        <div className="block max-md:-mr-8">
                             <svg
                                 viewBox="0 0 1000 1000"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export const SustainabilityProject = ({ content }) => {
                                 element="h2"
                             />
                             <div
-                                className=" text-sm 2xl:text-base text-center md:text-start lg:max-w-[498px] text-custom-gray text-balance my-8 whitespace-pre-line"
+                                className="text-sm 2xl:text-base text-center md:text-start lg:max-w-[498px] text-custom-gray text-balance mt-4 md:my-8 whitespace-pre-line"
                                 dangerouslySetInnerHTML={{
                                     __html: content[0].texto
                                 }}
@@ -93,7 +93,7 @@ export const SustainabilityProject = ({ content }) => {
                     </Reveal>
                 </div>
 
-                <div className="flex flex-col justify-center md:flex-row md:justify-start items-center mx-auto lg:-mt-30 2xl:-mt-60">
+                <div className="flex flex-col justify-center md:flex-row md:justify-start items-center mx-auto mt-8 lg:-mt-30 2xl:-mt-60">
                     <Reveal direction="left" className="mt-10 lg:mt-28">
                         <LetterReveal
                             className="font-secondary text-primary text-3xl md:text-4xl 2xl:text-5xl font-black leading-tight max-w-[688px] text-center md:text-start uppercase"
@@ -109,7 +109,7 @@ export const SustainabilityProject = ({ content }) => {
                     </Reveal>
 
                     <Reveal direction="left">
-                        <div className="block">
+                        <div className="block max-md:-ml-20">
                             <svg
                                 viewBox="0 0 1000 1000"
                                 className="w-0 h-0"

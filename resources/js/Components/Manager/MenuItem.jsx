@@ -13,7 +13,7 @@ export const MenuItem = ({ id, label, icon, href, subMenu, isOpen, onToggle, con
             <li>
                 <button
                     aria-current="false"
-                    className="group relative flex items-center w-full px-5 py-4 font-medium text-sm text-white duration-300 ease-in-out hover:bg-white hover:bg-opacity-10"
+                    className="group relative flex items-center w-full px-5 py-4 font-medium text-sm text-white duration-300 ease-in-out hover:bg-black/5"
                     onClick={() => onToggle(id)}
                 >
                     <FontAwesomeIcon icon={icon} className="text-lg mr-5 w-6" /> {label}
@@ -34,7 +34,7 @@ export const MenuItem = ({ id, label, icon, href, subMenu, isOpen, onToggle, con
                             <li key={index}>
                                 <Link
                                     aria-current="page"
-                                    className="relative pl-16 pr-2 py-3 block font-medium text-sm text-white duration-300 ease-in-out bg-neutral-400 bg-opacity-20 hover:bg-white hover:bg-opacity-20"
+                                    className="relative pl-16 pr-2 py-3 block font-medium text-sm text-white duration-300 ease-in-out bg-tertiary hover:bg-tertiary/50"
                                     href={subItem.href}
                                 >
                                     {subItem.label}
@@ -51,7 +51,7 @@ export const MenuItem = ({ id, label, icon, href, subMenu, isOpen, onToggle, con
                 <Link
                     href={href}
                     aria-current="page"
-                    className="group relative flex items-center px-5 py-4 font-medium text-sm text-white duration-300 ease-in-out hover:bg-white hover:bg-opacity-10"
+                    className="group relative flex items-center px-5 py-4 font-medium text-sm text-white duration-300 ease-in-out hover:bg-black/5"
                 >
                     <FontAwesomeIcon icon={icon} className="text-lg mr-5 w-6" /> {label}
                     {controllers.includes(controller) && (

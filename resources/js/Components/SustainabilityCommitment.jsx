@@ -99,7 +99,7 @@ export const SustainabilityCommitment = ({ content }) => {
                             {partesTitulo.map((parte, i) => (
                                 <LetterReveal
                                     key={i}
-                                    className={`font-secondary ${i === 0 ? " text-secondary" : "text-primary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
+                                    className={`font-secondary ${i === 0 ? " text-secondary" : "text-primary"} text-center text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
                                     text={parte.trim()}
                                     element="h1"
                                 />

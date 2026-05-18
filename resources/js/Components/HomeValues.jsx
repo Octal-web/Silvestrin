@@ -14,26 +14,45 @@ export const HomeValues = ({ content, values }) => {
     useEffect(() => {
         if (!sectionRef.current || !imageRef.current) return;
 
-        gsap.fromTo(
-            imageRef.current,
-            {
-                top: "0%",
-                y: "0",
-                x: "33%",
-            },
-            {
-                top: "100%",
-                y: "-100%",
-                x: "33%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true,
+        const mm = gsap.matchMedia();
+
+        mm.add("(max-width: 767px)", () => {
+            gsap.fromTo(
+                imageRef.current,
+                { top: "1%", y: "0", x: "33%" },
+                {
+                    top: "10%",
+                    y: "-15%",
+                    x: "33%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "20% top",
+                        scrub: true,
+                    },
                 },
-            },
-        );
+            );
+        });
+
+        mm.add("(min-width: 768px)", () => {
+            gsap.fromTo(
+                imageRef.current,
+                { top: "0%", y: "0", x: "33%" },
+                {
+                    top: "100%",
+                    y: "-100%",
+                    x: "33%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true,
+                    },
+                },
+            );
+        });
 
         gsap.to(imageRef.current, {
             rotation: 3,
@@ -42,18 +61,20 @@ export const HomeValues = ({ content, values }) => {
             yoyo: true,
             ease: "sine.inOut",
         });
+
+        return () => mm.revert();
     }, []);
 
     if (!values.length) return null;
 
     const colCount = Math.min(values.length, 6);
     const gridColsClass = {
-        1: "md:grid-cols-1",
-        2: "md:grid-cols-2",
-        3: "md:grid-cols-3",
-        4: "md:grid-cols-4",
-        5: "md:grid-cols-5",
-        6: "md:grid-cols-6",
+        1: "grid-cols-2 md:grid-cols-2",
+        2: "grid-cols-2 md:grid-cols-2",
+        3: "grid-cols-2 md:grid-cols-3",
+        4: "grid-cols-2 md:grid-cols-4",
+        5: "grid-cols-2 md:grid-cols-5",
+        6: "grid-cols-2 md:grid-cols-6",
     }[colCount];
 
     return (
@@ -64,7 +85,7 @@ export const HomeValues = ({ content, values }) => {
             <img
                 ref={imageRef}
                 src={content.imagem}
-                className="absolute max-h-[20%] md:max-h-[40%] 2xl:max-h-[78%] right-0 drop-shadow-2xl"
+                className="absolute max-h-[15%] md:max-h-[40%] 2xl:max-h-[78%] right-0 drop-shadow-2xl opacity-50 md:opacity-100"
                 style={{ top: "0%" }}
             />
             <div className="relative container max-w-large">
@@ -75,12 +96,12 @@ export const HomeValues = ({ content, values }) => {
                 />
                 <h3 className="text-2xl md:text-3xl 2xl:text-4xl mb-10 2xl:mb-20">{content.subtitulo}</h3>
                 <div
-                    className={`flex flex-wrap lg:grid ${gridColsClass} gap-10 md:gap-6 2xl:mr-16 2xl:px-5`}
+                    className={`grid ${gridColsClass} gap-0 md:gap-6 2xl:mr-16 2xl:px-5`}
                 >
                     {values.map((value, index) => (
                         <Reveal
                             key={index}
-                            className="flex flex-col pl-5 2xl:pl-10 pb-10 lg:border-l lg:border-gray-300"
+                            className="flex flex-col pl-3 md:pl-5 2xl:pl-10 pb-10 lg:border-l lg:border-gray-300"
                             direction="left"
                             delay={index * 1}
                         >
@@ -92,10 +113,10 @@ export const HomeValues = ({ content, values }) => {
                                 />
                             </div>
 
-                            <h3 className="text-2xl 2xl:text-3xl font-semibold mb-4">
+                            <h3 className="text-2xl 2xl:text-3xl font-semibold mb-3 sm:mb-4 tracking-tighter sm:tracking-normal">
                                 {value.nome}
                             </h3>
-                            <p className="font-light max-w-80 text-balance text-custom-gray text-sm 2xl:text-base">
+                            <p className="font-light max-w-80 text-balance text-custom-gray text-sm 2xl:text-base pr-2 sm:pr-0">
                                 {value.texto}
                             </p>
                         </Reveal>

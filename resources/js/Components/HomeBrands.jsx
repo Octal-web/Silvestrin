@@ -10,7 +10,7 @@ export const HomeBrands = ({ brands }) => {
     const partners = brands.filter((item) => item.parceiro === 1);
     const others = brands.filter((item) => item.parceiro !== 1);
     return (
-        <section className="relative bg-white pb-16 md:py-16 xl:py-30">
+        <section className="relative bg-white py-16 xl:py-30">
             <div className="relative container max-w-large">
                 <div className="flex flex-col lg:flex-row justify-between items-center">
                     <LetterReveal
@@ -19,13 +19,13 @@ export const HomeBrands = ({ brands }) => {
                         element="h1"
                     />
 
-                    <div className="flex flex-wrap justify-center lg:flex-row gap-6">
+                    <div className="flex justify-center lg:flex-row gap-2 md:gap-6">
                         <Reveal>
                             <Link
                                 href={route("Produtos.index", {
                                     marca: "todas-silvestrin",
                                 })}
-                                className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
+                                className="block px-2 sm:px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-sm sm:text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 {lang("marcas")}
                             </Link>
@@ -36,7 +36,7 @@ export const HomeBrands = ({ brands }) => {
                                 href={route("Produtos.index", {
                                     marca: "todas-parceiras",
                                 })}
-                                className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
+                                className="block px-2 sm:px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-sm sm:text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 {lang("parceiras")}
                             </Link>
@@ -47,7 +47,7 @@ export const HomeBrands = ({ brands }) => {
                                 href={route("Produtos.index", {
                                     categoria: "a-granel",
                                 })}
-                                className="block px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
+                                className="block px-2 sm:px-4 2xl:px-8 py-2 gap-2 rounded-full text-primary text-sm sm:text-base md:text-lg 2xl:text-xl font-normal ring-1 ring-primary transition-all hover:bg-white hover:text-tertiary hover:ring-tertiary hover:shadow truncate"
                             >
                                 {lang("granel")}
                             </Link>
@@ -55,9 +55,9 @@ export const HomeBrands = ({ brands }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap md:grid md:grid-cols-3 xl:grid-cols-4 items-center justify-evenly md:justify-center gap-x-8 gap-y-10 2xl:gap-y-20 my-16">
+                <div className="flex flex-wrap md:grid md:grid-cols-3 xl:grid-cols-4 items-center justify-evenly md:justify-center gap-y-4 gap-x-8 md:gap-y-10 2xl:gap-y-20 my-16">
                     {others.map((item, index) => (
-                        <Reveal key={index} delay={index}>
+                        <Reveal key={index} delay={index} direction="right">
                             <Link
                                 href={route("Produtos.index", {
                                     marca: item.slug,
@@ -80,7 +80,7 @@ export const HomeBrands = ({ brands }) => {
                             </span>
 
                             {partners.map((item, index) => (
-                                <Reveal key={index} delay={index}>
+                                <Reveal key={index} delay={index + 6} direction="right">
                                     <Link
                                         href={route("Produtos.index", {
                                             marca: item.slug,

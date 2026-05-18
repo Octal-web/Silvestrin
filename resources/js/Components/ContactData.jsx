@@ -119,7 +119,7 @@ export const ContactData = ({ data, content }) => {
                                         <span className="leading-tight font-bold mb-1">
                                             {item.label}
                                         </span>
-                                        <span className="font-light">
+                                        <span className="font-light mb-auto">
                                             {item.value
                                                 .split("\n")
                                                 .map((linha, i) => (

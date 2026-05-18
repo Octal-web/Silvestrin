@@ -189,7 +189,7 @@ const DefaultLayout = ({ children }) => {
                 ></div>
                 <div className="container max-w-large">
                     <div className="flex items-center justify-between">
-                        <div className="relative z-[1] flex items-center justify-between w-full my-3 md:my-5 2xl:my-7">
+                        <div className="relative z-[1] flex items-center justify-between w-full my-6 md:my-5 2xl:my-7">
                             <h1 className="flex items-center">
                                 <Link
                                     href={route("Home.index")}
@@ -207,7 +207,7 @@ const DefaultLayout = ({ children }) => {
                                 className={`fixed lg:relative bg-secondary lg:bg-transparent left-0 top-0 py-10 z-20 lg:py-0 ${!isMenuOpen && "max-lg:-translate-y-full"} lg:left-auto lg:top-auto flex flex-col lg:flex-row lg:items-center justify-center lg:justify-end w-full min-h-screen lg:min-h-fit lg:my-0.5 2xl:my-1.5 transition-all ease-out duration-500`}
                             >
                                 <nav className="relative">
-                                    <ul className="flex flex-col lg:flex-row items-center lg:justify-center gap-5 lg:gap-2 2xl:gap-8 relative">
+                                    <ul className="flex flex-col lg:flex-row items-center lg:justify-center gap-2 2xl:gap-8 relative">
                                         {menuItems.map((item, index) => (
                                             <MenuItem
                                                 key={index}
@@ -226,7 +226,7 @@ const DefaultLayout = ({ children }) => {
                                             </Link>
                                         </li>
 
-                                        <li className="ml-2">
+                                        <li className="mt-3 md:mt-0 md:ml-2">
                                             <a
                                                 href="https://rastrear.silvestrin.com/rastreamento"
                                                 target="_blank"
@@ -284,18 +284,18 @@ const DefaultLayout = ({ children }) => {
                 </div>
             </header>
 
-            <main className="overflow-hidden pt-[95px] sm:pt-[109px] md:pt-[90px] 2xl:pt-[118px] min-h-screen">
+            <main className="overflow-hidden pt-[75px] sm:pt-[109px] md:pt-[90px] 2xl:pt-[118px] min-h-screen">
                 {children}
             </main>
 
             <footer className="relative bg-primary">
                 <div className="container max-w-large">
                     <div className="flex items-center max-sm:flex-col justify-between lg:items-start sm:gap-8 pt-7 pb-7 sm:pt-0 lg:pt-8 lg:pb-12">
-                        <div className="w-1/5">
+                        <div className="md:w-1/5">
                             <img src={`/site/img/logo.png`} alt="Logo" />
                         </div>
 
-                        <div className="w-4/5">
+                        <div className="md:w-4/5">
                             <div className="flex flex-col-reverse lg:flex-row 2xl:ml-20 lg:justify-between lg:items-center pt-10 pb-4 border-b">
                                 <nav>
                                     <ul className="flex flex-wrap max-sm:gap-y-4 gap-8 2xl:gap-16 mt-4 lg:mt-0 justify-center">
