@@ -88,13 +88,13 @@ export const HomeSteps = ({ content, steps, video }) => {
             <img
                 ref={startImageRef}
                 src={content.imagem}
-                className="absolute max-h-[7%] md:max-h-[17%] 2xl:max-h-[78%] right-0 drop-shadow-lg"
+                className="absolute max-h-[5%] md:max-h-[17%] 2xl:max-h-[78%] right-10 md:right-0 drop-shadow-lg"
                 style={{ top: '0%' }}
             />
             <div className="relative container max-w-large">
-                <LetterReveal className="font-secondary text-white text-5xl md:text-6xl 2xl:text-7xl font-black leading-snug uppercase" text={content.titulo} element="h1" />
+                <LetterReveal className="font-secondary text-white text-5xl md:text-6xl 2xl:text-7xl font-black sm:leading-snug uppercase" text={content.titulo} element="h1" />
                 <LetterReveal className="font-secondary text-secondary text-5xl md:text-6xl 2xl:text-7xl uppercase font-black mb-10 lg:mb-16" text={content.subtitulo} element="h1" />
-                <div className={`grid grid-cols-1 lg:grid-cols-4 gap-10 md:gap-6 2xl:mr-16 mb-7 2xl:mb-30 px-5`}>
+                <div className={`grid grid-cols-2 lg:grid-cols-4 gap-x-2 md:gap-6 2xl:mr-16 mb-7 2xl:mb-30 px-5`}>
                     {steps.map((value, index) => (
                         <Reveal
                             key={index}
@@ -105,7 +105,7 @@ export const HomeSteps = ({ content, steps, video }) => {
                             <h2 className="text-2xl lg:text-3xl text-white font-bold mb-2 lg:mb-4">{`0${index + 1}`}</h2>
                             
                             <h3 className="text-xl lg:text-2xl text-secondary font-bold max-w-60 text-balance leading-none mb-6 lg:mb-8">{value.titulo}</h3>
-                            <p className="text-sm lg:text-base text-white lg:max-w-72 text-balance">{value.texto}</p>
+                            <p className="text-sm lg:text-base text-white lg:max-w-72 text-balance mt-auto">{value.texto}</p>
                         </Reveal>
                     ))}
                 </div>

@@ -38,7 +38,7 @@ const Login = () => {
 
     return (
         <AuthLayout>
-            <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 text-white">
+            <div className="min-h-screen flex flex-col justify-center items-center bg-tertiary text-white">
                 <div className="w-full max-w-[400px] animate-fade-in-down">
                     <div className="p-8 space-y-8 bg-primary rounded-lg shadow-lg">
                         <div className="flex justify-center">
@@ -125,7 +125,7 @@ const Login = () => {
                         </form>
                     </div>
 
-                    <div className="mt-6 text-center text-sm text-gray-400">
+                    <div className="mt-6 text-center text-sm text-white/50">
                         &copy; {currentYear} Silvestrin. Desenvolvido por Octal
                         Web.
                     </div>

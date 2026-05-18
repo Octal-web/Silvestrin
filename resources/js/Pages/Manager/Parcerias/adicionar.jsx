@@ -29,10 +29,18 @@ const Page = () => {
             {
                 titulo: "Título",
                 name: "titulo",
-                tamanho: "col-span-12 lg:col-span-8",
+                tamanho: "col-span-11 lg:col-span-7",
                 tipo: "texto",
                 max: 120,
             },
+            {
+                titulo: "Cor",
+                name: "cor",
+                tamanho: "col-span-1",
+                tipo: "cor",
+            },
+        ],
+        [
             {
                 titulo: "Subtitulo",
                 name: "subtitulo",
@@ -48,14 +56,6 @@ const Page = () => {
                 tamanho: "col-span-12 lg:col-span-8",
                 tipo: "texto_longo",
                 max: 400,
-            },
-        ],
-        [
-            {
-                titulo: "Cor",
-                name: "cor",
-                tamanho: "col-span-12 lg:col-span-8",
-                tipo: "cor",
             },
         ],
         [

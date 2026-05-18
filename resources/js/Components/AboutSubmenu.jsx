@@ -45,7 +45,7 @@ export const AboutSubmenu = ({ isMenuOpen, isHeaderVisible, menuRef }) => {
 
                 <Link
                     href={route("Institucional.sustentabilidade")}
-                    className="hover:brightness-90 lg:pl-12"
+                    className="hover:brightness-90 lg:pl-12 mb-4 md:mb-0"
                 >
                     {lang("responsabilidade")}
                 </Link>

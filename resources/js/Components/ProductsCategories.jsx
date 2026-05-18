@@ -22,7 +22,7 @@ const CardItem = ({
                 {title}
             </h3>
 
-            <ul className="space-y-1">
+            <ul className="">
                 <li>
                     <button
                         onClick={onClickAll}
@@ -106,15 +106,16 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
         setSelectedBrand(brandSlug);
         setShowMobileFilter(false);
         setSelectedCategory("");
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         const url = new URL(window.location);
 
         url.searchParams.set("marca", brandSlug);
 
         if (isPartner) {
-            url.searchParams.set("parceiro", "1");
+            url.searchParams.set("parceira", "1");
         } else {
-            url.searchParams.delete("parceiro");
+            url.searchParams.delete("parceira");
         }
 
         url.searchParams.delete("categoria");
@@ -127,10 +128,11 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
         setSelectedCategory(categorySlug);
         setSelectedBrand("");
         setShowMobileFilter(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         const url = new URL(window.location);
         url.searchParams.set("categoria", categorySlug);
-        url.searchParams.delete("parceiro");
+        url.searchParams.delete("parceira");
         url.searchParams.delete("marca");
         window.history.pushState({}, "", url);
 
@@ -141,6 +143,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
         setSelectedBrand(`todas-${type}`);
         setSelectedCategory("");
         setShowMobileFilter(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         const url = new URL(window.location);
 
@@ -155,12 +158,13 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
         setSelectedCategory("a-granel");
         setSelectedBrand("");
         setShowMobileFilter(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         const url = new URL(window.location);
 
         url.searchParams.set("categoria", "a-granel");
         url.searchParams.delete("marca");
-        url.searchParams.delete("parceiro");
+        url.searchParams.delete("parceira");
 
         window.history.pushState({}, "", url);
         hasChanged(true);
@@ -170,10 +174,10 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
     const others = brands.filter((item) => item.parceiro !== 1);
 
     return (
-        <aside className="lg:bg-neutral-100 min-w-fit px-[5%] 2xl:max-w-[544px] py-3 lg:py-20 xl:py-32">
+        <aside className="lg:bg-neutral-100 min-w-fit px-[5%] 2xl:max-w-[544px] py-3 lg:py-8 xl:py-20">
             <button
-                onClick={() => setShowMobileFilter(true)}
-                className={`lg:hidden fixed bottom-6 right-6 z-10 bg-primary text-white rounded-full p-4 shadow-lg ${showMobileFilter && "hidden"}`}
+                onClick={() => setShowMobileFilter(!showMobileFilter)}
+                className="lg:hidden fixed bottom-6 right-6 z-[42] bg-primary text-white rounded-full p-4 shadow-lg"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +196,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
             </button>
 
             {showMobileFilter && (
-                <div className="fixed inset-0 bg-neutral-100 z-40 p-6 pt-10 overflow-y-auto xl:hidden animate-fade-in-down flex flex-col items-center">
+                <div className="fixed inset-0 bottom-auto h-[90%] bg-neutral-100 z-40 p-6 pt-10 overflow-y-auto xl:hidden animate-fade-in-down flex flex-col items-center shadow-lg">
                     <button
                         onClick={() => setShowMobileFilter(false)}
                         className="absolute top-4 right-4 text-neutral-800 text-xl"
@@ -233,7 +237,7 @@ export const ProductsCategories = ({ brands, categories, hasChanged }) => {
             <div className="lg:mb-[25rem] min-h-80">
                 <div
                     ref={wrapperRef}
-                    className="w-full lg:w-56 xl:w-80 lg:mr-3 xl:mr-12 mb-8 md:mb-0 max-w-large hidden lg:flex flex-col"
+                    className="w-full lg:w-56 xl:w-80 lg:mr-3 xl:mr-12 mb-8 md:mb-0 max-w-large hidden lg:flex flex-col lg:pt-12"
                 >
                     <div ref={contentRef}>
                         <div className="bg-primary rounded-3xl px-3 py-3 2xl:px-6 2xl:py-8">

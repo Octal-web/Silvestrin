@@ -112,7 +112,7 @@ export const CultivationAnalysis = ({ content, video }) => {
                         element="h2"
                     />
 
-                    <div className="relative z-[1] pb-40">
+                    <div className="relative z-[1] pb-20 md:pb-32 2xl:pb-40">
                         <VideoPlayer
                             src={video}
                             classList={[

@@ -85,12 +85,12 @@ export const CultivationExperimental = ({ content }) => {
                     {partesTitulo.map((parte, i) => (
                         <LetterReveal
                             key={i}
-                            className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} max-w-[914px] text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
+                            className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} max-w-[914px] text-3xl sm:text-5xl md:text-6xl 2xl:text-7xl font-black md:leading-[1.2] tracking-tighter sm:tracking-normal uppercase`}
                             text={parte.trim()}
                             element="h1"
                         />
                     ))}
-                    <div className="text-xl md:text-2xl 2xl:text-3xl max-w-[364px] -mt-10">
+                    <div className="text-xl md:text-2xl 2xl:text-3xl max-w-[364px] -mt-5 md:-mt-10">
                         <p>{content[0].subtitulo}</p>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { faCrop, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useForm } from "@inertiajs/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ConfirmModal } from "./ConfirmModal";
 import { CropModal } from "./CropModal";
 
@@ -37,7 +37,7 @@ export const IndividualImage = ({
                 onSuccess: (response) => {
                     if (
                         response.props.message &&
-                        response.props.message.type === "success"
+                        response.props.message.type !== "success"
                     ) {
                         setIsChecked(!newValue);
                     }
@@ -64,6 +64,10 @@ export const IndividualImage = ({
     const closeCropModal = () => {
         setIsCropModalOpen(false);
     };
+
+    useEffect(() => {
+        setIsChecked(individualContent.visivel || false);
+    }, [individualContent.visivel]);
 
     return (
         <>

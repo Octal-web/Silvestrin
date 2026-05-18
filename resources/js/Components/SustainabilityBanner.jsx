@@ -36,7 +36,7 @@ export const SustainabilityBanner = ({ content }) => {
     return (
         <section
             ref={sectionRef}
-            className="relative bg-no-repeat bg-cover min-w-screen h-fit lg:h-[947.8px] -mt-16 md:-mt-10 lg:-mt-3"
+            className="relative max-md:bg-[50%_center] bg-no-repeat bg-cover min-w-screen h-fit lg:h-[947.8px] -mt-16 md:-mt-10 lg:-mt-3"
             style={{
                 backgroundImage: `url(${content.imagem})`,
             }}
@@ -49,12 +49,12 @@ export const SustainabilityBanner = ({ content }) => {
             <div className="absolute inset-0 bg-black/5"></div>
 
             <div className="min-h-[calc(100vh_-_110px)]">
-                <div className="container max-w-medium ">
-                    <div className="py-40">
+                <div className="container max-w-medium">
+                    <div className="py-32 md:py-40">
                         {partesTitulo.map((parte, i) => (
                             <LetterReveal
                                 key={i}
-                                className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
+                                className={`font-secondary ${i === 0 ? "text-primary" : "text-secondary"} text-center text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-black leading-[1.2] uppercase`}
                                 text={parte.trim()}
                                 element="h1"
                             />
