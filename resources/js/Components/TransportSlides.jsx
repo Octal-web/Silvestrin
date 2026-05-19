@@ -36,12 +36,7 @@ export const TransportSlides = ({ content, slides }) => {
                         }}
                         slidesPerView={1.5}
                     >
-                        {slides.map((slide, index) => (
-                            <SwiperSlide key={index}>
-                                <Image imagem={slide.imagem} />
-                            </SwiperSlide>
-                        ))}
-                        {slides.map((slide, index) => (
+                        {[...slides, ...slides, ...slides].map((slide, index) => (
                             <SwiperSlide key={index}>
                                 <Image imagem={slide.imagem} />
                             </SwiperSlide>
