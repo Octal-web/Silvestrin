@@ -186,7 +186,8 @@ abstract class Controller
 
             $dadosGerais = DadosGerais::first();
 
-            $notifyCookie = array_key_exists('notify-cookies', $_COOKIE) ? true : false;
+            $notifyCookies = array_key_exists('notify-cookies', $_COOKIE);
+            $rejectCookies = array_key_exists('reject-cookies', $_COOKIE);
 
             $marcasMenu = Marca::query()
                 ->where([
@@ -233,7 +234,8 @@ abstract class Controller
                     ],
                 ],
                 'dadosGerais' => $dadosGerais,
-                'notifyCookie' => $notifyCookie,
+                'notifyCookie' => $notifyCookies,
+                'rejectCookie' => $rejectCookies,
                 'controller' => $controller,
                 'action' => $action,
                 'conteudos' => $conteudos,
