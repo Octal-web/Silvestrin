@@ -30,6 +30,16 @@ const translations = {
 
         cookie: "Utilizamos cookies para oferecer uma melhor experiência, melhorar o desempenho, analisar como você interage em nosso site e personalizar conteúdo. Para mais informações acesse nossa ",
         aceitar: "Aceitar todos os cookies",
+        selecionar: "Selecionar cookies",
+        cookieTipoTitulo: "Que tipos de cookies utilizamos?",
+        cookieTexto:
+            "Você pode desabilitar os cookies alterando as configurações do seu navegador, mas saiba que isso pode afetar o funcionamento do site. Veja como desabilitar",
+        aqui: "aqui",
+        cookieNecessarios: "Cookies necessários",
+        sempreAtivos: "Sempre ativos",
+        cookieAnaliticos: "Cookies analíticos",
+        rejeitarCookies: "Rejeitar cookies não necessários",
+        aceitarCookies: "Aceitar todos",
 
         marcas: "Nossas marcas",
         parceiras: "Marcas parceiras",
@@ -90,6 +100,16 @@ const translations = {
 
         cookie: "We use cookies to offer a better experience, improve performance, analyze how you interact with our site, and personalize content. For more information, please visit our ",
         aceitar: "Accept all cookies",
+        selecionar: "Select cookies",
+        cookieTipoTitulo: "What types of cookies do we use?",
+        cookieTexto:
+            "You can disable cookies by changing your browser settings, but be aware that this may affect the website's functionality. See how to disable",
+        aqui: "here",
+        cookieNecessarios: "Necessary cookies",
+        sempreAtivos: "Always active",
+        cookieAnaliticos: "Analytical cookies",
+        rejeitarCookies: "Reject non-essential cookies",
+        aceitarCookies: "Accept all",
 
         marcas: "Our brands",
         parceiras: "Partner brands",
@@ -150,6 +170,16 @@ const translations = {
 
         cookie: "Utilizamos cookies para ofrecer una mejor experiencia, mejorar el rendimiento, analizar cómo interactúa con nuestro sitio y personalizar el contenido. Para obtener más información, visite nuestra ",
         aceitar: "Aceptar todas las cookies",
+        selecionar: "Seleccionar cookies",
+        cookieTipoTitulo: "¿Qué tipos de cookies utilizamos?",
+        cookieTexto:
+            "Puedes desactivar las cookies cambiando la configuración de tu navegador, pero ten en cuenta que esto puede afectar el funcionamiento del sitio. Mira cómo desactivar",
+        aqui: "aquí",
+        cookieNecessarios: "Cookies necesarios",
+        sempreAtivos: "Siempre activos",
+        cookieAnaliticos: "Cookies analíticos",
+        rejeitarCookies: "Rechazar cookies no necesarias",
+        aceitarCookies: "Aceptar todo",
 
         marcas: "Nuestras marcas",
         parceiras: "Marcas asociadas",
