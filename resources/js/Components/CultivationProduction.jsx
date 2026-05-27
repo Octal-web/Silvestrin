@@ -120,7 +120,7 @@ export const CultivationProduction = ({ content }) => {
                     <Reveal direction="right">
                         <img
                             src={content[0].imagem}
-                            className="-mt-24 w-screen h-60 lg:h-[950px] 2xl:h-[1077px] lg:w-[635px] 2xl:w-[840px] object-cover rounded-3xl mx-auto xl:-mt-40 2xl:-mt-44"
+                            className="-mt-24 w-screen h-60 lg:h-[950px] 2xl:h-[1077px] lg:w-[635px] 2xl:w-[840px] object-cover rounded-t-3xl mx-auto xl:-mt-40 2xl:-mt-44"
                             alt={content[0].titulo}
                         />
                     </Reveal>
