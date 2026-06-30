@@ -27,6 +27,7 @@ use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasContro
 use App\Http\Controllers\Manager\TransportadoraController as ManagerTransportadoraController;
 use App\Http\Controllers\Manager\PoliticasController as ManagerPoliticasController;
 use App\Http\Controllers\Manager\ContatoController as ManagerContatoController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ use App\Http\Controllers\Manager\ContatoController as ManagerContatoController;
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('Home.index');
+
+    Route::get('/sitemap.xml', [SitemapController::class, '__invoke'])->name('Sitemap.index');
 
     Route::get('/sobre-nos', [InstitucionalController::class, 'index'])->name('Institucional.index');
 
