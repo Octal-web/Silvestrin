@@ -1,7 +1,8 @@
 import { useLang } from "@/Hooks/useLang";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 
-const Erro = ({ status }) => {
+const Erro = () => {
+    const { status } = usePage().props;
     const lang = useLang();
 
     const handleRedirect = () => {
@@ -14,9 +15,8 @@ const Erro = ({ status }) => {
 
     return (
         <>
-            <Head>
-                <title>Silvestrin | Error</title>
-                <link rel="icon" href={`/favicon.ico`} type="image/x-icon" />
+            <Head title={`${status} | Silvestrin`}>
+                <meta name="robots" content="noindex, nofollow" />
             </Head>
 
             <main className="min-h-screen flex items-center justify-center container max-w-large">
