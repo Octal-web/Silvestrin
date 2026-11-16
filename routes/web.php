@@ -21,6 +21,7 @@ use App\Http\Controllers\Manager\ValoresController as ManagerValoresController;
 use App\Http\Controllers\Manager\ParceriasController as ManagerParceriasController;
 use App\Http\Controllers\Manager\MarcasController as ManagerMarcasController;
 use App\Http\Controllers\Manager\InstitucionalController as ManagerInstitucionalController;
+use App\Http\Controllers\Manager\FinderController as ManagerFinderController;
 use App\Http\Controllers\Manager\CultivoController as ManagerCultivoController;
 use App\Http\Controllers\Manager\ProdutosController as ManagerProdutosController;
 use App\Http\Controllers\Manager\CategoriasController as ManagerCategoriasController;
@@ -127,6 +128,14 @@ Route::prefix('/manager')->group(function () {
 
 
         Route::get('/cultivo', [ManagerCultivoController::class, 'index'])->name('Manager.Cultivo.index');
+
+
+        Route::get('/finder/list', [ManagerFinderController::class, 'list'])->name('Manager.Finder.list');
+        Route::post('/finder/upload', [ManagerFinderController::class, 'upload'])->name('Manager.Finder.upload');
+        Route::delete('/finder/delete', [ManagerFinderController::class, 'delete'])->name('Manager.Finder.delete');
+        Route::post('/finder/rename', [ManagerFinderController::class, 'rename'])->name('Manager.Finder.rename');
+        Route::post('/finder/folder', [ManagerFinderController::class, 'createFolder'])->name('Manager.Finder.createFolder');
+        Route::post('/finder/move', [ManagerFinderController::class, 'move'])->name('Manager.Finder.move');
 
 
         Route::get('/produtos', [ManagerProdutosController::class, 'index'])->name('Manager.Produtos.index');
