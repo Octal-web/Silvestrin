@@ -1,8 +1,8 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useForm } from '@inertiajs/react';
-import { useEffect, useRef, useState } from 'react';
 
-import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { ConfirmModal } from './ConfirmModal';
 
@@ -64,9 +64,9 @@ export const IndividualItem = ({ individualContent, imagensPath, imagensClass, c
     };
 
     useEffect(() => {
-        setIsChecked(individualContent.visivel || false);
-    }, [individualContent.visivel]);
-
+        setIsChecked(individualContent.visivel);
+    }, [individualContent?.visivel]);
+    
     return (
         <tr ref={rowRef} className="bg-slate-50">
             <td className="border px-4 w-1/6 py-4" width={`${cellWidths[0] || 'auto'}`}>{index + 1}</td>
