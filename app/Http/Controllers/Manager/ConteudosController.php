@@ -38,7 +38,7 @@ class ConteudosController extends Controller
                 ? redirect()->back()->with('message', ['type' => 'success', 'msg' => 'Registro salvo com sucesso!'])
                 : redirect()->back()->with('message', ['type' => 'error', 'msg' => 'Não foi possível salvar as informações.']);
         }
-        return Inertia::location(route('Manager.Usuarios.login'));
+        return redirect()->route('Manager.Usuarios.login', [], 301);
     }
 
     /**
@@ -51,7 +51,7 @@ class ConteudosController extends Controller
     public function baixarArquivo($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Home.index'));
+            return redirect()->route('Manager.Home.index', [], 301);
         }
 
         $conteudo = Conteudo::query()
@@ -62,7 +62,7 @@ class ConteudosController extends Controller
             ->first();
 
         if (!$conteudo || !$conteudo->parametro->habilitar_arq) {
-            return Inertia::location(route('Manager.Home.index'));
+            return redirect()->route('Manager.Home.index', [], 301);
         }
 
         return Response::download(File::path('content/files/' . $conteudo->conteudo_idioma->arquivo));
@@ -99,6 +99,6 @@ class ConteudosController extends Controller
             }
         }
 
-        return Inertia::location(route('Manager.Home.index'));
+        return redirect()->route('Manager.Home.index', [], 301);
     }
 }

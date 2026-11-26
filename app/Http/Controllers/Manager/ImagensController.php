@@ -26,13 +26,13 @@ class ImagensController extends Controller
     public function conteudo($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Transportadora.index'));
+            return redirect()->route('Manager.Transportadora.index', [], 301);
         }
 
         $conteudo = $this->service->imagem($id);
 
         if (!$conteudo) {
-            return Inertia::location(route('Manager.Transportadora.index'));
+            return redirect()->route('Manager.Transportadora.index', [], 301);
         }
 
         return Inertia::render('Manager/Imagens/conteudo', [

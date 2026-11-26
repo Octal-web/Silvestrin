@@ -45,7 +45,7 @@ class MarcasController extends Controller
             $arquivo = $request->file('logo');
 
             if (!$arquivo) {
-                return Inertia::location(route('Manager.Categorias.index'));
+                return redirect()->route('Manager.Categorias.index', [], 301);
             }
 
             $idioma = inertia()->getShared('idioma');
@@ -67,7 +67,7 @@ class MarcasController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Categorias.index'));
+            return redirect()->route('Manager.Categorias.index', [], 301);
         }
 
         [$marcaData, $idioma, $idiomas] = $this->service->editarMarca($id);
