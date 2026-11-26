@@ -42,12 +42,12 @@ class ContatoController extends Controller
     public function visualizar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Contato.index'));
+            return redirect()->route('Manager.Contato.index', [], 301);
         }
 
         $contato = $this->service->visualizarContato($id);
 
-        if (!$contato) return Inertia::location(route('Manager.Contato.index'));
+        if (!$contato)  return redirect()->route('Manager.Contato.index', [], 301);
 
         return Inertia::render('Manager/Contato/visualizar', [
             'contato' => $contato

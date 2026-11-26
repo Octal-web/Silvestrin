@@ -71,7 +71,7 @@ class ProdutosController extends Controller
                 ->first();
 
             if (!$marca) {
-                return Inertia::location(route('Home.index'));
+                return redirect()->route('Home.index', [], 301);
             }
         }
 
@@ -122,7 +122,7 @@ class ProdutosController extends Controller
                 ->first();
 
             if (!$categoria) {
-                return Inertia::location(route('Home.index'));
+                return redirect()->route('Home.index', [], 301);
             }
         }
 

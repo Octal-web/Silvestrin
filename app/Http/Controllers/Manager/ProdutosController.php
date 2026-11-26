@@ -83,7 +83,7 @@ class ProdutosController extends Controller
             $arquivo = $request->file('imagem');
 
             if (!$arquivo) {
-                return Inertia::location(route('Manager.Produtos.index'));
+                return redirect()->route('Manager.Produtos.index', [], 301);
             }
 
             $idioma = inertia()->getShared('idioma');
@@ -105,7 +105,7 @@ class ProdutosController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Produtos.index'));
+            return redirect()->route('Manager.Produtos.index', [], 301);
         }
 
         [$produtoData, $idioma, $idiomas, $marcas, $categorias] = $this->service->editarProduto($id);

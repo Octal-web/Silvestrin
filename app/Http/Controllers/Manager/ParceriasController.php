@@ -44,7 +44,7 @@ class ParceriasController extends Controller
             $arquivo = $request->file('imagem');
 
             if (!$arquivo) {
-                return Inertia::location(route('Manager.Institucional.sustentabilidade'));
+                return redirect()->route('Manager.Institucional.sustentabilidade', [], 301);
             }
 
             $idioma = inertia()->getShared('idioma');
@@ -66,7 +66,7 @@ class ParceriasController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Institucional.sustentabilidade'));
+            return redirect()->route('Manager.Institucional.sustentabilidade', [], 301);
         }
 
         [$parceriaData, $idioma, $idiomas] = $this->service->editarParceria($id);

@@ -34,7 +34,7 @@ class SlidesController extends Controller
     public function adicionar($tipo)
     {
         if (!$tipo || !in_array($tipo, ['imagem', 'video'])) {
-            return Inertia::location(route('Manager.Home.index'));
+            return redirect()->route('Manager.Home.index', [], 301);
         }
 
         $idiomas = Idioma::query()
@@ -59,7 +59,7 @@ class SlidesController extends Controller
     {
         if ($request->ajax()) {
             if (!$tipo || !in_array($tipo, ['imagem', 'video'])) {
-                return Inertia::location(route('Manager.Home.index'));
+                return redirect()->route('Manager.Home.index', [], 301);
             }
             $response = $this->service->cadastrarSlide($tipo, $request);
 
@@ -78,7 +78,7 @@ class SlidesController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Home.index'));
+            return redirect()->route('Manager.Home.index', [], 301);
         }
 
         [$slideData, $idioma, $idiomas] = $this->service->editarSlide($id);

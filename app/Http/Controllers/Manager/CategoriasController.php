@@ -78,7 +78,7 @@ class CategoriasController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Categorias.index'));
+            return redirect()->route('Manager.Categorias.index', [], 301);
         }
 
         [$categoriaData, $idioma, $idiomas] = $this->service->editarCategoria($id);

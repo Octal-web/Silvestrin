@@ -45,7 +45,7 @@ class ValoresController extends Controller
             $arquivo = $request->file('icone');
 
             if (!$arquivo) {
-                return Inertia::location(route('Manager.Home.index'));
+                return redirect()->route('Manager.Home.index', [], 301);
             }
 
             $idioma = inertia()->getShared('idioma');
@@ -67,7 +67,7 @@ class ValoresController extends Controller
     public function editar($id)
     {
         if (!$id) {
-            return Inertia::location(route('Manager.Home.index'));
+            return redirect()->route('Manager.Home.index', [], 301);
         }
 
         [$valorData, $idioma, $idiomas] = $this->service->editarValor($id);
